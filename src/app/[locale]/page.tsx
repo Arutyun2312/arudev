@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
+import { Link } from 'i18n/navigation'
 import Image from 'next/image'
 
 export default function HomePage() {
