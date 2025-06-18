@@ -7,9 +7,8 @@ export default function NavBar() {
   const t = useTranslations('Navigation')
 
   return (
-    <nav className='flex items-center'>
-      <div className='flex-1'>Logo</div>
-      <div className='flex flex-1 items-center gap-6'>
+    <nav>
+      <div className='flex flex-1 items-center justify-center gap-6'>
         <Link href='/about' className='text-lg font-semibold'>
           {t('overview')}
         </Link>
