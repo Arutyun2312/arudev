@@ -13,7 +13,7 @@ export default function ProjectHistory() {
       image: () => <Image src={website} alt='Project 1' className='w-96 rounded-xl' />,
       description: t('projects.ghosts.description'),
       url: 'https://ghosts-art-legacy.com/',
-      tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.vitejs],
+      tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.vitejs, TechTag.sanity],
     },
     {
       name: t('projects.ghosts.name'),

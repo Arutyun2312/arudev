@@ -20,4 +20,5 @@ export const TechTag = {
   mongodb: { name: 'mongodb', type: TechTagType.PLATFORM, className: 'bg-green-700' },
   postgresql: { name: 'postgresql', type: TechTagType.PLATFORM, className: 'bg-blue-700' },
   vitejs: { name: 'vitejs', type: TechTagType.TOOL, className: 'bg-blue-600' },
+  sanity: { name: 'sanity', type: TechTagType.PLATFORM, className: 'bg-gray-600' },
 } satisfies Record<string, TechTag>
