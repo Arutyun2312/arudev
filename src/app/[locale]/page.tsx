@@ -1,19 +1,25 @@
+'use client'
+
+import NavBar from '@/components/NavBar'
+import profilePic from '@/public/me.png'
 import { useTranslations } from 'next-intl'
-import { Link } from 'i18n/navigation'
 import Image from 'next/image'
+import ProjectHistory from './ProjectHistory'
 
 export default function HomePage() {
   const t = useTranslations('HomePage')
-  return (
-    <div>
-      <h1>{t('title')}</h1>
-      <Link href='/about'>{t('about')}</Link>
 
-      <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-        <h1 className='text-4xl font-bold'>Welcome to Next.js!</h1>
-        <Image src='/nextjs-logo.svg' alt='Next.js Logo' width={180} height={37} priority />
-        <p className='mt-4 text-lg'>This is a simple Next.js application.</p>
+  return (
+    <div className='lg:mx-[10%]'>
+      <NavBar />
+      <main className='flex flex-col items-center justify-center gap-4 lg:flex-row'>
+        <Image src={profilePic} alt='me' className='w-96 rounded-xl' />
+        <div>
+          <div className='h1'>{t('aru.title')}</div>
+          <div className='h2'>{t('aru.description')}</div>
+        </div>
       </main>
+      <ProjectHistory />
     </div>
   )
 }

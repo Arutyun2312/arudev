@@ -1,6 +1,17 @@
 {
+  "Navigation": {
+    "home": "Home",
+    "overview": "Overview",
+    "project_history": "Project History"
+  },
   "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+    "aru": {
+      "title": "Aru - Software Engineer",
+      "description": "Aru is a software engineer with a passion for building scalable and efficient applications. He has expertise in various programming languages and frameworks, and enjoys solving complex problems."
+    },
+    "project": {
+      "title": "Project History",
+      "visit": "Visit Project"
+    }
   }
 }
