@@ -1,5 +1,6 @@
 'use client'
 
+import GreetDialog from '@/components/GreetDialog'
 import NavBar from '@/components/NavBar'
 import profilePic from '@/public/me.png'
 import { useTranslations } from 'next-intl'
@@ -20,6 +21,7 @@ export default function HomePage() {
         </div>
       </main>
       <ProjectHistory />
+      <GreetDialog />
     </div>
   )
 }

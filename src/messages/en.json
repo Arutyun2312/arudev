@@ -23,5 +23,10 @@
         "description": "Ghosts_Art_Legacy is a bilingual (English & German) art website designed to showcase and sell original artworks by the artist known as “Ghost.” The project is a full redesign of an existing site, built from scratch with a modern, scalable architecture to support future development and collaboration."
       }
     }
+  },
+  "GreetDialog": {
+    "title": "Hey there! 👋",
+    "description": "Welcome to my  portfolio! This is not just a regular dev site. I've added some extra features to make it more interactive and fun. Take a look around, check out my projects, or even chat with ArunaBot. Hope you enjoy it! 🚀",
+    "close": "Let's go"
   }
 }
