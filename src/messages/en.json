@@ -11,7 +11,17 @@
     },
     "project": {
       "title": "Project History",
-      "visit": "Visit Project"
+      "visit": "Visit Project",
+      "languages": "Languages",
+      "frameworks": "Frameworks",
+      "platforms": "Platforms",
+      "tools": "Tools"
+    },
+    "projects": {
+      "ghosts": {
+        "name": "Ghosts",
+        "description": "Ghosts_Art_Legacy is a bilingual (English & German) art website designed to showcase and sell original artworks by the artist known as “Ghost.” The project is a full redesign of an existing site, built from scratch with a modern, scalable architecture to support future development and collaboration."
+      }
     }
   }
 }

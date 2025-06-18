@@ -2,24 +2,28 @@ import Image from 'next/image'
 import ProjectItem, { Project } from './ProjectItem'
 import website from '@/public/website.jpg'
 import { useTranslations } from 'next-intl'
-
-const projects: Project[] = [
-  {
-    name: 'Project 1',
-    image: () => <Image src={website} alt='Project 1' className='w-96 rounded-xl' />,
-    description: 'Description of Project 1',
-    url: 'https://ghosts-art-legacy.com/',
-  },
-  {
-    name: 'Project 2',
-    image: () => <Image src={website} alt='Project 2' className='w-96 rounded-xl' />,
-    description: 'Description of Project 2',
-    url: 'https://ghosts-art-legacy.com/',
-  },
-]
+import { TechTag } from '@/types'
 
 export default function ProjectHistory() {
   const t = useTranslations('HomePage')
+
+  const projects: Project[] = [
+    {
+      name: t('projects.ghosts.name'),
+      image: () => <Image src={website} alt='Project 1' className='w-96 rounded-xl' />,
+      description: t('projects.ghosts.description'),
+      url: 'https://ghosts-art-legacy.com/',
+      tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.vitejs],
+    },
+    {
+      name: t('projects.ghosts.name'),
+      image: () => <Image src={website} alt='Project 2' className='w-96 rounded-xl' />,
+      description: t('projects.ghosts.description'),
+      url: 'https://ghosts-art-legacy.com/',
+      tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.vitejs],
+    },
+  ]
+
   return (
     <div className='flex flex-col gap-4'>
       <div className='h1 mx-auto'>{t('project.title')}</div>
