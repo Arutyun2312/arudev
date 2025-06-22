@@ -1,18 +1,14 @@
-'use client'
-
+import TechTagsView from '@/components/TechTagsView'
 import { Link } from '@/i18n/navigation'
+import { Project } from '@/projects'
 import { TechTag, TechTagType } from '@/types'
+import { css } from '@/util'
+import dayjs from 'dayjs'
 import flow from 'lodash/flow'
 import groupBy from 'lodash/groupBy'
 import mapValues from 'lodash/mapValues'
 import sortBy from 'lodash/sortBy'
 import { useTranslations } from 'next-intl'
-import TechTagsView from '../../components/TechTagsView'
-import linkIcon from '@assets/link.svg'
-import Image from 'next/image'
-import { Project } from '@/hooks/useProjectsData'
-import dayjs from 'dayjs'
-import { css } from '@/util'
 
 type Props = {
   project: Project
@@ -31,17 +27,23 @@ export default function ProjectItem({ project, isLast }: Props) {
     (grouped) => mapValues(grouped, (tags) => sortBy(tags)),
   )(project.tags)
 
-  const renderDate = (date: string | undefined, top: boolean) =>
-    date != null && (
-      <div
-        className={css(
-          'body absolute right-full bottom-0 mr-2 w-fit !text-base text-nowrap uppercase',
-          top ? 'top-0' : 'bottom-0',
-        )}
-      >
-        {dayjs(date).format('MMM YYYY')}
-      </div>
+  const renderDate = (date: string | undefined, top: boolean) => {
+    const [part1, part2] = dayjs(date).format('MMM YYYY').split(' ')
+    return (
+      date != null && (
+        <div
+          className={css(
+            'body absolute right-full bottom-0 mr-2 w-fit !text-base text-nowrap uppercase',
+            top ? 'top-0' : 'bottom-0',
+            'flex flex-col gap-1 lg:flex-row',
+          )}
+        >
+          <div>{part1}</div>
+          <div>{part2}</div>
+        </div>
+      )
     )
+  }
 
   return (
     <section className='border-primary-dark relative mx-10 flex flex-col gap-8 border-l-2 p-4 lg:flex-row'>
@@ -49,12 +51,14 @@ export default function ProjectItem({ project, isLast }: Props) {
       {renderDate(project.endDate, true)}
       {renderDate(project.startDate, false)}
       <div className='flex w-full flex-col gap-4'>
-        <div className='h2 font-bold'>{project.name}</div>
+        <div>
+          <div className='h2 font-bold'>{t(`projects.${project.name}.name`)}</div>
+        </div>
         <div className='flex flex-col items-center gap-8 lg:flex-row'>
-          <Link href={project.url} target='_blank' className='threeD-span flex flex-col items-center gap-4 lg:flex-1'>
+          <Link href={project.url} target='_blank' className='threeD-span flex flex-col items-center gap-4 lg:flex-[2]'>
             <div className='bg-primary flex rounded-xl'>
               <span className='inline-block'>
-                <project.image className='rounded-xl shadow-lg' />
+                <project.image alt={t(`projects.${project.name}.name`)} className='rounded-xl shadow-lg' />
               </span>
             </div>
             <div className='bg-primary rounded-full'>
@@ -79,14 +83,13 @@ export default function ProjectItem({ project, isLast }: Props) {
               </span>
             </div>
           </Link>
-          <div className='flex flex-1 flex-col gap-4 lg:flex-[2]'>
-            <div className='body'>
-              <ul className='list-disc pl-4'>
-                <li>Lorem ipsiu oauns aofn grt0i oinadf onwrt 0i quqen qei0jf -qeg -qemit m0ieqm t0iemnt</li>
-                <li>Lorem ipsiu oauns aofn grt0i oinadf onwrt 0i quqen qei0jf -qeg -qemit m0ieqm t0iemnt</li>
-                <li>Lorem ipsiu oauns aofn grt0i oinadf onwrt 0i quqen qei0jf -qeg -qemit m0ieqm t0iemnt</li>
-              </ul>
-            </div>
+          <div className='flex flex-1 flex-col gap-4 lg:flex-[3]'>
+            {t.rich(`projects.${project.name}.description`, {
+              em: (chunks) => <div className='body border-l px-1 italic'>{chunks}</div>,
+              ul: (chunks) => <ul className='body list-disc space-y-4 pl-4'>{chunks}</ul>,
+              li: (chunks) => <li className='list-item'>{chunks}</li>,
+              strong: (chunks) => <strong className='font-bold'>{chunks}</strong>,
+            })}
             <div className=''>
               {tagOrder.map(([title, type]) => (
                 <TechTagsView key={type} title={title} tags={group[type]} />

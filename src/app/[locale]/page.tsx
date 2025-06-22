@@ -5,7 +5,7 @@ import GreetDialog from '@/components/GreetDialog'
 import NavBar from '@/components/NavBar'
 import NumberView from '@/components/NumberView'
 import TechTagView from '@/components/TechTagView'
-import { useProjectsData } from '@/hooks/useProjectsData'
+import { Projects } from '@/projects'
 import { TechTag } from '@/types'
 import profilePic from '@assets/me.png'
 import dayjs from 'dayjs'
@@ -20,10 +20,9 @@ const projectsDone = 9
 
 export default function HomePage() {
   const t = useTranslations('HomePage')
-  const projects = useProjectsData()
 
   return (
-    <div className='flex flex-col gap-24 [&>*]:mx-4 [&>*]:lg:mx-[10%]'>
+    <div className='flex flex-col gap-24 [&>*]:mx-4 [&>*]:lg:mx-[6%]'>
       <NavBar />
       <main className='flex max-w-screen flex-col items-center justify-center gap-4 lg:flex-row'>
         <div className='flex flex-[2] flex-col gap-4'>
@@ -64,7 +63,7 @@ export default function HomePage() {
         <NumberView targetValue={dayjs().diff(firstJob, 'y')} label={t('aru.experience_years')} />
         <NumberView targetValue={teams} label={t('aru.teams_count')} />
         <NumberView
-          targetValue={projects.filter((p) => p.type == 'freelance').length + 1}
+          targetValue={Projects.filter((p) => p.type == 'freelance').length + 1}
           label={t('aru.clients_count')}
         />
         <div className='relative col-span-full mt-6 w-full'>

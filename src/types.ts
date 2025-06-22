@@ -33,6 +33,9 @@ export type TechTagKeys =
   | 'aws'
   | 'dynamoDb'
   | 'swiftui'
+  | 'ionic'
+  | 'hyperv'
+  | 'wsl'
 export type TechTag = {
   key: TechTagKeys
   name: string
@@ -67,12 +70,15 @@ export const TechTag = {
   },
   mui: { key: 'mui', name: 'Material UI', type: TechTagType.FRONTEND, className: 'bg-blue-800' },
   swiftui: { key: 'swiftui', name: 'SwiftUI', type: TechTagType.FRONTEND, className: 'bg-blue-600' },
+  ionic: { key: 'ionic', name: 'Ionic', type: TechTagType.FRONTEND, className: 'bg-blue-600' },
   // Backend
   nodejs: { key: 'nodejs', name: 'Node.js', type: TechTagType.BACKEND, className: 'bg-green-500' },
   mongodb: { key: 'mongodb', name: 'MongoDB', type: TechTagType.BACKEND, className: 'bg-green-700' },
   postgresql: { key: 'postgresql', name: 'PostgreSQL', type: TechTagType.BACKEND, className: 'bg-blue-700' },
   yii2: { key: 'yii2', name: 'Yii2', type: TechTagType.BACKEND, className: 'bg-gray-700' },
   dynamoDb: { key: 'dynamoDb', name: 'DynamoDB', type: TechTagType.BACKEND, className: 'bg-yellow-600' },
+  hyperv: { key: 'hyperv', name: 'Hyper-V', type: TechTagType.BACKEND, className: 'bg-gray-700' },
+  wsl: { key: 'wsl', name: 'WSL', type: TechTagType.BACKEND, className: 'bg-gray-700' },
   // Services
   aws: { key: 'aws', name: 'AWS', type: TechTagType.SERVICE, className: 'bg-orange-500' },
   firebase: { key: 'firebase', name: 'Firebase', type: TechTagType.SERVICE, className: 'bg-orange-500' },

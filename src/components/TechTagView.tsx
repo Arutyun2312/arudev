@@ -1,4 +1,4 @@
-import { Icons } from '@/hooks/useProjectsData'
+import { Icons } from '@/projects'
 import { TechTag } from '@/types'
 import { css } from '@/util'
 
