@@ -32,34 +32,62 @@ export default function ProjectItem({ project, isLast }: Props) {
   )(project.tags)
 
   const renderDate = (date: string | undefined, top: boolean) =>
-    date && (
-      <div className={css('absolute right-full bottom-0 mr-2 w-fit text-nowrap', top ? 'top-0' : 'bottom-0')}>
+    date != null && (
+      <div
+        className={css(
+          'body absolute right-full bottom-0 mr-2 w-fit !text-base text-nowrap uppercase',
+          top ? 'top-0' : 'bottom-0',
+        )}
+      >
         {dayjs(date).format('MMM YYYY')}
       </div>
     )
 
   return (
-    <section className='mx-10 flex flex-col gap-4 p-4 lg:flex-row'>
-      <div className='relative w-3 rounded-full bg-gray-300'>
-        {isLast && <div className='triangle absolute -top-7 -right-1/2 -left-1/2 h-6 bg-gray-300' />}
-        {renderDate(project.endDate, true)}
-        {renderDate(project.startDate, false)}
-      </div>
-      <div className='flex flex-col gap-4'>
-        <div className='h2 font-bold'>{`(${t(`project.${project.type}`)}) ` + project.name}</div>
-        <div className='flex flex-col items-center gap-2 lg:flex-row'>
-          <Link href={project.url} target='_blank' className='threeD-span flex flex-col items-center gap-4'>
-            <project.image className='w-96 rounded-xl' />
+    <section className='border-primary-dark relative mx-10 flex flex-col gap-8 border-l-2 p-4 lg:flex-row'>
+      {isLast && <div className='triangle bg-primary-dark absolute -top-7 -left-2 h-6 w-3 transition-colors' />}
+      {renderDate(project.endDate, true)}
+      {renderDate(project.startDate, false)}
+      <div className='flex w-full flex-col gap-4'>
+        <div className='h2 font-bold'>{project.name}</div>
+        <div className='flex flex-col items-center gap-8 lg:flex-row'>
+          <Link href={project.url} target='_blank' className='threeD-span flex flex-col items-center gap-4 lg:flex-1'>
+            <div className='bg-primary flex rounded-xl'>
+              <span className='inline-block'>
+                <project.image className='rounded-xl shadow-lg' />
+              </span>
+            </div>
             <div className='bg-primary rounded-full'>
-              <span className='button'>
-                {t(`project.visit.${project.type}`)}
-                <Image src={linkIcon} alt='link icon' />
+              <span className='button body flex items-center justify-center uppercase'>
+                <div className='loading-text font-bold'>{t(`project.visit.${project.type}`)}</div>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  fill='none'
+                  viewBox='0 0 24 24'
+                  strokeWidth='1.5'
+                  stroke='black'
+                  aria-hidden='true'
+                  data-slot='icon'
+                  className='inline h-5'
+                >
+                  <path
+                    strokeLinecap='round'
+                    strokeLinejoin='round'
+                    d='M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25'
+                  />
+                </svg>
               </span>
             </div>
           </Link>
-          <div className='flex flex-1 flex-col gap-4'>
-            <div className='body'>{project.description}</div>
-            <div className='grid grid-cols-2 gap-4'>
+          <div className='flex flex-1 flex-col gap-4 lg:flex-[2]'>
+            <div className='body'>
+              <ul className='list-disc pl-4'>
+                <li>Lorem ipsiu oauns aofn grt0i oinadf onwrt 0i quqen qei0jf -qeg -qemit m0ieqm t0iemnt</li>
+                <li>Lorem ipsiu oauns aofn grt0i oinadf onwrt 0i quqen qei0jf -qeg -qemit m0ieqm t0iemnt</li>
+                <li>Lorem ipsiu oauns aofn grt0i oinadf onwrt 0i quqen qei0jf -qeg -qemit m0ieqm t0iemnt</li>
+              </ul>
+            </div>
+            <div className=''>
               {tagOrder.map(([title, type]) => (
                 <TechTagsView key={type} title={title} tags={group[type]} />
               ))}

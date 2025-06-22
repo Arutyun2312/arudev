@@ -5,6 +5,7 @@
   --foreground: #171717;
   --color-primary: rgb(255 70 84);
   --color-primary-dark: rgb(184 0 14);
+  --color-primary-light: rgb(255, 147, 156);
 }
 
 @theme inline {

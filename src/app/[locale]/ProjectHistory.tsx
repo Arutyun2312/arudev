@@ -19,8 +19,8 @@ export default function ProjectHistory() {
   const projects = useProjectsData()
 
   return (
-    <section>
-      <div className='h1 mx-auto text-center'>{t('project.title')}</div>
+    <div>
+      <div className='h1 mx-auto mb-16 text-center'>{t('project.title')}</div>
       <div className='flex flex-col gap-0 divide-gray-300'>
         {projects.map((project, index, arr) => (
           <Fragment key={index}>
@@ -29,6 +29,6 @@ export default function ProjectHistory() {
           </Fragment>
         ))}
       </div>
-    </section>
+    </div>
   )
 }

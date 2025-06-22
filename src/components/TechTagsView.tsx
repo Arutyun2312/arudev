@@ -8,9 +8,9 @@ export default function TechTagsView({ title, tags }: Props) {
   }
 
   return (
-    <div className='flex items-center gap-2'>
-      <div className='h3'>{title}:</div>
-      <div className='flex flex-wrap gap-2'>
+    <div className='body flex items-center gap-1'>
+      <div className='font-bold'>{title}:</div>
+      <div className='flex flex-wrap gap-0'>
         {tags.map((tag) => (
           <TechTagView key={tag.key} tag={tag} />
         ))}
