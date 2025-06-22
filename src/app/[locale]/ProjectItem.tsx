@@ -2,60 +2,69 @@
 
 import { Link } from '@/i18n/navigation'
 import { TechTag, TechTagType } from '@/types'
-import { css } from '@/util'
+import flow from 'lodash/flow'
+import groupBy from 'lodash/groupBy'
+import mapValues from 'lodash/mapValues'
+import sortBy from 'lodash/sortBy'
 import { useTranslations } from 'next-intl'
-import { FC } from 'react'
-
-export type Project = {
-  name: string
-  image: FC<{ className?: string }>
-  description: string
-  url: string
-  tags: TechTag[]
-}
-
-function filterAndSortTags(tags: TechTag[], type: TechTagType) {
-  return tags.filter((tag) => tag.type === type).sort((a, b) => a.name.localeCompare(b.name))
-}
+import TechTagsView from '../../components/TechTagsView'
+import linkIcon from '@assets/link.svg'
+import Image from 'next/image'
+import { Project } from '@/hooks/useProjectsData'
+import dayjs from 'dayjs'
+import { css } from '@/util'
 
 type Props = {
   project: Project
+  isLast?: boolean
 }
-export default function ProjectItem({ project }: Props) {
+export default function ProjectItem({ project, isLast }: Props) {
   const t = useTranslations('HomePage')
-  const languageTags = filterAndSortTags(project.tags, TechTagType.LANGUAGE)
-  const frameworkTags = filterAndSortTags(project.tags, TechTagType.FRAMEWORK)
-  const platformTags = filterAndSortTags(project.tags, TechTagType.PLATFORM)
-  const toolTags = filterAndSortTags(project.tags, TechTagType.TOOL)
+  const tagOrder: [string, TechTagType][] = [
+    [t('project.languages'), TechTagType.LANGUAGE],
+    [t('project.frontend'), TechTagType.FRONTEND],
+    [t('project.backend'), TechTagType.BACKEND],
+    [t('project.services'), TechTagType.SERVICE],
+  ]
+  const group = flow(
+    (tags: TechTag[]) => groupBy(tags, (tag) => tag.type),
+    (grouped) => mapValues(grouped, (tags) => sortBy(tags)),
+  )(project.tags)
 
-  const renderTags = (title: string, tags: TechTag[]) =>
-    tags.length > 0 && (
-      <div className='flex items-center gap-2'>
-        <div className='h2'>{title}:</div>
-        <div className='flex flex-wrap gap-2'>
-          {tags.map((tag) => (
-            <span key={tag.name} className={css('rounded-full px-4 py-2', tag.className)}>
-              {tag.name}
-            </span>
-          ))}
-        </div>
+  const renderDate = (date: string | undefined, top: boolean) =>
+    date && (
+      <div className={css('absolute right-full bottom-0 mr-2 w-fit text-nowrap', top ? 'top-0' : 'bottom-0')}>
+        {dayjs(date).format('MMM YYYY')}
       </div>
     )
 
   return (
-    <section className='flex flex-col gap-4 p-4'>
-      <div>{project.name}</div>
-      <div className='flex flex-col items-center gap-4 lg:flex-row'>
-        <Link href={project.url} target='_blank' className='flex flex-col items-center gap-2'>
-          <project.image className='w-96 rounded-xl' />
-          <div>{t('project.visit')}</div>
-        </Link>
-        <div className='flex flex-col gap-2'>
-          <div className='body'>{project.description}</div>
-          {renderTags(t('project.languages'), languageTags)}
-          {renderTags(t('project.frameworks'), frameworkTags)}
-          {renderTags(t('project.platforms'), platformTags)}
-          {renderTags(t('project.tools'), toolTags)}
+    <section className='mx-10 flex flex-col gap-4 p-4 lg:flex-row'>
+      <div className='relative w-3 rounded-full bg-gray-300'>
+        {isLast && <div className='triangle absolute -top-7 -right-1/2 -left-1/2 h-6 bg-gray-300' />}
+        {renderDate(project.endDate, true)}
+        {renderDate(project.startDate, false)}
+      </div>
+      <div className='flex flex-col gap-4'>
+        <div className='h2 font-bold'>{`(${t(`project.${project.type}`)}) ` + project.name}</div>
+        <div className='flex flex-col items-center gap-2 lg:flex-row'>
+          <Link href={project.url} target='_blank' className='threeD-span flex flex-col items-center gap-4'>
+            <project.image className='w-96 rounded-xl' />
+            <div className='bg-primary rounded-full'>
+              <span className='button'>
+                {t(`project.visit.${project.type}`)}
+                <Image src={linkIcon} alt='link icon' />
+              </span>
+            </div>
+          </Link>
+          <div className='flex flex-1 flex-col gap-4'>
+            <div className='body'>{project.description}</div>
+            <div className='grid grid-cols-2 gap-4'>
+              {tagOrder.map(([title, type]) => (
+                <TechTagsView key={type} title={title} tags={group[type]} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

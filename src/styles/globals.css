@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-primary: rgb(255 70 84);
+  --color-primary-dark: rgb(184 0 14);
 }
 
 @theme inline {
@@ -10,13 +12,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
 }
 
 body {
@@ -26,16 +23,41 @@ body {
 }
 
 .h1 {
-  font-size: 2rem;
+  font-size: 6rem;
   font-weight: bold;
+  line-height: 1;
+  font-family: var(--font-mohave);
   color: var(--foreground);
 }
 .h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  font-family: var(--font-quicksand);
+  color: var(--foreground);
+}
+.h2.red {
+  color: var(--color-primary-dark);
   font-weight: bold;
+  text-transform: uppercase;
+}
+.h3 {
+  font-size: 1.5rem;
+  font-family: var(--font-quicksand);
   color: var(--foreground);
 }
 .body {
-  font-size: 1rem;
+  font-size: 1.25rem;
+  font-family: var(--font-quicksand);
   color: var(--foreground);
+}
+
+.bg-grid {
+  --grid-border-color: #929292;
+  --grid-cell-size: 1px;
+  /* https://ibelick.com/blog/create-grid-and-dot-backgrounds-with-css-tailwind-css */
+  /* background-image: radial-gradient(var(--grid-border-color) 1px, transparent 1px); */
+  background-size: 36px 36px;
+}
+
+.triangle {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }

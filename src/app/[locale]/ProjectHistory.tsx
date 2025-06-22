@@ -1,35 +1,34 @@
-import Image from 'next/image'
-import ProjectItem, { Project } from './ProjectItem'
-import website from '@/public/website.jpg'
-import { useTranslations } from 'next-intl'
+import { useProjectsData } from '@/hooks/useProjectsData'
 import { TechTag } from '@/types'
+import { useTranslations } from 'next-intl'
+import { FC, Fragment } from 'react'
+import ProjectItem from './ProjectItem'
+
+export type Project = {
+  name: string
+  image: FC<{ className?: string }>
+  description: string
+  url: string
+  startDate: string
+  endDate?: string
+  tags: TechTag[]
+}
 
 export default function ProjectHistory() {
   const t = useTranslations('HomePage')
-
-  const projects: Project[] = [
-    {
-      name: t('projects.ghosts.name'),
-      image: () => <Image src={website} alt='Project 1' className='w-96 rounded-xl' />,
-      description: t('projects.ghosts.description'),
-      url: 'https://ghosts-art-legacy.com/',
-      tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.vitejs, TechTag.sanity],
-    },
-    {
-      name: t('projects.ghosts.name'),
-      image: () => <Image src={website} alt='Project 2' className='w-96 rounded-xl' />,
-      description: t('projects.ghosts.description'),
-      url: 'https://ghosts-art-legacy.com/',
-      tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.vitejs],
-    },
-  ]
+  const projects = useProjectsData()
 
   return (
-    <div className='flex flex-col gap-4'>
-      <div className='h1 mx-auto'>{t('project.title')}</div>
-      {projects.map((project, index) => (
-        <ProjectItem key={index} project={project} />
-      ))}
-    </div>
+    <section>
+      <div className='h1 mx-auto text-center'>{t('project.title')}</div>
+      <div className='flex flex-col gap-0 divide-gray-300'>
+        {projects.map((project, index, arr) => (
+          <Fragment key={index}>
+            <ProjectItem project={project} isLast={index == 0} />
+            {index != arr.length - 1 && <div className='my-4 h-0.25 w-1/2 bg-gray-300/40' />}
+          </Fragment>
+        ))}
+      </div>
+    </section>
   )
 }

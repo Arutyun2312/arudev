@@ -1,0 +1,56 @@
+.my-image-container {
+  position: relative;
+  padding: 5px;
+  clip-path: circle();
+
+  @mixin rotating-gradient($animation-name, $initial-rotation, $final-rotation) {
+    content: '';
+    display: block;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, white 100%);
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    animation: #{$animation-name} 5s linear forwards infinite;
+    z-index: -1;
+    top: 50%;
+    transform-origin: top center;
+
+    @keyframes #{$animation-name} {
+      from {
+        transform: rotate($initial-rotation);
+      }
+      to {
+        transform: rotate($final-rotation);
+      }
+    }
+  }
+
+  &::before {
+    @include rotating-gradient(rotate, -0.5turn, 0.5turn);
+  }
+  &::after {
+    @include rotating-gradient(rotate1, -1turn, 0);
+  }
+}
+
+.threeD-span {
+  span {
+    transform: translate(0, 0);
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover {
+    span {
+      transform: translate(-0.3rem, -0.3rem);
+    }
+  }
+}
+
+.button {
+  border: 1px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 9999px;
+  background-color: white;
+  padding: 0.25rem 1rem;
+}

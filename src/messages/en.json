@@ -6,21 +6,57 @@
   },
   "HomePage": {
     "aru": {
-      "title": "Aru - Software Engineer",
-      "description": "Aru is a software engineer with a passion for building scalable and efficient applications. He has expertise in various programming languages and frameworks, and enjoys solving complex problems."
+      "title": "Hello I'm <p>Aru</p>",
+      "subtitle": "Full-Stack Software Engineer",
+      "projects_done": "🚀 Projects Deployed",
+      "teams_count": "🤝 Teams worked with",
+      "experience_years": "🕓 Years of Experience",
+      "clients_count": "🧑‍💼 Clients worked with",
+      "devs_mentored": "👨‍🏫 Developers Mentored",
+      "description": "<p> I take full responsibility for what I build — from idea to production. </p> <p> I learn fast, solve tough problems, and ship things that don't break. </p> <p>No tool, bug, or legacy system stands in my way.</p> <p> </p> <p>Based in Vienna, Austria 🇦🇹</p> <p>Fluent in English 🇺🇸 and Russian 🇷🇺, intermediate in German 🇩🇪 (B1)</p> <p> BSc in Applied Data Science (<uni>MODUL University</uni>) </p>",
+      "download_cv": "Download CV"
     },
     "project": {
       "title": "Project History",
-      "visit": "Visit Project",
+      "visit": {
+        "freelance": "Visit Project",
+        "work": "Visit Company"
+      },
       "languages": "Languages",
-      "frameworks": "Frameworks",
-      "platforms": "Platforms",
-      "tools": "Tools"
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "services": "Services",
+      "freelance": "👨‍💻 Freelance",
+      "work": "💼 Work"
     },
     "projects": {
       "ghosts": {
-        "name": "Ghosts",
+        "name": "Ghosts Art Legacy",
         "description": "Ghosts_Art_Legacy is a bilingual (English & German) art website designed to showcase and sell original artworks by the artist known as “Ghost.” The project is a full redesign of an existing site, built from scratch with a modern, scalable architecture to support future development and collaboration."
+      },
+      "andorran": {
+        "name": "Andorran Book Club",
+        "description": "Andorran Book Club is a bilingual (English & German) book website designed to showcase and sell books by the author known as “Andorran.” The project is a full redesign of an existing site, built from scratch with a modern, scalable architecture to support future development and collaboration."
+      },
+      "400books": {
+        "name": "400 Books",
+        "description": "400 Books is a bilingual (English & German) book website designed to showcase and sell books by the author known as “400 Books.” The project is a full redesign of an existing site, built from scratch with a modern, scalable architecture to support future development and collaboration."
+      },
+      "satsolver": {
+        "name": "Logic Validator",
+        "description": "SatSolver is a web application designed to solve SAT (Boolean satisfiability problem) problems. It allows users to input SAT problems in CNF (Conjunctive Normal Form) and provides solutions using various algorithms. The project is built with a focus on performance and scalability, making it suitable for both educational and practical applications."
+      },
+      "rodmap": {
+        "name": "Rodmap",
+        "description": "Our mission is to give people the tools, support, and knowledge they need to build their future abroad. At Rodmap, we believe no one should have to navigate the challenges of relocation alone. Whether you're a student, a skilled professional, or an aspiring entrepreneur, you're not just moving to a new country, you're building a new chapter of your life."
+      },
+      "ignitix": {
+        "name": "Ignitix",
+        "description": "Worldwide millions of products are moving from point A to point B using ignitix software - parcels, pallets, letters, pharmaceuticals, textiles, suitcases, furnitures and more. With cutting-edge mobile delivery applications and web based transport management systems we are a leading provider of supply chain execution software operating in a global market."
+      },
+      "nano": {
+        "name": "Stylink (formerly Nano)",
+        "description": "stylink UGC connects the right creators with the right brands and agencies – all on a UGC platform that delivers authentic videos and excites both people and brands. Discover new opportunities, create content together, and benefit from content that leaves a lasting impression."
       }
     }
   },
@@ -28,5 +64,8 @@
     "title": "Hey there! 👋",
     "description": "Welcome to my  portfolio! This is not just a regular dev site. I've added some extra features to make it more interactive and fun. Take a look around, check out my projects, or even chat with ArunaBot. Hope you enjoy it! 🚀",
     "close": "Let's go"
+  },
+  "Footer": {
+    "name": "Aru"
   }
 }
