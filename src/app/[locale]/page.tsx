@@ -76,7 +76,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* <Contacts /> */}
-      <div className='bg-primary h-0.5 w-1/3 rounded-full' />
+      <div id='projects' className='bg-primary h-0.5 w-1/3 rounded-full' />
       <ProjectHistory />
       <GreetDialog />
       <FooterView />

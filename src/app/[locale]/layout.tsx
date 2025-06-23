@@ -1,11 +1,11 @@
-import { NextIntlClientProvider, hasLocale } from 'next-intl'
-import { notFound } from 'next/navigation'
-import { routing } from 'i18n/routing'
-import type { Metadata } from 'next'
-import { Mohave, Quicksand } from 'next/font/google'
 import '@/styles/globals.css'
 import '@/styles/globals.scss'
 import { css } from '@/util'
+import { routing } from 'i18n/routing'
+import type { Metadata } from 'next'
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
+import { Mohave, Quicksand } from 'next/font/google'
+import { notFound } from 'next/navigation'
 
 const mohave = Mohave({
   variable: '--font-mohave',

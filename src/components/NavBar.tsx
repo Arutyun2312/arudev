@@ -3,6 +3,7 @@
 import { Link } from '@/i18n/navigation'
 import { css } from '@/util'
 import { useTranslations } from 'next-intl'
+import CountryCollapsible from './Collapsible'
 
 export default function NavBar() {
   const t = useTranslations('Navigation')
@@ -27,6 +28,7 @@ export default function NavBar() {
             {t('project_history')}
           </Link>
         </div>
+        <CountryCollapsible />
       </nav>
     </header>
   )
