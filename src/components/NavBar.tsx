@@ -33,7 +33,7 @@ export default function NavBar() {
 
   return (
     <header className='mb-15 lg:mb-20'>
-      <nav className='fixed inset-x-0 top-0 z-10 mr-5 border-b border-gray-400/50 bg-white py-5'>
+      <nav className='fixed inset-x-0 top-0 z-10 border-b border-gray-400/50 bg-white px-5 py-5'>
         {logo}
         <div className='hidden flex-1 items-center justify-center gap-4 text-base lg:visible lg:flex lg:gap-10 lg:text-lg'>
           <Link href='/#overview' className='font-semibold'>
@@ -43,7 +43,7 @@ export default function NavBar() {
             {t('project_history')}
           </Link>
         </div>
-        <CountryCollapsible className='top-1/2 right-5 hidden -translate-y-1/2 lg:absolute' />
+        <CountryCollapsible className='top-1/2 right-5 hidden -translate-y-1/2 lg:absolute lg:block' />
         <div className='flex items-center gap-4 lg:hidden'>
           <CountryCollapsible className='ml-auto' />
           <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
