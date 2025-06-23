@@ -54,7 +54,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className='my-image-container flex flex-1 justify-center'>
-          <Image src={profilePic} alt='aru' className='my-image max-w-72 lg:max-w-96 rounded-full object-cover' />
+          <Image src={profilePic} alt='aru' className='my-image max-w-72 lg:max-w-96 rounded-full object-cover' loading='eager' />
         </div>
       </main>
       <section className='my-8 flex flex-col gap-4'>
