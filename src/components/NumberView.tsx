@@ -1,3 +1,5 @@
+'use client'
+
 import { css } from '@/util'
 import { useEffect, useState } from 'react'
 

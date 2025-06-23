@@ -1,5 +1,3 @@
-'use client'
-
 import FooterView from '@/components/FooterView'
 import NavBar from '@/components/NavBar'
 import NumberView from '@/components/NumberView'
