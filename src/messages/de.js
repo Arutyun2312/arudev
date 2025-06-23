@@ -1,90 +1,79 @@
 const messages = {
   Navigation: {
     home: 'Startseite',
-    overview: 'Überblick',
+    overview: 'Übersicht',
     project_history: 'Projektverlauf',
   },
   HomePage: {
     aru: {
       title: 'Hallo, ich bin <p>Aru</p>',
       subtitle: 'Full-Stack Softwareentwickler',
-      projects_done: '🚀 Projekte umgesetzt',
+      projects_done: '🚀 Abgeschlossene Projekte',
       teams_count: '🤝 Teams, mit denen ich gearbeitet habe',
       experience_years: '🕓 Jahre Erfahrung',
       clients_count: '🧑‍💼 Kunden, mit denen ich gearbeitet habe',
       devs_mentored: '👨‍🏫 Entwickler betreut',
       description: `
-        <p>Ich übernehme volle Verantwortung für das, was ich baue – von der Idee bis zur Produktion.</p>
-        <p>Ich lerne schnell, löse schwierige Probleme und liefere stabile Software.</p>
-        <p>Kein Tool, Bug oder Altsystem stellt sich mir in den Weg.</p>
+        <p>Ich übernehme die volle Verantwortung für das, was ich baue – von der Idee bis zur Produktion.</p>
+        <p>Ich lerne schnell, löse schwierige Probleme und liefere stabile Lösungen.</p>
+        <p>Kein Tool, Bug oder Altsystem steht mir im Weg.</p>
         <p> </p>
         <p>Ansässig in Wien, Österreich 🇦🇹</p>
-        <p>Fließend in Englisch 🇺🇸 und Russisch 🇷🇺, Deutschkenntnisse auf mittlerem Niveau 🇩🇪 (B1)</p>
-        <p>BSc in Angewandter Datenwissenschaft (<uni>MODUL University</uni>)</p>
+        <p>Fließend in Englisch 🇺🇸 und Russisch 🇷🇺, Deutsch auf mittlerem Niveau 🇩🇪 (B1)</p>
+        <p>BSc in Applied Data Science (<uni>MODUL University</uni>)</p>
       `,
       download_cv: 'Lebenslauf herunterladen',
+      download_ignitix: 'Ignitix',
+      download_nano: 'Nano',
+      download_recommendations: 'Empfehlungsschreiben',
+      recommendations: 'Empfehlungsschreiben',
     },
     project: {
       title: 'Projektverlauf',
       visit: {
         freelance: 'Live-Seite',
-        work: 'Unternehmen besuchen',
+        work: 'Zur Firma',
       },
       languages: 'Sprachen',
       frontend: 'Frontend',
       backend: 'Backend',
-      services: 'Dienste',
+      services: 'Services',
       freelance: '👨‍💻 Freiberuflich',
-      work: '💼 Beruflich',
+      work: '💼 Anstellung',
     },
     projects: {
       ghosts: {
         name: 'Ghosts Art Legacy',
-        description:
-          '<em>Zweisprachiges Kunstportfolio & E-Commerce-Seite für die Künstlerin „Ghost“</em> <ul> <li>🌍 Entwicklung eines <strong>zweisprachigen (EN/DE) Portfolios & Shops</strong> für globalen Kunstverkauf</li> <li>🏗️ Aufbau eines <strong>modularen Full-Stack-Systems</strong> mit React, Node.js, Firebase, Sanity & Stripe</li> <li>🎨 Gestaltung einer <strong>individuellen, animierten Benutzeroberfläche</strong>, die zur Marke der Künstlerin passt</li> <li>🚀 Deployment mit <strong>CI/CD & SEO-Optimierung</strong> für Sichtbarkeit und Wachstum</li> </ul>',
+        description: `
+        <em>Kunstportfolio & E-Commerce-Seite für die Künstlerin „Ghost“</em>
+        <ul>
+          <li>🏗️ Aufbau eines <strong>modularen Full-Stack-Systems</strong> mit React, Node.js, Firebase, Sanity & Stripe</li>
+          <li>🎨 Erstellung einer <strong>individuell animierten UI</strong> zur Markenwahrnehmung und besseren UX</li>
+          <li>🚀 Veröffentlichung mit <strong>CI/CD & SEO-Optimierung</strong> für Sichtbarkeit und Wachstum</li>
+        </ul>
+        `,
       },
       andorran: {
         name: 'Andorran Book Club',
         description: `
-        <em>Offline-Buchclubseite für Expats in Andorra mit Fokus auf englischsprachige Wirtschaftsbücher und Gemeinschaftsbildung</em>
+        <em>Buchclub-Plattform für Expats in Andorra, konzipiert für Community-Wachstum und Buchverfolgung</em>
         <ul>
-          <li>
-            📚 Entwicklung einer <strong>klaren, buchthemenbezogenen Website</strong> mit eigenen Seiten für <strong>aktuelle/frühere Bücher</strong>,
-            <strong>Fotogalerien</strong> und <strong>Veranstaltungsupdates</strong>
-          </li>
-          <li>🎨 Design einer <strong>UI, inspiriert von andorranischer Kultur</strong>, mit Balance zwischen <strong>Minimalismus</strong> und regionaler Ästhetik</li>
-          <li>🛠️ Aufbau eines <strong>leichtgewichtigen Admin-Systems</strong> für Buch- und Update-Posts mit <strong>nur-lesender Oberfläche</strong> für Mitglieder</li>
-          <li>
-            📩 Anbindung von <strong>Google Forms</strong> zur <strong>Mitgliederauswahl</strong> inkl. <strong>E-Mail-Benachrichtigungen</strong> und
-            <strong>Tabellen-Tracking</strong> zur einfachen Freigabe
-          </li>
+          <li>🏔️ UI-Design inspiriert von der andorranischen Kultur mit Fokus auf <strong>Community-Engagement</strong>, <strong>persönliche Teilnahme</strong> und wachsendem <strong>Lesearchiv</strong></li>
+          <li>✍️ Entwicklung eines Admin-Interfaces mit ACF für <strong>effiziente Inhaltsverwaltung</strong> und <strong>einfache Event-Updates</strong></li>
+          <li>⚙️ Schnelle und elegante UX mit Fokus auf <strong>Langzeit-Wartbarkeit</strong> und <strong>Nutzung durch nicht-technische Admins</strong></li>
         </ul>
         `,
-      },
-      '400books': {
-        name: '400 Bücher',
-        description: `
-        <em>Online-Buchclub für ukrainische Leser zur Verfolgung langfristiger Leseziele und Förderung von Gemeinschaft</em>
-        <ul>
-          <li>📚 Entwicklung einer <strong>mehrsprachigen Buchclubseite</strong> (Ukrainisch/Englisch) mit Fokus auf <strong>lebenslangem Lese-Fortschritt</strong></li>
-          <li>⏳ Implementierung eines <strong>400-Bücher-Zieltrackers</strong> mit dynamischem <strong>Buchzähler & Countdown</strong> zur Visualisierung</li>
-          <li>🎨 Gestaltung einer UI mit <strong>ukrainischen Kulturelementen</strong> in einem minimalistischen, buchzentrierten Stil</li>
-          <li>
-            📩 Integration von <strong>Google Forms</strong> für <strong>Teilnehmerregistrierung</strong> und <strong>Telegram-Gruppeneinladungen</strong>, mit Admin-Alerts und
-            Tabellen-Synchronisierung
-          </li>
-        </ul>
-        `,
-      },
-      satsolver: {
-        name: 'Logik-Validator',
-        description:
-          'SatSolver ist eine Webanwendung zur Lösung von SAT-Problemen (Boolesche Erfüllbarkeitsprobleme). Benutzer können SAT-Probleme in CNF (Konjunktive Normalform) eingeben und erhalten Lösungen über verschiedene Algorithmen. Das Projekt ist auf Leistung und Skalierbarkeit ausgelegt, sowohl für Bildung als auch für den praktischen Einsatz.',
       },
       rodmap: {
         name: 'Rodmap',
-        description:
-          'Unsere Mission ist es, Menschen Werkzeuge, Unterstützung und Wissen zu geben, um ihre Zukunft im Ausland aufzubauen. Bei Rodmap glauben wir, dass niemand die Herausforderungen einer Umsiedlung allein meistern muss. Ob Student, Fachkraft oder Unternehmer – du baust nicht nur ein neues Leben auf, du beginnst ein neues Kapitel.',
+        description: `
+        <em>Rodmap ist eine Relocation-Plattform, die Nutzern mit personalisierten Schritten, Echtzeit-Support und flexiblem Inhaltssystem beim Auswandern hilft.</em>
+        <ul>
+          <li>🌍 Vollständig responsive Plattform mit <strong>individuellen Relocation-Anleitungen</strong> basierend auf Nutzereingaben und realen Bedingungen</li>
+          <li>🧑‍💼 Sicheres Admin-Dashboard zur <strong>Echtzeit-Kommunikation</strong>, <strong>Dokumentenprüfung</strong> und <strong>Workflow-Verwaltung</strong></li>
+          <li>📝 Modularer CMS für <strong>nicht-technische Autoren</strong> zur Veröffentlichung von <strong>dynamischen Guides und Blogartikeln</strong> mit Markdown</li>
+        </ul>
+        `,
       },
       ignitix: {
         name: 'Ignitix',
@@ -92,18 +81,18 @@ const messages = {
         <em>Softwareentwickler · (20h/Woche)</em>
         <ul>
           <li>
-            📦 Entwicklung und Wartung einer <strong>Android-Kurier-App</strong> mit <strong>Java, C++ und Organic Maps</strong> für Paketverfolgung und Zustellmanagement in mehreren Ländern
+            📦 Entwicklung und Wartung einer <strong>Android-Kurier-App</strong> mit <strong>Java, C++ und Organic Maps</strong> für länderübergreifendes Tracking und Zustellungsmanagement
           </li>
           <li>
-            🗺️ Leitung der Integration eines <strong>eigenen Navigationssystems</strong> und einer <strong>Google-Maps-basierten App</strong> mit
+            🗺️ Integration eines <strong>eigenen Navigationssystems</strong> und einer <strong>Google-Maps-basierten App</strong> für Routenplanung mit
             <strong>React, TypeScript, Node.js</strong> und <strong>Google Maps API</strong>
           </li>
           <li>
-            🛠️ Mitarbeit an einer <strong>Logistik-Webplattform</strong> mit <strong>PHP (Yii2), PostgreSQL</strong> und Git, inkl. <strong>Code-Reviews</strong> und
+            🛠️ Mitarbeit an einer <strong>Logistik-Webplattform</strong> mit <strong>PHP (Yii2), PostgreSQL</strong> und Git inkl. <strong>Code-Reviews</strong> und
             Feature-Erweiterungen
           </li>
           <li>
-            🌍 Bereitstellung von App-Versionen für verschiedene Regionen mit <strong>Hyper-V, WSL</strong> und plattformspezifischen Anpassungen – schnelles Onboarding in komplexe Systeme
+            🌍 Deployment länderspezifischer App-Versionen mit <strong>Hyper-V, WSL</strong> und systemspezifischen Anpassungen – schnelle Einarbeitung in komplexe Systeme
           </li>
         </ul>
         `,
@@ -114,20 +103,20 @@ const messages = {
         <em>Softwareentwickler · (20h/Woche)</em>
         <ul>
           <li>
-            🔁 Arbeit über <strong>Mobile (Swift, Kotlin)</strong>, <strong>Backend (Node.js, Firebase)</strong> und <strong>Web (React.js)</strong> hinweg zur Umsetzung und Wartung von Full-Stack-Features
+            🔁 Full-Stack-Entwicklung für <strong>Mobile (Swift, Kotlin)</strong>, <strong>Backend (Node.js, Firebase)</strong> und <strong>Web (React.js)</strong>
           </li>
-          <li>🧹 Refaktorierung großer Legacy-Codebasen, <strong>Reduktion des Codes um 60%</strong> und <strong>80% weniger Abstürze</strong> durch modulare Architektur</li>
-          <li>🚀 Verbesserung von <strong>CI/CD-Pipelines und Testabdeckung</strong>, was Deployments beschleunigte und das Vertrauen in Releases stärkte</li>
-          <li>🤝 Unterstützung eines cross-funktionalen Teams beim Aufbau <strong>skalierbarer Funktionen</strong> für eine führende Influencer-Marketing-Plattform</li>
+          <li>🧹 Refaktorierung von Legacy-Codebasen mit <strong>60% weniger Code</strong> und <strong>80% weniger Abstürzen</strong> durch modulare Architektur</li>
+          <li>🚀 Optimierung der <strong>CI/CD-Pipelines und Testabdeckung</strong>, deutlich schnellere Deployments und höhere Release-Sicherheit</li>
+          <li>🤝 Unterstützung eines funktionsübergreifenden Teams bei der Entwicklung <strong>skalierbarer Features</strong> für eine führende Influencer-Marketing-Plattform</li>
         </ul>
         `,
       },
     },
   },
   GreetDialog: {
-    title: 'Hey, hallo! 👋',
+    title: 'Hey! 👋',
     description:
-      'Willkommen in meinem Portfolio! Das ist keine gewöhnliche Dev-Seite. Ich habe ein paar zusätzliche Features eingebaut, um sie interaktiver und unterhaltsamer zu machen. Schau dich um, sieh dir meine Projekte an oder chatte mit dem ArunaBot. Viel Spaß! 🚀',
+      'Willkommen in meinem Portfolio! Das hier ist nicht nur eine gewöhnliche Dev-Seite. Ich habe ein paar zusätzliche Features eingebaut, um sie interaktiver und spannender zu machen. Schau dich um, sieh dir meine Projekte an oder chatte mit ArunaBot. Viel Spaß! 🚀',
     close: 'Los geht’s',
   },
   Footer: {

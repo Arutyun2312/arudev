@@ -17,12 +17,16 @@ const messages = {
         <p>I take full responsibility for what I build — from idea to production.</p>
         <p>I learn fast, solve tough problems, and ship things that don't break.</p>
         <p>No tool, bug, or legacy system stands in my way.</p>
-        <p> </p>
+        <p><email>arutyunef@gmail.com</email> | <linkedin>LinkedIn</linkedin></p>
         <p>Based in Vienna, Austria 🇦🇹</p>
         <p>Fluent in English 🇺🇸 and Russian 🇷🇺, intermediate in German 🇩🇪 (B1)</p>
         <p>BSc in Applied Data Science (<uni>MODUL University</uni>)</p>
       `,
       download_cv: 'Download CV',
+      download_ignitix: 'Ignitix',
+      download_nano: 'Nano',
+      download_recommendations: 'Recommendation Letters',
+      recommendations: 'Recommendation Letter',
     },
     project: {
       title: 'Project History',
@@ -40,51 +44,36 @@ const messages = {
     projects: {
       ghosts: {
         name: 'Ghosts Art Legacy',
-        description:
-          '<em>Bilingual art portfolio & e-commerce site for visual artist “Ghost”</em> <ul> <li>🌍 Developed a <strong>bilingual (EN/DE) portfolio & shop</strong> from scratch for global art sales</li> <li>🏗️ Built a <strong>modular full-stack system</strong> with React, Node.js, Firebase, Sanity & Stripe</li> <li>🎨 Created a <strong>custom animated UI</strong> to reflect the artist’s brand and enhance UX</li> <li>🚀 Launched with <strong>CI/CD & SEO optimization</strong> for discoverability and growth</li> </ul>',
+        description: `
+        <em>Art portfolio & e-commerce site for visual artist “Ghost”</em>
+        <ul>
+          <li>🏗️ Built a <strong>modular full-stack system</strong> with React, Node.js, Firebase, Sanity & Stripe</li>
+          <li>🎨 Created a <strong>custom animated UI</strong> to reflect the artist’s brand and enhance UX</li>
+          <li>🚀 Launched with <strong>CI/CD & SEO optimization</strong> for discoverability and growth</li>
+        </ul>
+        `,
       },
       andorran: {
         name: 'Andorran Book Club',
         description: `
-        <em>Offline book club site for expats in Andorra, focused on English-language business books and local community building</em>
+        <em>Book club site for expats in Andorra, designed for community growth and book tracking</em>
         <ul>
-          <li>
-            📚 Developed a <strong>clean, book-themed website</strong> with dedicated pages for <strong>current/previous reads</strong>, <strong>photo galleries</strong>, and
-            <strong>event updates</strong>
-          </li>
-          <li>🎨 Designed a <strong>UI inspired by Andorran culture</strong>, balancing <strong>minimalism</strong> with regional visual identity</li>
-          <li>🛠️ Built a <strong>lightweight admin system</strong> for posting books and updates, with a clear <strong>read-only interface</strong> for members</li>
-          <li>
-            📩 Connected <strong>Google Forms</strong> for <strong>membership screening</strong>, including <strong>email alerts</strong> and
-            <strong>spreadsheet tracking</strong> for streamlined approval
-          </li>
+          <li>🏔️ Designed a UI inspired by Andorran culture, showcasing <strong>community engagement</strong>, <strong>in-person participation</strong>, and a growing <strong>reading archive</strong></li>
+          <li>✍️ Built a custom admin interface with ACF for <strong>efficient content management</strong> and <strong>streamlined event updates</strong></li>
+          <li>⚙️ Delivered a fast and elegant user experience that supports <strong>long-term maintainability</strong> and <strong>non-technical admin use</strong></li>
         </ul>
         `,
-      },
-      '400books': {
-        name: '400 Books',
-        description: `
-        <em>Online book club for Ukrainian readers, designed to track lifelong reading goals and foster community discussion</em>
-        <ul>
-          <li>📚 Developed a <strong>multilingual book club site</strong> (Ukrainian/English) with a focus on <strong>lifelong reading progress</strong></li>
-          <li>⏳ Implemented a <strong>400-book goal tracker</strong> with a dynamic <strong>book count & time countdown</strong> to visualize long-term progress</li>
-          <li>🎨 Designed a UI with <strong>Ukrainian cultural elements</strong>, aligned with a minimalist, book-centered aesthetic</li>
-          <li>
-            📩 Integrated <strong>Google Forms</strong> for <strong>participant registration</strong> and <strong>Telegram group invitations</strong>, with admin alerts and
-            spreadsheet sync
-          </li>
-        </ul>
-        `,
-      },
-      satsolver: {
-        name: 'Logic Validator',
-        description:
-          'SatSolver is a web application designed to solve SAT (Boolean satisfiability problem) problems. It allows users to input SAT problems in CNF (Conjunctive Normal Form) and provides solutions using various algorithms. The project is built with a focus on performance and scalability, making it suitable for both educational and practical applications.',
       },
       rodmap: {
         name: 'Rodmap',
-        description:
-          "Our mission is to give people the tools, support, and knowledge they need to build their future abroad. At Rodmap, we believe no one should have to navigate the challenges of relocation alone. Whether you're a student, a skilled professional, or an aspiring entrepreneur, you're not just moving to a new country, you're building a new chapter of your life.",
+        description: `
+        <em>Rodmap is a relocation platform that guides users through moving abroad with personalized steps, real-time admin support, and a flexible content system.</em>
+        <ul>
+          <li>🌍 Built a fully responsive platform that provides <strong>personalized relocation guidance</strong> based on user input and real-life conditions</li>
+          <li>🧑‍💼 Developed a secure admin dashboard for <strong>real-time user communication</strong>, <strong>document review</strong>, and <strong>workflow oversight</strong></li>
+          <li>📝 Created a modular CMS to enable <strong>non-technical contributors</strong> to publish <strong>dynamic guides and blog content</strong> with Markdown</li>
+        </ul>
+        `,
       },
       ignitix: {
         name: 'Ignitix',

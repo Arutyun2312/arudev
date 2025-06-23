@@ -12,6 +12,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
 import ProjectHistory from './ProjectHistory'
+import DownloadView from '@/components/DownloadView'
 
 const firstJob = dayjs('2019-01-01')
 const teams = 4
@@ -41,20 +42,45 @@ export default function HomePage() {
                   {chunks}
                 </a>
               ),
+              email: (chunks) => (
+                <a
+                  href='mailto:arutyunef@gmail.com'
+                  target='_blank'
+                  className='text-primary cursor-pointer font-bold underline'
+                >
+                  {chunks}
+                </a>
+              ),
+              linkedin: (chunks) => (
+                <a
+                  href='https://www.linkedin.com/in/aru-e-1a312a13b/'
+                  target='_blank'
+                  className='text-primary cursor-pointer font-bold underline'
+                >
+                  {chunks}
+                </a>
+              ),
             })}
           </div>
+          <div />
           <div className='w-fit'>
-            <a
-              className='threeD-span bg-primary-dark border-primary-dark bg block rounded-full border'
-              href={'/cv.pdf'}
-              download
-            >
-              <span className='button threeD-button !bg-primary block !px-10 text-white'>{t('aru.download_cv')}</span>
-            </a>
+            <DownloadView href='/cv.pdf' label={t('aru.download_cv')} />
+          </div>
+          <div className='flex w-fit flex-col gap-2 font-bold'>
+            {t('aru.download_recommendations')}:
+            <div className='flex gap-2 font-normal'>
+              <DownloadView href='/ignitix.pdf' label={t('aru.download_ignitix')} />
+              <DownloadView href='/nano.pdf' label={t('aru.download_nano')} />
+            </div>
           </div>
         </div>
         <div className='my-image-container flex flex-1 justify-center'>
-          <Image src={profilePic} alt='aru' className='my-image max-w-72 lg:max-w-96 rounded-full object-cover' loading='eager' />
+          <Image
+            src={profilePic}
+            alt='aru'
+            className='my-image max-w-72 rounded-full object-cover lg:max-w-96'
+            loading='eager'
+          />
         </div>
       </main>
       <section className='my-8 flex flex-col gap-4'>

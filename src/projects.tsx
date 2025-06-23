@@ -1,14 +1,13 @@
 import { TechTag, TechTagKeys } from '@/types'
-import _400Books from '@assets/400books.png'
 import andorran from '@assets/andorran.png'
 import ignitix from '@assets/ignitix.png'
-import modalLogic from '@assets/modal-logic.png'
 import nano from '@assets/nano.jpg'
 import rodmap from '@assets/rodmap.png'
 import android from '@assets/tech/android.svg'
 import aws from '@assets/tech/aws.png'
 import dynamodb from '@assets/tech/DynamoDB.png'
 import firebase from '@assets/tech/firebase.svg'
+import hyperv from '@assets/tech/hyperv.png'
 import ionic from '@assets/tech/ionic.svg'
 import ios from '@assets/tech/ios.svg'
 import java from '@assets/tech/java.png'
@@ -24,8 +23,6 @@ import postgresql from '@assets/tech/postgresql.svg'
 import python from '@assets/tech/python.svg'
 import react from '@assets/tech/react.svg'
 import sanity from '@assets/tech/sanity.png'
-import hyperv from '@assets/tech/hyperv.png'
-import wsl from '@assets/tech/wsl.png'
 import streamlit from '@assets/tech/streamlit.svg'
 import stripe from '@assets/tech/stripe.svg'
 import swift from '@assets/tech/swift.svg'
@@ -34,18 +31,20 @@ import tailwindcss from '@assets/tech/tailwind.svg'
 import typescript from '@assets/tech/typescript.svg'
 import vitejs from '@assets/tech/vitejs.svg'
 import wordpress from '@assets/tech/wordpress.svg'
+import wsl from '@assets/tech/wsl.png'
 import yii2 from '@assets/tech/yii.svg'
 import ghosts from '@assets/website.jpg'
 import Image from 'next/image'
 import { FC } from 'react'
 
 export type Project = {
-  name: 'satsolver' | 'rodmap' | 'ignitix' | 'nano' | 'ghosts' | 'andorran' | '400books'
+  name: 'rodmap' | 'ignitix' | 'nano' | 'ghosts' | 'andorran'
   image: FC<{ alt: string; className?: string }>
   url: string
   startDate: string
   endDate?: string
   tags: TechTag[]
+  recommendation?: string
   type: 'work' | 'freelance'
 }
 
@@ -111,24 +110,6 @@ export const Projects: Project[] = [
     type: 'freelance',
   },
   {
-    name: '400books',
-    image: ({ alt, className }) => <Image src={_400Books} alt={alt} className={className} />,
-    url: 'https://400books.com/',
-    tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.vitejs, TechTag.wordpress],
-    startDate: '2025-03-01',
-    endDate: '2025-05-01',
-    type: 'freelance',
-  },
-  {
-    name: 'satsolver',
-    image: ({ alt, className }) => <Image src={modalLogic} alt={alt} className={className} />,
-    url: 'https://satsolver.com/',
-    tags: [TechTag.streamlit, TechTag.python],
-    startDate: '2025-02-01',
-    endDate: '2025-02-31',
-    type: 'freelance',
-  },
-  {
     name: 'rodmap',
     image: ({ alt, className }) => <Image src={rodmap} alt={alt} className={className} />,
     url: 'https://rodmap.com/',
@@ -151,7 +132,6 @@ export const Projects: Project[] = [
     url: 'https://www.ignitix.com/',
     tags: [
       TechTag.react,
-      TechTag.firebase,
       TechTag.typescript,
       TechTag.tailwindcss,
       TechTag.vitejs,
@@ -163,7 +143,9 @@ export const Projects: Project[] = [
       TechTag.ionic,
       TechTag.wsl,
       TechTag.hyperv,
+      TechTag.python,
     ],
+    recommendation: '/ignitix.pdf',
     startDate: '2023-05-01',
     endDate: '2024-12-01',
     type: 'work',
@@ -184,9 +166,12 @@ export const Projects: Project[] = [
       TechTag.aws,
       TechTag.dynamoDb,
       TechTag.swiftui,
+      TechTag.swift,
+      TechTag.kotlin,
     ],
     startDate: '2021-06-01',
     endDate: '2022-12-01',
+    recommendation: '/nano.pdf',
     type: 'work',
   },
 ]

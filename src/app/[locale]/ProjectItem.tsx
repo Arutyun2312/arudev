@@ -1,3 +1,4 @@
+import DownloadView from '@/components/DownloadView'
 import TechTagsView from '@/components/TechTagsView'
 import { Link } from '@/i18n/navigation'
 import { Project } from '@/projects'
@@ -55,34 +56,39 @@ export default function ProjectItem({ project, isLast }: Props) {
           <div className='h2 font-bold'>{t(`projects.${project.name}.name`)}</div>
         </div>
         <div className='flex flex-col items-center gap-8 lg:flex-row'>
-          <Link href={project.url} target='_blank' className='threeD-span flex flex-col items-center gap-4 lg:flex-[2]'>
-            <div className='bg-primary flex rounded-xl'>
-              <span className='inline-block'>
-                <project.image alt={t(`projects.${project.name}.name`)} className='rounded-xl shadow-lg' />
-              </span>
-            </div>
-            <div className='bg-primary rounded-full'>
-              <span className='button body flex items-center justify-center uppercase'>
-                <div className='loading-text font-bold'>{t(`project.visit.${project.type}`)}</div>
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  strokeWidth='1.5'
-                  stroke='black'
-                  aria-hidden='true'
-                  data-slot='icon'
-                  className='inline h-5'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    d='M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25'
-                  />
-                </svg>
-              </span>
-            </div>
-          </Link>
+          <div className='flex flex-col items-center gap-4 lg:flex-[2]'>
+            <Link href={project.url} target='_blank' className='threeD-span flex flex-col items-center gap-4'>
+              <div className='bg-primary flex rounded-xl'>
+                <span className='inline-block'>
+                  <project.image alt={t(`projects.${project.name}.name`)} className='rounded-xl shadow-lg' />
+                </span>
+              </div>
+              <div className='bg-primary rounded-full'>
+                <span className='button body flex items-center justify-center uppercase'>
+                  <div className='loading-text font-bold'>{t(`project.visit.${project.type}`)}</div>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth='1.5'
+                    stroke='black'
+                    aria-hidden='true'
+                    data-slot='icon'
+                    className='inline h-5'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25'
+                    />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+            {project.recommendation != null && (
+              <DownloadView href={project.recommendation} label={t('aru.recommendations')} />
+            )}
+          </div>
           <div className='flex flex-1 flex-col gap-4 lg:flex-[3]'>
             {t.rich(`projects.${project.name}.description`, {
               em: (chunks) => <div className='body border-l px-1 italic'>{chunks}</div>,
