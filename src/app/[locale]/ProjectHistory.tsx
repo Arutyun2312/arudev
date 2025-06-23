@@ -19,7 +19,7 @@ export default function ProjectHistory() {
 
   return (
     <div>
-      <div className='h1 mx-auto mb-16 text-center'>{t('project.title')}</div>
+      <div className='h1 mx-auto mb-16 text-center text-balance break-all'>{t('project.title')}</div>
       <div className='flex flex-col gap-0 divide-gray-300'>
         {Projects.map((project, index, arr) => (
           <Fragment key={index}>

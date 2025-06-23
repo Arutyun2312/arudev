@@ -1,7 +1,6 @@
 'use client'
 
 import FooterView from '@/components/FooterView'
-import GreetDialog from '@/components/GreetDialog'
 import NavBar from '@/components/NavBar'
 import NumberView from '@/components/NumberView'
 import TechTagView from '@/components/TechTagView'
@@ -22,11 +21,11 @@ export default function HomePage() {
   const t = useTranslations('HomePage')
 
   return (
-    <div className='flex flex-col gap-24 [&>*]:mx-4 [&>*]:lg:mx-[6%]'>
+    <div className='flex flex-col gap-6 lg:gap-24 [&>*]:mx-4 [&>*]:lg:mx-[6%]'>
       <NavBar />
-      <main className='flex max-w-screen flex-col items-center justify-center gap-4 lg:flex-row'>
+      <main className='flex max-w-screen flex-col-reverse items-center justify-center gap-4 lg:flex-row'>
         <div className='flex flex-[2] flex-col gap-4'>
-          <div className='h1'>
+          <div className='h1 text-balance'>
             {t.rich('aru.title', { p: (chunks) => <span className='h1 !text-primary-dark'>{chunks}</span> })}
           </div>
           <div className='h2 red'>{t('aru.subtitle')}</div>
@@ -55,18 +54,20 @@ export default function HomePage() {
           </div>
         </div>
         <div className='my-image-container flex flex-1 justify-center'>
-          <Image src={profilePic} alt='aru' className='my-image size-96 rounded-full object-cover' />
+          <Image src={profilePic} alt='aru' className='my-image max-w-72 lg:max-w-96 rounded-full object-cover' />
         </div>
       </main>
-      <section className='my-8 grid grid-cols-2 justify-between gap-4 lg:grid-cols-4'>
-        <NumberView targetValue={projectsDone} label={t('aru.projects_done')} />
-        <NumberView targetValue={dayjs().diff(firstJob, 'y')} label={t('aru.experience_years')} />
-        <NumberView targetValue={teams} label={t('aru.teams_count')} />
-        <NumberView
-          targetValue={Projects.filter((p) => p.type == 'freelance').length + 1}
-          label={t('aru.clients_count')}
-        />
-        <div className='relative col-span-full mt-6 w-full'>
+      <section className='my-8 flex flex-col gap-4'>
+        <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
+          <NumberView targetValue={projectsDone} label={t('aru.projects_done')} />
+          <NumberView targetValue={dayjs().diff(firstJob, 'y')} label={t('aru.experience_years')} />
+          <NumberView targetValue={teams} label={t('aru.teams_count')} />
+          <NumberView
+            targetValue={Projects.filter((p) => p.type == 'freelance').length + 1}
+            label={t('aru.clients_count')}
+          />
+        </div>
+        <div className='relative mt-6 w-full'>
           <TechTagView className='invisible' tag={TechTag.android} />
           <Marquee pauseOnHover className='!absolute inset-0'>
             {Object.values(TechTag).map((tag, i) => (
@@ -78,7 +79,7 @@ export default function HomePage() {
       {/* <Contacts /> */}
       <div id='projects' className='bg-primary h-0.5 w-1/3 rounded-full' />
       <ProjectHistory />
-      <GreetDialog />
+      {/* <GreetDialog /> */}
       <FooterView />
     </div>
   )

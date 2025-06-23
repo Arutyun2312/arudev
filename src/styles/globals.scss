@@ -2,6 +2,7 @@
   position: relative;
   padding: 5px;
   clip-path: circle();
+  overflow: clip;
 
   @mixin rotating-gradient($animation-name, $initial-rotation, $final-rotation) {
     content: '';

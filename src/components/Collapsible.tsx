@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 const locales: Locale[] = ['en', 'de']
-export default function CountryCollapsible() {
+export default function CountryCollapsible({ className }: { className?: string }) {
   const locale = useLocale()
   const router = useRouter()
   const [show, setShow] = useState(false)
@@ -22,7 +22,7 @@ export default function CountryCollapsible() {
   }
 
   return (
-    <div className='absolute top-1/2 right-5 -translate-y-1/2'>
+    <div className={className}>
       <div className='flex gap-2'>
         {[locale].concat(show ? Array.from(set) : []).map((l, i) => (
           <button key={l} className='flex gap-2' onClick={onClick(l, i)}>
@@ -34,14 +34,14 @@ export default function CountryCollapsible() {
               src={`https://purecatamphetamine.github.io/country-flag-icons/1x1/${l.toUpperCase().replace('EN', 'US')}.svg`}
             />
             {i == 0 && (
-              <button
+              <div
                 className={css(
                   'rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold hover:bg-gray-300',
                   !show && 'rotate-90',
                 )}
               >
                 {'>'}
-              </button>
+              </div>
             )}
           </button>
         ))}

@@ -5,7 +5,7 @@
   --foreground: #171717;
   --color-primary: rgb(255 70 84);
   --color-primary-dark: rgb(184 0 14);
-  --color-primary-light: rgb(255, 147, 156);
+  --color-primary-light: rgb(255, 178, 185);
 }
 
 @theme inline {
@@ -24,11 +24,16 @@ body {
 }
 
 .h1 {
-  font-size: 6rem;
+  font-size: 4rem;
+
   font-weight: bold;
   line-height: 1;
   font-family: var(--font-mohave);
   color: var(--foreground);
+
+  @media (min-width: 1024px) {
+    font-size: 6rem;
+  }
 }
 .h2 {
   font-size: 1.75rem;

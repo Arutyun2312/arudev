@@ -46,7 +46,7 @@ export default function ProjectItem({ project, isLast }: Props) {
   }
 
   return (
-    <section className='border-primary-dark relative mx-10 flex flex-col gap-8 border-l-2 p-4 lg:flex-row'>
+    <section className='border-primary-dark relative ml-10 flex flex-col gap-8 border-l-2 p-4 lg:flex-row'>
       {isLast && <div className='triangle bg-primary-dark absolute -top-7 -left-2 h-6 w-3 transition-colors' />}
       {renderDate(project.endDate, true)}
       {renderDate(project.startDate, false)}

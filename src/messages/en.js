@@ -15,7 +15,7 @@ const messages = {
       devs_mentored: '👨‍🏫 Developers Mentored',
       description: `
         <p>I take full responsibility for what I build — from idea to production.</p>
-        <p>I learn fast, solve tough problems, and ship things that don&apos;t break.</p>
+        <p>I learn fast, solve tough problems, and ship things that don't break.</p>
         <p>No tool, bug, or legacy system stands in my way.</p>
         <p> </p>
         <p>Based in Vienna, Austria 🇦🇹</p>
