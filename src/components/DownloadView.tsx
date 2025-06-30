@@ -5,11 +5,11 @@ type Props = {
 export default function DownloadView({ href, label }: Props) {
   return (
     <a
-      className='threeD-span bg-primary-dark border-primary-dark bg block w-fit rounded-full border'
+      className='threeD-span bg-primary-dark border-primary-dark block w-fit rounded-full border'
       href={href}
       download
     >
-      <span className='button threeD-button !bg-primary block !px-10 text-white'>{label}</span>
+      <span className='button !bg-primary block !px-10 text-white'>{label}</span>
     </a>
   )
 }

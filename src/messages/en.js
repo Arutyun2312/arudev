@@ -6,7 +6,7 @@ const messages = {
   },
   HomePage: {
     aru: {
-      title: "Hello I'm <p>Aru</p>",
+      title: "Hi <hand></hand> I'm <p>Aru</p>",
       subtitle: 'Full-Stack Software Engineer',
       projects_done: '🚀 Projects Deployed',
       teams_count: '🤝 Teams worked with',

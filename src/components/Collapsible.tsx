@@ -37,7 +37,7 @@ export default function CountryCollapsible({ className }: { className?: string }
               <div className='flex items-center justify-center'>
                 <div
                   className={css(
-                    'rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold hover:bg-gray-300',
+                    'cursor-pointer rounded-full bg-gray-200 px-2 py-1 text-xs font-semibold transition-colors hover:bg-gray-300',
                     !show && 'rotate-90',
                   )}
                 >

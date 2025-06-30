@@ -11,6 +11,7 @@ import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
 import ProjectHistory from './ProjectHistory'
 import DownloadView from '@/components/DownloadView'
+import linkedin from '@assets/linkedin.svg'
 
 const firstJob = dayjs('2019-01-01')
 const teams = 4
@@ -24,8 +25,11 @@ export default function HomePage() {
       <NavBar />
       <main className='flex max-w-screen flex-col-reverse items-center justify-center gap-4 lg:flex-row'>
         <div className='flex flex-[2] flex-col gap-4'>
-          <div className='h1 text-balance'>
-            {t.rich('aru.title', { p: (chunks) => <span className='h1 !text-primary-dark'>{chunks}</span> })}
+          <div className='h1 wave-container text-balance'>
+            {t.rich('aru.title', {
+              p: (chunks) => <span className='h1 !text-primary-dark'>{chunks}</span>,
+              hand: () => <span className='wave'>👋</span>,
+            })}
           </div>
           <div className='h2 red'>{t('aru.subtitle')}</div>
           <div className='body'>
@@ -49,13 +53,13 @@ export default function HomePage() {
                   {chunks}
                 </a>
               ),
-              linkedin: (chunks) => (
+              linkedin: () => (
                 <a
-                  href='https://www.linkedin.com/in/aru-e-1a312a13b/'
+                  href='https://www.linkedin.com/in/arutyun-e-1a312a13b/'
                   target='_blank'
                   className='text-primary cursor-pointer font-bold underline'
                 >
-                  {chunks}
+                  <Image src={linkedin} alt='linkedin' className='inline size-6' />
                 </a>
               ),
             })}

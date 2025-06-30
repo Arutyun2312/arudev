@@ -3,6 +3,12 @@
   padding: 5px;
   clip-path: circle();
   overflow: clip;
+  scale: 1;
+  transition: padding 0.3s ease-in-out;
+
+  &:hover {
+    padding: 15px;
+  }
 
   @mixin rotating-gradient($animation-name, $initial-rotation, $final-rotation) {
     content: '';
@@ -68,5 +74,51 @@
 @keyframes shimmer {
   to {
     background-position: 100%;
+  }
+}
+
+.wave-container {
+  &:hover {
+    .wave {
+      transform-origin: 70% 70%;
+      animation: wave-animation 2s infinite;
+    }
+  }
+  .wave {
+    display: inline-block;
+  }
+
+  @keyframes wave-animation {
+    0% {
+      rotate: (0deg);
+    }
+    10% {
+      rotate: (14deg);
+    }
+    20% {
+      rotate: (-8deg);
+    }
+    30% {
+      rotate: (14deg);
+    }
+    40% {
+      rotate: (-4deg);
+    }
+    50% {
+      rotate: (10deg);
+    }
+    60% {
+      rotate: (0deg);
+    }
+  }
+}
+
+header {
+  a {
+    &:hover {
+      color: var(--color-primary);
+    }
+    color: black;
+    transition: color 0.3s ease-in-out;
   }
 }
