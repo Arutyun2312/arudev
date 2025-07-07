@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { Mohave, Quicksand } from 'next/font/google'
 import { notFound } from 'next/navigation'
+import { Analytics } from '@vercel/analytics/next'
 
 const mohave = Mohave({
   variable: '--font-mohave',
@@ -42,6 +43,7 @@ export default async function LocaleLayout({
       <body className={css(mohave.variable, quicksand.variable, 'bg-grid body antialiased')}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
+      <Analytics />
     </html>
   )
 }

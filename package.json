@@ -11,6 +11,7 @@
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
     "@uidotdev/usehooks": "^2.4.1",
+    "@vercel/analytics": "^1.5.0",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.18.1",
     "lodash": "^4.17.21",
