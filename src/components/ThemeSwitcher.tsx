@@ -1,36 +1,31 @@
 'use client'
 
+import { css } from '@/util'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export default function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false)
-  const { setTheme, resolvedTheme, theme, systemTheme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
   if (!mounted) {
-    return <div className='h-10 w-10 animate-pulse rounded-full border border-gray-300 bg-gray-100' />
+    return <div className='size-10 animate-pulse rounded-full border border-gray-300 bg-gray-100' />
   }
 
   const isDark = resolvedTheme === 'dark'
-  console.log('Current theme:', resolvedTheme)
-  console.log('Theme Debug:', {
-    theme,
-    resolvedTheme,
-    systemTheme,
-    isDark,
-    dataTheme: document.documentElement.getAttribute('data-theme'),
-    localStorage: localStorage.getItem('theme')
-  })
 
   return (
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className='relative h-10 w-10 cursor-pointer rounded-full border p-2 shadow-sm transition-all not-dark:border-gray-300 not-dark:bg-white hover:shadow-md dark:border-gray-600 dark:bg-gray-800'
+      className={css(
+        'relative size-10 cursor-pointer rounded-full border border-gray-300 bg-white p-2 shadow-sm transition-all hover:shadow-md dark:border-gray-600 dark:bg-gray-800',
+        'hover:border-4 hover:p-1',
+      )}
       aria-label='Toggle theme'
     >
       <AnimatePresence mode='wait'>

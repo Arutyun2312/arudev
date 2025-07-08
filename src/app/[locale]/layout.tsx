@@ -11,6 +11,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import z from 'zod'
 import { ThemeProvider } from 'next-themes'
+import BackgroundBlur from '@/components/BackgroundBlur'
 
 const mohave = Mohave({
   variable: '--font-mohave',
@@ -50,14 +51,11 @@ const firebaseConfig = z
   }))
   .safeParse(process.env).data
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
+type Props = {
   children: React.ReactNode
   params: Promise<{ locale: string }>
-}) {
-  // Ensure that the incoming `locale` is valid
+}
+export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params
   if (!hasLocale(routing.locales, locale)) {
     notFound()
@@ -65,10 +63,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={css(mohave.variable, quicksand.variable, 'bg-grid body antialiased')}>
+      <body className={css(mohave.variable, quicksand.variable, 'bg-grid body relative antialiased')}>
         <ThemeProvider attribute='data-theme' defaultTheme='system' enableSystem>
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
+        <BackgroundBlur />
       </body>
       <Analytics />
       <SpeedInsights />
