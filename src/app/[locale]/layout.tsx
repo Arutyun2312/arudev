@@ -7,6 +7,7 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { Mohave, Quicksand } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import z from 'zod'
 
@@ -67,6 +68,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
       <Analytics />
+      <SpeedInsights />
       {firebaseConfig && <AnalyticsFirebase config={firebaseConfig} />}
     </html>
   )
