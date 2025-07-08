@@ -3,17 +3,15 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
   devIndicators: false,
-  async redirects() {
+  async rewrites() {
     return [
       {
         source: '/cv',
         destination: '/',
-        permanent: true,
       },
       {
         source: '/:locale/cv',
         destination: '/:locale',
-        permanent: true,
       },
     ]
   },
