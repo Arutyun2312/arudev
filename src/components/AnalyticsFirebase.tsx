@@ -54,5 +54,5 @@ export const AnalyticsFirebase: FC<Props> = ({ config }) => {
     }
   }, [config])
 
-  return null
+  return <script className='firebase analytics' />
 }

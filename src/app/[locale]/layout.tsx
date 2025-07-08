@@ -46,7 +46,7 @@ const firebaseConfig = z
     appId: data.FIREBASE_APP_ID,
     measurementId: data.FIREBASE_MEASUREMENT_ID,
   }))
-  .parse(process.env)
+  .safeParse(process.env).data
 
 export default async function LocaleLayout({
   children,
@@ -67,7 +67,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
       <Analytics />
-      <AnalyticsFirebase config={firebaseConfig} />
+      {firebaseConfig && <AnalyticsFirebase config={firebaseConfig} />}
     </html>
   )
 }
