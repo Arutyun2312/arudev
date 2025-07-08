@@ -17,7 +17,7 @@ const messages = {
         <p>I take full responsibility for what I build — from idea to production.</p>
         <p>I learn fast, solve tough problems, and ship things that don't break.</p>
         <p>No tool, bug, or legacy system stands in my way.</p>
-        <p><email>arutyunef@gmail.com</email> | <linkedin>LinkedIn</linkedin></p>
+        <p><email>arutyunef@gmail.com</email><linkedin>LinkedIn</linkedin></p>
         <p>Based in Vienna, Austria 🇦🇹</p>
         <p>Fluent in English 🇺🇸 and Russian 🇷🇺, intermediate in German 🇩🇪 (B1)</p>
         <p>BSc in Applied Data Science (<uni>MODUL University</uni>)</p>

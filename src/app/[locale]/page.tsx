@@ -25,7 +25,7 @@ export default function HomePage() {
       <NavBar />
       <main className='flex max-w-screen flex-col-reverse items-center justify-center gap-4 lg:flex-row'>
         <div className='flex flex-[2] flex-col gap-4'>
-          <div className='h1 wave-container text-balance'>
+          <div className='h1 wave-container w-fit text-balance'>
             {t.rich('aru.title', {
               p: (chunks) => <span className='h1 !text-primary-dark'>{chunks}</span>,
               hand: () => <span className='wave'>👋</span>,
@@ -48,7 +48,7 @@ export default function HomePage() {
                 <a
                   href='mailto:arutyunef@gmail.com'
                   target='_blank'
-                  className='text-primary cursor-pointer font-bold underline'
+                  className='text-primary mr-2 cursor-pointer border-r border-black pr-2 font-bold underline dark:border-white'
                 >
                   {chunks}
                 </a>

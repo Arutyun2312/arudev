@@ -1,10 +1,20 @@
 @import 'tailwindcss';
 
+@variant dark (&:is([data-theme="dark"] *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --color-primary: rgb(255 70 84);
   --color-primary-dark: rgb(184 0 14);
+  --color-primary-light: rgb(255, 178, 185);
+}
+
+[data-theme='dark'] {
+  --background: #0f0f0f;
+  --foreground: #ededed;
+  --color-primary: rgb(255 70 84);
+  --color-primary-dark: rgb(211, 49, 63);
   --color-primary-light: rgb(255, 178, 185);
 }
 

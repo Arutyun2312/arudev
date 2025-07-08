@@ -34,7 +34,7 @@ export default function NumberView({ targetValue, label }: Props) {
       <div
         className={css(
           'flex items-center justify-between gap-4',
-          'rounded-2xl border border-gray-400 bg-white p-4 lg:p-8',
+          'rounded-2xl border border-gray-400 p-4 lg:p-8',
           'transition hover:scale-110 hover:shadow-lg',
         )}
         style={{ textWrap: 'stable' }}

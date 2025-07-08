@@ -7,9 +7,10 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { Mohave, Quicksand } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import z from 'zod'
+import { ThemeProvider } from 'next-themes'
 
 const mohave = Mohave({
   variable: '--font-mohave',
@@ -63,9 +64,11 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={css(mohave.variable, quicksand.variable, 'bg-grid body antialiased')}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <ThemeProvider attribute='data-theme' defaultTheme='system' enableSystem>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
       <Analytics />
       <SpeedInsights />
