@@ -4,14 +4,14 @@ import NumberView from '@/components/NumberView'
 import TechTagView from '@/components/TechTagView'
 import { Projects } from '@/projects'
 import { TechTag } from '@/types'
-import profilePic from '@assets/me.png'
+import profilePic from '@/assets/me.png'
 import dayjs from 'dayjs'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
 import ProjectHistory from './ProjectHistory'
 import DownloadView from '@/components/DownloadView'
-import linkedin from '@assets/linkedin.svg'
+import Linkedin from '@/assets/linkedin.svg'
 
 const firstJob = dayjs('2019-01-01')
 const teams = 4
@@ -19,7 +19,6 @@ const projectsDone = 9
 
 export default function HomePage() {
   const t = useTranslations('HomePage')
-
   return (
     <div className='flex flex-col gap-6 lg:gap-24 [&>*]:mx-4 [&>*]:lg:mx-[6%]'>
       <NavBar />
@@ -59,7 +58,7 @@ export default function HomePage() {
                   target='_blank'
                   className='text-primary cursor-pointer font-bold underline'
                 >
-                  <Image src={linkedin} alt='linkedin' className='inline size-6' />
+                  <Linkedin className='inline-block h-6 w-6' />
                 </a>
               ),
             })}

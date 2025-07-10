@@ -8,6 +8,17 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "trailingComma": "all",
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ],
+    "printWidth": 120,
+    "tabWidth": 2
+  },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
     "@uidotdev/usehooks": "^2.4.1",
@@ -25,18 +36,9 @@
     "react-fast-marquee": "^1.6.5",
     "zod": "^3.25.75"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "trailingComma": "all",
-    "plugins": [
-      "prettier-plugin-tailwindcss"
-    ],
-    "printWidth": 120
-  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/lodash": "^4.17.18",
     "@types/node": "^20",

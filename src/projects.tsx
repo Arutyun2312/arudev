@@ -1,41 +1,41 @@
+import andorran from '@/assets/andorran.png'
+import ignitix from '@/assets/ignitix.png'
+import nano from '@/assets/nano.jpg'
+import rodmap from '@/assets/rodmap.png'
+import Android from '@/assets/tech/android.svg'
+import aws from '@/assets/tech/aws.png'
+import dynamodb from '@/assets/tech/DynamoDB.png'
+import Firebase from '@/assets/tech/firebase.svg'
+import hyperv from '@/assets/tech/hyperv.png'
+import Ionic from '@/assets/tech/ionic.svg'
+import Ios from '@/assets/tech/ios.svg'
+import java from '@/assets/tech/java.png'
+import Javascript from '@/assets/tech/javascript.svg'
+import Jetpack from '@/assets/tech/jetpackcompose.svg'
+import Kotlin from '@/assets/tech/kotlin.svg'
+import Mongodb from '@/assets/tech/mongodb.svg'
+import Mui from '@/assets/tech/mui.svg'
+import Nextjs from '@/assets/tech/nextjs.svg'
+import Nodejs from '@/assets/tech/nodejs.svg'
+import Php from '@/assets/tech/php.svg'
+import Postgresql from '@/assets/tech/postgresql.svg'
+import Python from '@/assets/tech/python.svg'
+import React from '@/assets/tech/react.svg'
+import sanity from '@/assets/tech/sanity.png'
+import Streamlit from '@/assets/tech/streamlit.svg'
+import Stripe from '@/assets/tech/stripe.svg'
+import Swift from '@/assets/tech/swift.svg'
+import swiftui from '@/assets/tech/swiftui.png'
+import Tailwindcss from '@/assets/tech/tailwind.svg'
+import Typescript from '@/assets/tech/typescript.svg'
+import Vitejs from '@/assets/tech/vitejs.svg'
+import Wordpress from '@/assets/tech/wordpress.svg'
+import wsl from '@/assets/tech/wsl.png'
+import Yii2 from '@/assets/tech/yii.svg'
+import ghosts from '@/assets/website.jpg'
 import { TechTag, TechTagKeys } from '@/types'
-import andorran from '@assets/andorran.png'
-import ignitix from '@assets/ignitix.png'
-import nano from '@assets/nano.jpg'
-import rodmap from '@assets/rodmap.png'
-import android from '@assets/tech/android.svg'
-import aws from '@assets/tech/aws.png'
-import dynamodb from '@assets/tech/DynamoDB.png'
-import firebase from '@assets/tech/firebase.svg'
-import hyperv from '@assets/tech/hyperv.png'
-import ionic from '@assets/tech/ionic.svg'
-import ios from '@assets/tech/ios.svg'
-import java from '@assets/tech/java.png'
-import javascript from '@assets/tech/javascript.svg'
-import jetpack from '@assets/tech/jetpackcompose.svg'
-import kotlin from '@assets/tech/kotlin.svg'
-import mongodb from '@assets/tech/mongodb.svg'
-import mui from '@assets/tech/mui.svg'
-import nextjs from '@assets/tech/nextjs.svg'
-import nodejs from '@assets/tech/nodejs.svg'
-import php from '@assets/tech/php.svg'
-import postgresql from '@assets/tech/postgresql.svg'
-import python from '@assets/tech/python.svg'
-import react from '@assets/tech/react.svg'
-import sanity from '@assets/tech/sanity.png'
-import streamlit from '@assets/tech/streamlit.svg'
-import stripe from '@assets/tech/stripe.svg'
-import swift from '@assets/tech/swift.svg'
-import swiftui from '@assets/tech/swiftui.png'
-import tailwindcss from '@assets/tech/tailwind.svg'
-import typescript from '@assets/tech/typescript.svg'
-import vitejs from '@assets/tech/vitejs.svg'
-import wordpress from '@assets/tech/wordpress.svg'
-import wsl from '@assets/tech/wsl.png'
-import yii2 from '@assets/tech/yii.svg'
-import ghosts from '@assets/website.jpg'
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, HTMLAttributes, ReactElement } from 'react'
 
 export type Project = {
   name: 'rodmap' | 'ignitix' | 'nano' | 'ghosts' | 'andorran'
@@ -48,37 +48,37 @@ export type Project = {
   type: 'work' | 'freelance'
 }
 
-export const Icons: Record<TechTagKeys, FC<{ className?: string }>> = {
-  firebase: () => <Image src={firebase} alt='Firebase' title='Firebase' className='size-4' />,
-  nextjs: () => <Image src={nextjs} alt='NextJS' title='NextJS' className='size-4' />,
-  sanity: () => <Image src={sanity} alt='Sanity' title='Sanity' className='size-4' />,
-  react: () => <Image src={react} alt='React' title='React' className='size-4' />,
-  typescript: () => <Image src={typescript} alt='TypeScript' title='TypeScript' className='size-4' />,
-  tailwindcss: () => <Image src={tailwindcss} alt='TailwindCSS' title='TailwindCSS' className='size-4' />,
-  nodejs: () => <Image src={nodejs} alt='NodeJS' title='NodeJS' className='size-4' />,
-  mongodb: () => <Image src={mongodb} alt='MongoDB' title='MongoDB' className='size-4' />,
-  postgresql: () => <Image src={postgresql} alt='PostgreSQL' title='PostgreSQL' className='size-4' />,
-  vitejs: () => <Image src={vitejs} alt='ViteJS' title='ViteJS' className='size-4' />,
-  streamlit: () => <Image src={streamlit} alt='Streamlit' className='size-4' />,
-  stripe: () => <Image src={stripe} alt='Stripe' className='size-4' />,
-  python: () => <Image src={python} alt='Python' title='Python' className='size-4' />,
-  javascript: () => <Image src={javascript} alt='JavaScript' title='JavaScript' className='size-4' />,
-  java: () => <Image src={java} alt='Java' title='Java' className='size-4' />,
-  php: () => <Image src={php} alt='PHP' title='PHP' className='size-4' />,
-  android: () => <Image src={android} alt='Android' title='Android' className='size-4' />,
-  jetpackCompose: () => <Image src={jetpack} alt='Jetpack Compose' title='Jetpack Compose' className='size-4' />,
-  wordpress: () => <Image src={wordpress} alt='WordPress' title='WordPress' className='size-4' />,
-  ios: () => <Image src={ios} alt='iOS' title='iOS' className='size-4' />,
-  yii2: () => <Image src={yii2} alt='Yii2' title='Yii2' className='size-4' />,
-  kotlin: () => <Image src={kotlin} alt='Kotlin' title='Kotlin' className='size-4' />,
-  swift: () => <Image src={swift} alt='Swift' title='Swift' className='size-4' />,
-  mui: () => <Image src={mui} alt='Material UI' title='Material UI' className='size-4' />,
-  aws: () => <Image src={aws} alt='AWS' title='AWS' className='size-4 object-contain' />,
-  dynamoDb: () => <Image src={dynamodb} alt='DynamoDB' title='DynamoDB' className='size-4' />,
-  swiftui: () => <Image src={swiftui} alt='SwiftUI' title='SwiftUI' className='size-4' />,
-  ionic: () => <Image src={ionic} alt='Ionic' title='Ionic' className='size-4' />,
-  hyperv: () => <Image src={hyperv} alt='HyperV' title='HyperV' className='size-4' />,
-  wsl: () => <Image src={wsl} alt='WSL' title='WSL' className='size-4' />,
+export const Icons: Record<TechTagKeys, ReactElement<HTMLAttributes<object>>> = {
+  firebase: <Firebase />,
+  nextjs: <Nextjs />,
+  react: <React />,
+  typescript: <Typescript />,
+  tailwindcss: <Tailwindcss />,
+  nodejs: <Nodejs />,
+  mongodb: <Mongodb />,
+  postgresql: <Postgresql />,
+  vitejs: <Vitejs />,
+  streamlit: <Streamlit />,
+  stripe: <Stripe />,
+  python: <Python />,
+  javascript: <Javascript />,
+  php: <Php />,
+  android: <Android />,
+  jetpackCompose: <Jetpack />,
+  wordpress: <Wordpress />,
+  ios: <Ios />,
+  yii2: <Yii2 />,
+  kotlin: <Kotlin />,
+  swift: <Swift />,
+  mui: <Mui />,
+  ionic: <Ionic />,
+  sanity: <Image src={sanity} alt='Sanity' />,
+  aws: <Image src={aws} alt='AWS' />,
+  java: <Image src={java} alt='Java' />,
+  dynamoDb: <Image src={dynamodb} alt='DynamoDB' />,
+  swiftui: <Image src={swiftui} alt='SwiftUI' />,
+  hyperv: <Image src={hyperv} alt='HyperV' />,
+  wsl: <Image src={wsl} alt='WSL' />,
 }
 
 export const Projects: Project[] = [

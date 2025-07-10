@@ -3,6 +3,14 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
   async rewrites() {
     return [
       {

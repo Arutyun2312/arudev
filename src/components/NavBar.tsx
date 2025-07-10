@@ -1,15 +1,14 @@
 'use client'
 
+import HamburgerIcon from '@/assets/hamburger.svg'
+import CloseIcon from '@/assets/x.svg'
 import { Link } from '@/i18n/navigation'
 import { css } from '@/util'
-import { useTranslations } from 'next-intl'
-import CountryCollapsible from './Collapsible'
 import * as Dialog from '@radix-ui/react-dialog'
-import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import HamburgerIcon from '@assets/hamburger.svg'
-import CloseIcon from '@assets/x.svg'
-import Image from 'next/image'
+import { useTranslations } from 'next-intl'
+import { useState } from 'react'
+import CountryCollapsible from './Collapsible'
 import ThemeSwitcher from './ThemeSwitcher'
 
 export default function NavBar() {
@@ -60,7 +59,7 @@ export default function NavBar() {
           <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
             <Dialog.Trigger asChild>
               <button className='size-8 bg-transparent p-0 lg:hidden' aria-label='open menu'>
-                <Image src={HamburgerIcon} alt='menu' className='size-8' />
+                <HamburgerIcon className='size-8' />
               </button>
             </Dialog.Trigger>
             <AnimatePresence>
@@ -95,7 +94,7 @@ export default function NavBar() {
                         </Link>
                         <Dialog.Close asChild>
                           <button className='size-10 bg-transparent p-0' aria-label='close menu'>
-                            <Image src={CloseIcon} alt='close' className='size-8' />
+                            <CloseIcon className='h-8 w-8' />
                           </button>
                         </Dialog.Close>
                       </div>

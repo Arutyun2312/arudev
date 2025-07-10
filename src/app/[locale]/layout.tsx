@@ -1,4 +1,3 @@
-import '@/styles/globals.css'
 import '@/styles/globals.scss'
 import { css } from '@/util'
 import { routing } from 'i18n/routing'
@@ -64,7 +63,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={css(mohave.variable, quicksand.variable, 'bg-grid body relative antialiased')}>
-        <ThemeProvider attribute='data-theme' defaultTheme='system' enableSystem>
+        <ThemeProvider attribute='data-theme' defaultTheme='dark' enableSystem={false}>
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
         <BackgroundBlur />
