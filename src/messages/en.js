@@ -23,6 +23,7 @@ const messages = {
         <p>BSc in Applied Data Science (<uni>MODUL University</uni>)</p>
       `,
       download_cv: 'Download CV',
+      download_name: 'Arutyun_Enfendzhyan_CV.pdf',
       download_ignitix: 'Ignitix',
       download_nano: 'Nano',
       download_recommendations: 'Recommendation Letters',

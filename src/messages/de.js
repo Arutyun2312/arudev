@@ -23,6 +23,7 @@ const messages = {
         <p>BSc in Angewandter Data Science (<uni>MODUL University</uni>)</p>
       `,
       download_cv: 'Lebenslauf herunterladen',
+      download_name: 'Arutyun_Enfendzhyan_Lebenslauf.pdf',
       download_ignitix: 'Ignitix',
       download_nano: 'Nano',
       download_recommendations: 'Empfehlungsschreiben',
