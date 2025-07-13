@@ -3,6 +3,9 @@ import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  experimental: {
+    turbopackMinify: process.env.DISABLE_MINIFY === 'true' ? false : undefined,
+  },
   turbopack: {
     rules: {
       '*.svg': {
