@@ -59,7 +59,7 @@ export default function NavBar() {
           <Dialog.Root open={mobileOpen} onOpenChange={setMobileOpen}>
             <Dialog.Trigger asChild>
               <button className='size-8 bg-transparent p-0 lg:hidden' aria-label='open menu'>
-                <HamburgerIcon className='size-8' />
+                <HamburgerIcon className='size-8 dark:[&_path]:stroke-white' />
               </button>
             </Dialog.Trigger>
             <AnimatePresence>
@@ -77,7 +77,7 @@ export default function NavBar() {
                   <Dialog.Content aria-describedby={undefined}>
                     <Dialog.Title className='hidden' />
                     <motion.div
-                      className='h1 fixed top-0 left-0 z-[1000] flex w-full flex-col bg-white p-4 text-sm lg:hidden'
+                      className='h1 fixed top-0 left-0 z-[1000] flex w-full flex-col bg-white p-4 text-sm lg:hidden dark:bg-black'
                       initial={{ y: '-100%' }}
                       animate={{ y: 0 }}
                       exit={{ y: '-100%' }}
@@ -87,7 +87,8 @@ export default function NavBar() {
                         <Link
                           href='/'
                           className={css(
-                            'body border-primary !text-primary flex size-10 items-center justify-center rounded-full border-2 font-bold',
+                            'flex items-center justify-center bg-white',
+                            'body border-primary !text-primary size-10 rounded-full border-2 font-bold',
                           )}
                         >
                           A
