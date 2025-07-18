@@ -79,6 +79,7 @@ export default function HomePage() {
           <Image
             src={profilePic}
             alt='aru'
+            priority
             className='my-image max-w-72 rounded-full object-cover lg:max-w-96'
             loading='eager'
           />
