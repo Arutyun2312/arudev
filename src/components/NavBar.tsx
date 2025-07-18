@@ -95,7 +95,7 @@ export default function NavBar() {
                         </Link>
                         <Dialog.Close asChild>
                           <button className='size-10 bg-transparent p-0' aria-label='close menu'>
-                            <CloseIcon className='h-8 w-8' />
+                            <CloseIcon className='h-8 w-8 dark:[&_path]:stroke-white' />
                           </button>
                         </Dialog.Close>
                       </div>
