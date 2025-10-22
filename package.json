@@ -48,7 +48,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "file-loader": "^6.2.0",
-    "pdf-loader": "^1.0.2",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "sass": "^1.89.2",

@@ -67,13 +67,6 @@ export default function HomePage() {
           <div className='w-fit'>
             <DownloadView href='/cv.pdf' label={t('aru.download_cv')} />
           </div>
-          <div className='flex w-fit flex-col gap-2 font-bold'>
-            {t('aru.download_recommendations')}:
-            <div className='flex gap-2 font-normal'>
-              <DownloadView href='/ignitix.pdf' label={t('aru.download_ignitix')} />
-              <DownloadView href='/nano.pdf' label={t('aru.download_nano')} />
-            </div>
-          </div>
         </div>
         <div className='my-image-container flex flex-1 justify-center'>
           <Image
