@@ -145,7 +145,6 @@ export const Projects: Project[] = [
       TechTag.hyperv,
       TechTag.python,
     ],
-    recommendation: '/ignitix.pdf',
     startDate: '2023-05-01',
     endDate: '2024-12-01',
     type: 'work',
@@ -171,7 +170,6 @@ export const Projects: Project[] = [
     ],
     startDate: '2021-06-01',
     endDate: '2022-12-01',
-    recommendation: '/nano.pdf',
     type: 'work',
   },
 ]
