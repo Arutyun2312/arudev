@@ -1,17 +1,14 @@
-import FooterView from '@/components/FooterView'
-import NavBar from '@/components/NavBar'
-import NumberView from '@/components/NumberView'
-import TechTagView from '@/components/TechTagView'
-import { Projects } from '@/projects'
-import { TechTag } from '@/types'
+import Linkedin from '@/assets/linkedin.svg'
 import profilePic from '@/assets/me.png'
+import DownloadView from '@/components/DownloadView'
+import FooterView from '@/components/FooterView'
+import TechTagView from '@/components/TechTagView'
+import { TechTag } from '@/types'
 import dayjs from 'dayjs'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Marquee from 'react-fast-marquee'
 import ProjectHistory from './ProjectHistory'
-import DownloadView from '@/components/DownloadView'
-import Linkedin from '@/assets/linkedin.svg'
 
 const firstJob = dayjs('2019-01-01')
 const teams = 4
@@ -21,7 +18,12 @@ export default function HomePage() {
   const t = useTranslations('HomePage')
   return (
     <div className='flex flex-col gap-6 lg:gap-24 [&>*]:mx-4 [&>*]:lg:mx-[6%]'>
-      <NavBar />
+      <div className='h2'>
+        {t('aru.title')}
+      </div>
+      <div className='h3'>
+        {t('aru.subtitle')}
+      </div>
       <main className='flex max-w-screen flex-col-reverse items-center justify-center gap-4 lg:flex-row'>
         <div className='flex flex-[2] flex-col gap-4'>
           <div className='h1 wave-container w-fit text-balance'>
@@ -80,13 +82,6 @@ export default function HomePage() {
       </main>
       <section className='my-8 flex flex-col gap-4'>
         <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
-          <NumberView targetValue={projectsDone} label={t('aru.projects_done')} />
-          <NumberView targetValue={dayjs().diff(firstJob, 'y')} label={t('aru.experience_years')} />
-          <NumberView targetValue={teams} label={t('aru.teams_count')} />
-          <NumberView
-            targetValue={Projects.filter((p) => p.type == 'freelance').length + 1}
-            label={t('aru.clients_count')}
-          />
         </div>
         <div className='relative mt-6 w-full'>
           <TechTagView className='invisible' tag={TechTag.android} />

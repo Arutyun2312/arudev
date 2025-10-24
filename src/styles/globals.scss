@@ -1,207 +1,213 @@
 @use 'tailwindcss';
+@use 'typography';
 
 @variant dark (&:is([data-theme="dark"] *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-primary: var(--color-primary);
-  --color-primary-dark: var(--color-primary-dark);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-manrope: 'Manrope', Arial, Helvetica, sans-serif;
+    --color-primary: var(--color-primary);
+    --color-primary-dark: var(--color-primary-dark);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-primary: rgb(255 70 84);
-  --color-primary-dark: rgb(184 0 14);
-  --color-primary-light: rgb(255, 178, 185);
+    --background: #ffffff;
+    --foreground: #171717;
+    --color-primary: rgb(255 70 84);
+    --color-primary-dark: rgb(184 0 14);
+    --color-primary-light: rgb(255, 178, 185);
 }
 
 [data-theme='dark'] {
-  --background: #0f0f0f;
-  --foreground: #ededed;
-  --color-primary: rgb(255 70 84);
-  --color-primary-dark: rgb(211, 49, 63);
-  --color-primary-light: rgb(255, 178, 185);
+    --background: #0f0f0f;
+    --foreground: #ededed;
+    --color-primary: rgb(255 70 84);
+    --color-primary-dark: rgb(211, 49, 63);
+    --color-primary-light: rgb(255, 178, 185);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.h1 {
-  font-size: 3rem;
-
-  font-weight: bold;
-  line-height: 1;
-  font-family: var(--font-mohave);
-  color: var(--foreground);
-
-  @media (min-width: 1024px) {
-    font-size: 6rem;
-  }
-}
-.h2 {
-  font-size: 1.75rem;
-  font-family: var(--font-quicksand);
-  color: var(--foreground);
-}
-.h2.red {
-  color: var(--color-primary-dark);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.h3 {
-  font-size: 1.5rem;
-  font-family: var(--font-quicksand);
-  color: var(--foreground);
-}
-.body {
-  font-size: 1.25rem;
-  font-family: var(--font-quicksand);
-  color: var(--foreground);
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-manrope);
+    font-size: 1.25rem;
 }
 
 .bg-grid {
-  --grid-border-color: #929292;
-  --grid-cell-size: 1px;
-  /* https://ibelick.com/blog/create-grid-and-dot-backgrounds-with-css-tailwind-css */
-  /* background-image: radial-gradient(var(--grid-border-color) 1px, transparent 1px); */
-  background-size: 36px 36px;
+    --grid-border-color: #929292;
+    --grid-cell-size: 1px;
+    /* https://ibelick.com/blog/create-grid-and-dot-backgrounds-with-css-tailwind-css */
+    /* background-image: radial-gradient(var(--grid-border-color) 1px, transparent 1px); */
+    background-size: 36px 36px;
 }
 
 .triangle {
-  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
 
 .my-image-container {
-  position: relative;
-  padding: 5px;
-  clip-path: circle();
-  overflow: clip;
-  scale: 1;
-  transition: padding 0.3s ease-in-out;
+    position: relative;
+    padding: 5px;
+    clip-path: circle();
+    overflow: clip;
+    scale: 1;
+    transition: padding 0.3s ease-in-out;
 
-  &:hover {
-    padding: 15px;
-  }
-
-  @mixin rotating-gradient($animation-name, $initial-rotation, $final-rotation) {
-    content: '';
-    display: block;
-    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, transparent 100%);
-    height: 300px;
-    width: 300px;
-    position: absolute;
-    animation: #{$animation-name} 5s linear forwards infinite;
-    z-index: -1;
-    top: 50%;
-    transform-origin: top center;
-
-    @keyframes #{$animation-name} {
-      from {
-        transform: rotate($initial-rotation);
-      }
-      to {
-        transform: rotate($final-rotation);
-      }
+    &:hover {
+        padding: 15px;
     }
-  }
 
-  &::before {
-    @include rotating-gradient(rotate, -0.5turn, 0.5turn);
-  }
-  &::after {
-    @include rotating-gradient(rotate1, -1turn, 0);
-  }
+    @mixin rotating-gradient($animation-name, $initial-rotation, $final-rotation) {
+        content: '';
+        display: block;
+        background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, transparent 100%);
+        height: 300px;
+        width: 300px;
+        position: absolute;
+        animation: #{$animation-name} 5s linear forwards infinite;
+        z-index: -1;
+        top: 50%;
+        transform-origin: top center;
+
+        @keyframes #{$animation-name} {
+            from {
+                transform: rotate($initial-rotation);
+            }
+
+            to {
+                transform: rotate($final-rotation);
+            }
+        }
+    }
+
+    &::before {
+        @include rotating-gradient(rotate, -0.5turn, 0.5turn);
+    }
+
+    &::after {
+        @include rotating-gradient(rotate1, -1turn, 0);
+    }
 }
 
 .threeD-span {
-  span {
-    transform: translate(0, 0);
-    transition: transform 0.3s ease-in-out;
-  }
-  &:hover {
     span {
-      transform: translate(-0.3rem, -0.3rem);
+        transform: translate(0, 0);
+        transition: transform 0.3s ease-in-out;
     }
-  }
+
+    &:hover {
+        span {
+            transform: translate(-0.3rem, -0.3rem);
+        }
+    }
 }
 
 .button {
-  border: 1px solid var(--color-primary);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  border-radius: 9999px;
-  background-color: white;
-  padding: 0.25rem 1rem;
+    border: 1px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 9999px;
+    background-color: white;
+    padding: 0.25rem 1rem;
 }
 
 .loading-text {
-  place-self: center;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-primary)) -100%/200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: shimmer 1s linear infinite;
+    place-self: center;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light), var(--color-primary)) -100%/200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer 1s linear infinite;
 }
 
 @keyframes shimmer {
-  to {
-    background-position: 100%;
-  }
+    to {
+        background-position: 100%;
+    }
 }
 
 .wave-container {
-  &:hover {
-    .wave {
-      transform-origin: 70% 70%;
-      animation: wave-animation 2s infinite;
+    &:hover {
+        .wave {
+            transform-origin: 70% 70%;
+            animation: wave-animation 2s infinite;
+        }
     }
-  }
-  .wave {
-    display: inline-block;
-  }
 
-  @keyframes wave-animation {
-    0% {
-      rotate: (0deg);
+    .wave {
+        display: inline-block;
     }
-    10% {
-      rotate: (14deg);
+
+    @keyframes wave-animation {
+        0% {
+            rotate: (0deg);
+        }
+
+        10% {
+            rotate: (14deg);
+        }
+
+        20% {
+            rotate: (-8deg);
+        }
+
+        30% {
+            rotate: (14deg);
+        }
+
+        40% {
+            rotate: (-4deg);
+        }
+
+        50% {
+            rotate: (10deg);
+        }
+
+        60% {
+            rotate: (0deg);
+        }
     }
-    20% {
-      rotate: (-8deg);
-    }
-    30% {
-      rotate: (14deg);
-    }
-    40% {
-      rotate: (-4deg);
-    }
-    50% {
-      rotate: (10deg);
-    }
-    60% {
-      rotate: (0deg);
-    }
-  }
 }
 
 header {
-  a {
-    color: black;
-    [data-theme='dark'] & {
-      color: white;
+    a {
+        color: black;
+
+        [data-theme='dark'] & {
+            color: white;
+        }
+
+        &:hover {
+            color: var(--color-primary);
+        }
+
+        transition: color 0.3s ease-in-out;
     }
-    &:hover {
-      color: var(--color-primary);
-    }
-    transition: color 0.3s ease-in-out;
-  }
 }
+
+.ripple {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50vw;
+    height: 50vw;
+    background: #5e5d5d1a;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 20s infinite ease-in-out;
+    z-index: -1;
+}
+    
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+

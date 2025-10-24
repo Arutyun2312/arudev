@@ -6,13 +6,8 @@ const messages = {
   },
   HomePage: {
     aru: {
-      title: "Hi <hand></hand> I'm <p>Aru</p>",
-      subtitle: 'Full-Stack Software Engineer',
-      projects_done: '🚀 Projects Deployed',
-      teams_count: '🤝 Teams worked with',
-      experience_years: '🕓 Years of Experience',
-      clients_count: '🧑‍💼 Clients worked with',
-      devs_mentored: '👨‍🏫 Developers Mentored',
+      title: "Arutyun Enfendzhyan",
+      subtitle: 'Full-Stack Engineer • Data Engineer • ',
       description: `
         <p>I take full responsibility for what I build — from idea to production.</p>
         <p>I learn fast, solve tough problems, and ship things that don't break.</p>
