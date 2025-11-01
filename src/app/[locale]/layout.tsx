@@ -11,15 +11,8 @@ import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import z from 'zod'
 import { ThemeProvider } from 'next-themes'
 import BackgroundBlur from '@/components/BackgroundBlur'
-
-const mohave = Mohave({
-  variable: '--font-mohave',
-  subsets: ['latin'],
-})
-const quicksand = Quicksand({
-  variable: '--font-quicksand',
-  subsets: ['latin'],
-})
+import IronMan from '@/components/IronMan'
+import Navbar from './Navbar'
 
 export const metadata: Metadata = {
   title: 'Aru Dev',
@@ -62,11 +55,14 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={css(mohave.variable, quicksand.variable, 'bg-grid body relative antialiased')}>
+      <body className={css('bg-grid body relative antialiased')}>
+        <div className='bg-grid-glow pointer-events-none absolute -z-30'></div>
+        <BackgroundBlur />
+        <IronMan />
+        <Navbar />
         <ThemeProvider attribute='data-theme' defaultTheme='dark' enableSystem={false}>
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
-        <BackgroundBlur />
       </body>
       <Analytics />
       <SpeedInsights />

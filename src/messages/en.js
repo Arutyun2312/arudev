@@ -7,15 +7,16 @@ const messages = {
   HomePage: {
     aru: {
       title: "Arutyun Enfendzhyan",
-      subtitle: 'Full-Stack Engineer • Data Engineer • ',
+      subtitle: `
+      <p>Full-Stack Engineer</p> 
+      <s></s>
+      <p>Data Engineer</p>
+      <s></s>
+      <p>Based in Vienna <AT></AT></p>`,
       description: `
         <p>I take full responsibility for what I build — from idea to production.</p>
         <p>I learn fast, solve tough problems, and ship things that don't break.</p>
         <p>No tool, bug, or legacy system stands in my way.</p>
-        <p><email>arutyunef@gmail.com</email><linkedin>LinkedIn</linkedin></p>
-        <p>Based in Vienna, Austria 🇦🇹</p>
-        <p>Fluent in English 🇺🇸 and Russian 🇷🇺, intermediate in German 🇩🇪 (B1)</p>
-        <p>BSc in Applied Data Science (<uni>MODUL University</uni>)</p>
       `,
       download_cv: 'Download CV',
       download_name: 'Arutyun_Enfendzhyan_CV.pdf',
@@ -119,7 +120,7 @@ const messages = {
     close: "Let's go",
   },
   Footer: {
-    name: 'Aru',
+    name: 'Crafted with ❤️‍🔥 by Aru',
   },
 }
 

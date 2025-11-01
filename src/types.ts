@@ -14,9 +14,6 @@ export type TechTagKeys =
   | 'nodejs'
   | 'mongodb'
   | 'postgresql'
-  | 'vitejs'
-  | 'sanity'
-  | 'streamlit'
   | 'stripe'
   | 'python'
   | 'javascript'
@@ -24,18 +21,15 @@ export type TechTagKeys =
   | 'php'
   | 'jetpackCompose'
   | 'android'
-  | 'ios'
   | 'wordpress'
   | 'yii2'
   | 'kotlin'
   | 'swift'
-  | 'mui'
   | 'aws'
   | 'dynamoDb'
-  | 'swiftui'
   | 'ionic'
-  | 'hyperv'
-  | 'wsl'
+  | 'ios'
+  | 'swiftui'
 export type TechTag = {
   key: TechTagKeys
   name: string
@@ -54,8 +48,6 @@ export const TechTag = {
   // Frontend
   nextjs: { key: 'nextjs', name: 'Next.js', type: TechTagType.FRONTEND, className: 'bg-gray-800' },
   react: { key: 'react', name: 'React', type: TechTagType.FRONTEND, className: 'bg-blue-500' },
-  vitejs: { key: 'vitejs', name: 'Vite.js', type: TechTagType.FRONTEND, className: 'bg-blue-600' },
-  streamlit: { key: 'streamlit', name: 'Streamlit', type: TechTagType.FRONTEND, className: 'bg-blue-800' },
   tailwindcss: {
     key: 'tailwindcss',
     name: 'Tailwind CSS',
@@ -68,7 +60,6 @@ export const TechTag = {
     type: TechTagType.FRONTEND,
     className: 'bg-purple-500',
   },
-  mui: { key: 'mui', name: 'Material UI', type: TechTagType.FRONTEND, className: 'bg-blue-800' },
   swiftui: { key: 'swiftui', name: 'SwiftUI', type: TechTagType.FRONTEND, className: 'bg-blue-600' },
   ionic: { key: 'ionic', name: 'Ionic', type: TechTagType.FRONTEND, className: 'bg-blue-600' },
   // Backend
@@ -77,12 +68,9 @@ export const TechTag = {
   postgresql: { key: 'postgresql', name: 'PostgreSQL', type: TechTagType.BACKEND, className: 'bg-blue-700' },
   yii2: { key: 'yii2', name: 'Yii2', type: TechTagType.BACKEND, className: 'bg-gray-700' },
   dynamoDb: { key: 'dynamoDb', name: 'DynamoDB', type: TechTagType.BACKEND, className: 'bg-yellow-600' },
-  hyperv: { key: 'hyperv', name: 'Hyper-V', type: TechTagType.BACKEND, className: 'bg-gray-700' },
-  wsl: { key: 'wsl', name: 'WSL', type: TechTagType.BACKEND, className: 'bg-gray-700' },
   // Services
   aws: { key: 'aws', name: 'AWS', type: TechTagType.SERVICE, className: 'bg-orange-500' },
   firebase: { key: 'firebase', name: 'Firebase', type: TechTagType.SERVICE, className: 'bg-orange-500' },
-  sanity: { key: 'sanity', name: 'Sanity', type: TechTagType.SERVICE, className: 'bg-gray-600' },
   stripe: { key: 'stripe', name: 'Stripe', type: TechTagType.SERVICE, className: 'bg-gray-900' },
   android: { key: 'android', name: 'Android', type: TechTagType.SERVICE, className: 'bg-green-600' },
   ios: { key: 'ios', name: 'iOS', type: TechTagType.SERVICE, className: 'bg-blue-600' },
