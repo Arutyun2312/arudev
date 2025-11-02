@@ -17,6 +17,14 @@
   --color-primary: rgb(255 70 84);
   --color-primary-dark: rgb(184 0 14);
   --color-primary-light: rgb(255, 178, 185);
+
+  --color-base-pr: #18181b;
+  --color-base2-pr: #18181b;
+  --color-base-2nd: #27272a;
+  --color-base-3rd: #3f3f46;
+  --color-font-pr: #fff;
+  --color-font-2nd: #e2e8f0;
+  --color-font-3rd: #94a3b8;
   --color-highlight: #a78bfa;
 }
 
@@ -199,7 +207,7 @@ header {
   background: #5e5d5d1a;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
-  animation: ripple 20s infinite ease-in-out;
+  animation: ripple 20s infinite ease-in-out ;
   z-index: -1;
 }
 
@@ -215,6 +223,10 @@ header {
   }
 }
 
+.ripple:nth-child(1) {
+  transform: translate(-50%, -50%) scale(0.5);
+  animation: unset;
+}
 .ripple:nth-child(2) {
   animation-delay: 2s;
 }
@@ -279,4 +291,57 @@ header {
   opacity: 0.59;
   top: 0;
   width: 100%;
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.aspire {
+  --gradient-angle: 0deg;
+  background:
+    radial-gradient(27.91% 37.23% at 6.91% 7.68%, rgba(200, 119, 185, 0.5) 0, rgba(198, 118, 185, 0) 100%),
+    radial-gradient(53.04% 64.16% at 53.96% 7.14%, rgba(16, 154, 229, 0.7) 0, rgba(125, 124, 196, 0) 93.21%),
+    radial-gradient(
+      69.88% 69.88% at 10.64% 86.96%,
+      #fe014c 0,
+      rgba(223, 51, 129, 0.8) 47.68%,
+      rgba(187, 84, 133, 0.229058) 81.13%,
+      rgba(124, 128, 200, 0) 100%
+    ),
+    linear-gradient(var(--gradient-angle), #c877b9 0, #c877b9 31.9%, rgba(200, 119, 185, 0) 83.73%),
+    linear-gradient(calc(var(--gradient-angle) + 90deg), #0aadee 14.98%, #fea5aa 76.19%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  color: rgb(255, 255, 255);
+  font-style: normal;
+  font-weight: bolder;
+  margin: 0;
+  padding: 0;
+  animation: aspire-rotate 5s linear infinite;
+}
+
+@keyframes aspire-rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+.data-science {
+  background-image: url(../assets/data-science.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 35%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  text-stroke: 1px rgba(255, 255, 255, 0.3);
 }

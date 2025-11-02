@@ -6,7 +6,6 @@ import Android from '@/assets/tech/android.svg'
 import aws from '@/assets/tech/aws.png'
 import dynamodb from '@/assets/tech/DynamoDB.png'
 import Firebase from '@/assets/tech/firebase.svg'
-import hyperv from '@/assets/tech/hyperv.png'
 import Ionic from '@/assets/tech/ionic.svg'
 import Ios from '@/assets/tech/ios.svg'
 import java from '@/assets/tech/java.png'
@@ -14,23 +13,18 @@ import Javascript from '@/assets/tech/javascript.svg'
 import Jetpack from '@/assets/tech/jetpackcompose.svg'
 import Kotlin from '@/assets/tech/kotlin.svg'
 import Mongodb from '@/assets/tech/mongodb.svg'
-import Mui from '@/assets/tech/mui.svg'
 import Nextjs from '@/assets/tech/nextjs.svg'
 import Nodejs from '@/assets/tech/nodejs.svg'
 import Php from '@/assets/tech/php.svg'
 import Postgresql from '@/assets/tech/postgresql.svg'
 import Python from '@/assets/tech/python.svg'
 import React from '@/assets/tech/react.svg'
-import sanity from '@/assets/tech/sanity.png'
-import Streamlit from '@/assets/tech/streamlit.svg'
 import Stripe from '@/assets/tech/stripe.svg'
 import Swift from '@/assets/tech/swift.svg'
 import swiftui from '@/assets/tech/swiftui.png'
 import Tailwindcss from '@/assets/tech/tailwind.svg'
 import Typescript from '@/assets/tech/typescript.svg'
-import Vitejs from '@/assets/tech/vitejs.svg'
 import Wordpress from '@/assets/tech/wordpress.svg'
-import wsl from '@/assets/tech/wsl.png'
 import Yii2 from '@/assets/tech/yii.svg'
 import ghosts from '@/assets/website.jpg'
 import { TechTag, TechTagKeys } from '@/types'
@@ -64,7 +58,6 @@ export const Icons: Record<TechTagKeys, ReactElement<HTMLAttributes<object>>> = 
   android: <Android />,
   jetpackCompose: <Jetpack />,
   wordpress: <Wordpress />,
-  ios: <Ios />,
   yii2: <Yii2 />,
   kotlin: <Kotlin />,
   swift: <Swift />,
@@ -148,7 +141,6 @@ export const Projects: Project[] = [
       TechTag.typescript,
       TechTag.tailwindcss,
       TechTag.android,
-      TechTag.ios,
       TechTag.jetpackCompose,
       TechTag.aws,
       TechTag.dynamoDb,

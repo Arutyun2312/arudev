@@ -28,7 +28,6 @@ export type TechTagKeys =
   | 'aws'
   | 'dynamoDb'
   | 'ionic'
-  | 'ios'
   | 'swiftui'
 export type TechTag = {
   key: TechTagKeys
@@ -73,6 +72,5 @@ export const TechTag = {
   firebase: { key: 'firebase', name: 'Firebase', type: TechTagType.SERVICE, className: 'bg-orange-500' },
   stripe: { key: 'stripe', name: 'Stripe', type: TechTagType.SERVICE, className: 'bg-gray-900' },
   android: { key: 'android', name: 'Android', type: TechTagType.SERVICE, className: 'bg-green-600' },
-  ios: { key: 'ios', name: 'iOS', type: TechTagType.SERVICE, className: 'bg-blue-600' },
   wordpress: { key: 'wordpress', name: 'WordPress', type: TechTagType.SERVICE, className: 'bg-blue-600' },
 } satisfies Record<TechTagKeys, TechTag>

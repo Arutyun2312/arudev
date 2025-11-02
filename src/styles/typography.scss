@@ -8,12 +8,11 @@
 
 .h1 {
     font-weight: bold;
-    line-height: 1;
+    line-height: 1.4;
     font-family: var(--font-manrope);
     color: var(--foreground);
-    text-transform: uppercase;
 
-    @apply text-4xl lg:text-5xl
+    @apply text-4xl lg:text-5xl uppercase leading-snug;
 }
 
 .h2 {
@@ -31,5 +30,5 @@
 .h3 {
     font-family: var(--font-manrope);
     color: var(--foreground);
-    @apply text-xl
+    @apply text-xl text-balance leading-tight
 }

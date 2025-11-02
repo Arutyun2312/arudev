@@ -4,6 +4,7 @@ export default function BackgroundBlur() {
       <div className='ripple' />
       <div className='ripple' />
       <div className='ripple' />
+      <div className='ripple' />
     </div>
   )
 }
