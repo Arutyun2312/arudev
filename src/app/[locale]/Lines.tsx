@@ -1,76 +1,135 @@
 'use client'
 
-import { animate, motion, Transition, useMotionTemplate, useMotionValue, useTransform } from 'framer-motion'
-import { Fragment, use, useEffect } from 'react'
+import bear from 'assets/bear.png'
+import ignitix from 'assets/ignitix.png'
+import nano from 'assets/nano.jpg'
+import ocean from 'assets/ocean.png'
+import dayjs from 'dayjs'
+import { animate, motion, useMotionValue, useTransform } from 'framer-motion'
+import { FC, useCallback, useEffect, useRef } from 'react'
+import { useIsMobile } from '../hooks/useIsMobile'
 
-const transition = { duration: 4, repeat: Infinity, ease: 'linear' } satisfies Transition
-
-type Fruit = { title: string; subtitle: string }
+type Fruit = { icon: string; company: string; position: string; dateStart: string; dateEnd?: string }
 type Props = { branches?: Fruit[] }
 export default function Lines({
   branches = [
-    { title: 'Fruit 1', subtitle: 'Subtitle 1' },
-    { title: 'Fruit 2', subtitle: 'Subtitle 2' },
-    { title: 'Fruit 3', subtitle: 'Subtitle 3' },
-    { title: 'Fruit 4', subtitle: 'Subtitle 4' },
-    { title: 'Fruit 5', subtitle: 'Subtitle 5' },
+    { icon: ocean.src, company: 'Ocean', position: 'Web Developer', dateStart: '2022-01-01', dateEnd: '2022-12-31' },
+    {
+      icon: bear.src,
+      company: 'BearFitness',
+      position: 'iOS Developer',
+      dateStart: '2022-01-01',
+      dateEnd: '2022-12-31',
+    },
+    { icon: nano.src, company: 'Nano', position: 'Mobile Deveveloper', dateStart: '2022-01-01' },
+    { icon: ignitix.src, company: 'Ignitix', position: 'Android + Web', dateStart: '2022-01-01' },
   ],
 }: Props) {
-  const width = 500
-  const height = 650
+  const postHeight = 100
+  const postWidth = 400
+
+  const width = 600
+  const height = 850
   const rootCount = 10
-  const rootHeight = 200
+  const rootHeight = 100
   const centerX = width / 2
-  const trunkWidth = 10 // Width of the trunk area
+  const trunkWidth = 6
+  const trunkHeight = height - rootHeight - 70
+  const current = branches.at(-1)
+  branches = branches.slice(0, -1)
   const branchCount = branches.length
 
-  const postHeight = 60
-  const postWidth = 130
-
-  const minHeight = 50
-  const heightStep = 80
+  const minHeight = 165
+  const heightStep = 150
   const branchWidth = 200
 
   const tipH = 30
 
-  const generateCustomBranch = (startX, startY, endX, endY) => {
-    startY = height - startY
-    endY = height - endY
-    const deltaX = endX - startX
-    const deltaY = endY - startY
+  const FruitView: FC<{ fruit: Fruit; post: { x: number; y: number }; disableAnim?: boolean }> = useCallback(
+    ({ fruit, post, disableAnim }) => {
+      const fontSize = 20
+      const padding = -5
+      return (
+        <>
+          <motion.rect
+            x={post.x + padding}
+            y={disableAnim ? post.y + padding : useTransform(noise, (noiseValue) => post.y + noiseValue / 3 + padding)}
+            width={postWidth}
+            height={postHeight + 10}
+            // fill='#7c3aed'
+            rx={5}
+            cursor='pointer'
+            // animate={!disableAnim ? {} : { scale: [1, 1.1] }}
+            transition={{
+              duration: 1,
+              ease: 'linear',
+              repeatType: 'reverse',
+              repeat: Infinity,
+            }}
+            fill='color-mix(in srgb, var(--color-base-2nd) 60%, transparent)'
+            stroke='color-mix(in srgb, var(--color-highlight) 40%, transparent)'
+            strokeWidth='2'
+          />
+          <motion.image
+            href={fruit.icon}
+            x={post.x}
+            y={disableAnim ? post.y : useTransform(noise, (noiseValue) => post.y + noiseValue / 3)}
+            width={postWidth / 3}
+            height={postHeight}
+            preserveAspectRatio='xMidYMid meet'
+          />
+          <motion.text
+            x={post.x + postWidth / 3 + 10}
+            y={
+              disableAnim
+                ? post.y + postHeight / 2 - 20
+                : useTransform(noise, (noiseValue) => post.y + noiseValue / 3 + postHeight / 2 - 20)
+            }
+            textAnchor='start'
+            dominantBaseline='middle'
+            fill='white'
+            fontSize={fontSize}
+            fontFamily='Arial'
+          >
+            {fruit.position}
+          </motion.text>
+          <motion.text
+            x={post.x + postWidth / 3 + 10}
+            y={
+              disableAnim
+                ? post.y + postHeight / 2 + 5
+                : useTransform(noise, (noiseValue) => post.y + noiseValue / 3 + postHeight / 2 + 5)
+            }
+            textAnchor='start'
+            dominantBaseline='middle'
+            fill='white'
+            fontSize={fontSize - 4}
+            fontFamily='Arial'
+          >
+            {fruit.company}
+          </motion.text>
+          <motion.text
+            x={post.x + postWidth / 3 + 10}
+            y={
+              disableAnim
+                ? post.y + postHeight / 2 + 30
+                : useTransform(noise, (noiseValue) => post.y + noiseValue / 3 + postHeight / 2 + 30)
+            }
+            textAnchor='start'
+            dominantBaseline='middle'
+            fill='white'
+            fontSize={fontSize - 6}
+            fontFamily='Arial'
+          >
+            {`${dayjs(fruit.dateStart).format('MMM YYYY')} - ${fruit.dateEnd ? dayjs(fruit.dateEnd).format('MMM YYYY') : 'Present'}`}
+          </motion.text>
+        </>
+      )
+    },
+    [],
+  )
 
-    const controlX1 = startX + deltaX * 0.1
-    const controlY1 = startY + deltaY * 1
-    const controlX2 = startX + deltaX * 1
-    const controlY2 = startY + deltaY * 0.1
-
-    return `M ${startX} ${startY} C ${controlX1} ${controlY1} ${controlX2} ${controlY2} ${endX} ${endY}`
-  }
-
-  // Function to get point on cubic bezier curve
-  const getPointOnCubicBezier = (t, startX, startY, endX, endY) => {
-    t = 1 - t
-    const deltaX = endX - startX
-    const deltaY = endY - startY
-
-    const controlX1 = startX + deltaX * 0.1
-    const controlY1 = startY + deltaY * 1
-    const controlX2 = startX + deltaX * 1
-    const controlY2 = startY + deltaY * 0.1
-
-    const x =
-      Math.pow(1 - t, 3) * startX +
-      3 * Math.pow(1 - t, 2) * t * controlX1 +
-      3 * (1 - t) * Math.pow(t, 2) * controlX2 +
-      Math.pow(t, 3) * endX
-    const y =
-      Math.pow(1 - t, 3) * startY +
-      3 * Math.pow(1 - t, 2) * t * controlY1 +
-      3 * (1 - t) * Math.pow(t, 2) * controlY2 +
-      Math.pow(t, 3) * endY
-
-    return { x, y }
-  }
+  const isMobile = useIsMobile()
 
   const noise = useMotionValue(0)
 
@@ -86,134 +145,115 @@ export default function Lines({
   }, [])
 
   const posts = branches.map((_, i) => {
-    const x1 = i % 2 == 0 ? 50 : width - 50
-    const y1 = 250 + i * heightStep
-    const x2 = (width + trunkWidth) / 2 - 5
-    const y2 = 200 + i * heightStep
+    const x1 = centerX - postWidth / 2
+    const y1 = 220 + i * heightStep
+    const y2 = 170 + i * heightStep
 
-    return { x: x1 + (i % 2 == 0 ? 0 : -postWidth), y: height - (y1 + y2) / 2 - postHeight * 1.5 }
+    return {
+      x: x1,
+      y: height - (y1 + y2) / 2 - postHeight * 1.5,
+    }
   })
+
+  // Add these inside your component
+  const pathRef = useRef<SVGPathElement>(null)
+
+  // Convert polyline points to path format
+  const generateTrunkPathAsPath = () => {
+    const points = []
+    points.push(`${centerX},${postHeight + tipH}`)
+
+    posts
+      .concat()
+      .reverse()
+      .forEach((post, i) => {
+        const stroke = 25
+        const w = postWidth / 2 + 25
+        points.push(`${centerX},${post.y - stroke}`)
+        points.push(`${centerX + w * (i % 2 === 0 ? 1 : -1)},${post.y - 25}`)
+        points.push(`${centerX + w * (i % 2 === 0 ? 1 : -1)},${post.y + postHeight + 25}`)
+        points.push(`${centerX},${post.y + postHeight + stroke}`)
+      })
+
+    points.push(`${centerX},${postHeight + tipH + trunkHeight}`)
+
+    // Convert to path format
+    const coords = points.map((point) => point.split(',').map(Number))
+    let pathD = `M ${coords[0][0]} ${coords[0][1]}`
+    for (let i = 1; i < coords.length; i++) {
+      pathD += ` L ${coords[i][0]} ${coords[i][1]}`
+    }
+    return pathD
+  }
+  const trailProgress = useMotionValue(0)
+
+  useEffect(() => {
+    const controls = animate(trailProgress, [0, 1.1], {
+      duration: 6,
+      repeat: Infinity,
+      ease: 'linear',
+    })
+    return () => controls.stop()
+  }, [])
 
   return (
     <div className='relative w-full'>
-      <svg
-        width='100%'
-        height={height}
-        viewBox={`0 0 ${width} ${height}`}
-        preserveAspectRatio='xMidYMid meet'
-        // style={{ background: 'white' }}
-      >
-        <defs>
-          <mask id='curveMask'>
-            {Array.from({ length: branchCount }).map((_, i) => {
-              const x1 = i % 2 == 0 ? 50 : width - 50
-              const y1 = 250 + i * heightStep
-              const x2 = (width + trunkWidth) / 2 - 5
-              const y2 = 200 + i * heightStep
+      <svg width='100%' viewBox={`0 0 ${width} ${height}`} preserveAspectRatio='xMidYMid meet'>
+        <g>
+          <path
+            ref={pathRef}
+            d={generateTrunkPathAsPath()}
+            strokeLinejoin='round'
+            stroke='#404047'
+            strokeWidth={trunkWidth}
+            fill='none'
+          />
 
-              return (
-                <motion.path
-                  key={i}
-                  d={useTransform(noise, (noiseValue) =>
-                    generateCustomBranch(x1, y1 - noiseValue, x2, y2 + noiseValue / 2),
-                  )}
-                  stroke='white'
-                  strokeWidth='2'
-                  fill='none'
-                />
-              )
+          {/* Purple trail that follows behind */}
+          <motion.path
+            d={generateTrunkPathAsPath()}
+            strokeLinejoin='round'
+            stroke='#a78bfa'
+            strokeWidth={trunkWidth}
+            fill='none'
+            opacity='0.8'
+            strokeDasharray={useTransform(trailProgress, (p) => {
+              if (pathRef.current) {
+                const pathLength = pathRef.current.getTotalLength()
+                const trailLength = pathLength * 0.1
+                return `${trailLength} ${pathLength}`
+              }
+              return '0 0'
             })}
-            <rect //
-              x={centerX - trunkWidth / 2}
-              y={tipH}
-              width={trunkWidth}
-              height={height - rootHeight}
-              fill='white'
-            />
-            <g>
-              {/* Rounded top part */}
-              <rect x={centerX - trunkWidth / 2} y={0} width={trunkWidth} height={10} fill='white' rx='10' />
-              {/* Rectangular bottom part */}
-              <rect x={centerX - trunkWidth / 2} y={5} width={trunkWidth} height={tipH - 5} fill='white' />
-            </g>
-            {/* <polygon
-            points={`
-              ${centerX},0 
-              ${centerX - trunkWidth / 2},${tipH} 
-              ${centerX + trunkWidth / 2},${tipH}`}
-            fill='white'
-          /> */}
-            {Array.from({ length: rootCount }).map((_, i) => {
-              const x = i * ((width - 150) / (rootCount - 1)) + 75
-              // Calculate end position within trunk width
-              const trunkLeft = centerX - trunkWidth / 2 + 2
-              const trunkRight = centerX + trunkWidth / 2 - 1
-              const endX = trunkLeft + (i / (rootCount - 1)) * (trunkWidth - 4)
-
-              return (
-                <path
-                  key={i}
-                  d={`
-                    M${x},${height} 
-                    C${x},${height - rootHeight + 50 * (rootHeight / 200)} 
-                    ${endX},${height - rootHeight + 125 * (rootHeight / 200)} 
-                    ${endX},${height - rootHeight}
-                  `}
-                  stroke='white'
-                  strokeWidth='1.5'
-                  fill='none'
-                />
-              )
+            strokeDashoffset={useTransform(trailProgress, (p) => {
+              if (pathRef.current) {
+                const pathLength = pathRef.current.getTotalLength()
+                const trailLength = pathLength * 0.1
+                return p * pathLength + trailLength
+              }
+              return 0
             })}
-            {/* <rect width={width} height={height} x='0' y='0' fill='white' /> */}
-          </mask>
-          <linearGradient id='gradient' x1='0' x2='0' y1='1' y2='0'>
-            <motion.stop stopColor='rgba(0,0,0,0.5)' animate={{ offset: ['-150%', '100%'] }} transition={transition} />
-            <motion.stop stopColor='transparent' animate={{ offset: ['-20%', '100%'] }} transition={transition} />
-            <motion.stop stopColor='#a78bfa' animate={{ offset: ['-12%', '108%'] }} transition={transition} />
-            <motion.stop stopColor='rgba(0,0,0,0.5)' animate={{ offset: ['-8%', '112%'] }} transition={transition} />
-          </linearGradient>
-        </defs>
-        <g mask='url(#curveMask)'>
-          <rect x='0' y='0' width={width} height={height} fill='#ccc' />
-          <rect x='0' y='0' width={width} height={height} fill='url(#gradient)' />
+            filter='drop-shadow(0 0 8px #a78bfa)'
+          />
         </g>
+        {current != null && <FruitView fruit={current} post={{ x: centerX - postWidth / 2, y: 10 }} disableAnim />}
         {posts.map((post, i) => (
-          <Fragment key={i}>
-            <motion.rect
-              key={i}
-              x={post.x}
-              y={useTransform(noise, (noiseValue) => post.y + noiseValue)}
-              width={postWidth}
-              height={postHeight}
-              fill='#7c3aed'
-              rx={5}
-              cursor='pointer'
-            />
-            <motion.text
-              x={post.x + postWidth / 2} // Center horizontally (rect width / 2)
-              y={useTransform(noise, (noiseValue) => post.y + noiseValue + postHeight / 2 - 5)} // Center vertically (rect height / 2 + a bit for baseline)
-              textAnchor='middle'
-              dominantBaseline='middle'
-              fill='white'
-              fontSize='12'
-              fontFamily='Arial'
-            >
-              {branches[i].title}
-            </motion.text>
-            <motion.text
-              x={post.x + postWidth / 2} // Center horizontally (rect width / 2)
-              y={useTransform(noise, (noiseValue) => post.y + noiseValue + postHeight / 2 + 10)} // Center vertically (rect height / 2 + a bit for baseline)
-              textAnchor='middle'
-              dominantBaseline='middle'
-              fill='white'
-              fontSize='10'
-              fontFamily='Arial'
-            >
-              {branches[i].subtitle}
-            </motion.text>
-          </Fragment>
+          <FruitView key={i} fruit={branches[i]} post={post} />
         ))}
+        <motion.circle
+          cx={centerX}
+          cy={postHeight + 20}
+          r={trunkWidth / 2}
+          animate={{
+            fill: ['#00000000', '#22c55e'], // Only two states
+          }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut',
+          }}
+        />
       </svg>
     </div>
   )

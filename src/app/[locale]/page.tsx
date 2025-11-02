@@ -125,10 +125,430 @@ export default function HomePage() {
       </div>
     </div>
   )
+  const skills = (
+    <div className='section'>
+      <div className='text-font-pr flex h-16 w-full items-center justify-center text-3xl opacity-80'>
+        <h2 className='font-main'> Skills </h2>
+      </div>
+      <div className='mt-8 h-auto justify-center gap-6 md:columns-2'>
+        <div
+          data-v-9d11439c=''
+          className='bg-base-2nd fade-in glass-effect mt-0 w-full rounded-md p-5'
+          data-state='playing'
+        >
+          <h3 data-v-9d11439c='' className='text-font-pr text-xl font-semibold'>
+            Backend
+          </h3>
+          <p data-v-9d11439c='' className='text-font-2nd mt-2 w-full break-words whitespace-pre-line'>
+            I love problem-solving and building complex systems. I strive to create scalable, reliable, and secure
+            solutions.
+          </p>
+          <div data-v-9d11439c='' className='mt-4 flex flex-wrap'>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='TypeScript'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2FTypescript_logo_2020.svg&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2FTypescript_logo_2020.svg&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2FTypescript_logo_2020.svg&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='NodeJS'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fnode.webp&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fnode.webp&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fnode.webp&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Golang'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fgolang.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fgolang.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fgolang.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='PostgreSQL'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fpostgresql.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fpostgresql.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fpostgresql.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='MongoDB'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fmongodb.svg&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fmongodb.svg&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fmongodb.svg&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Kafka'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fkafka.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fkafka.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fkafka.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='GraphQL'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fgraphql.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fgraphql.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fgraphql.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Laravel'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Flaravel.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Flaravel.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Flaravel.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='JavaScript'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fjavascript.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fjavascript.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fjavascript.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='BullMQ'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fbullmq.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fbullmq.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fbullmq.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Git'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fgit.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fgit.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fgit.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='GitHub'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fgithub.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fgithub.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fgithub.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          data-v-9d11439c=''
+          className='bg-base-2nd fade-in glass-effect mt-6 w-full rounded-md p-5'
+          data-state='playing'
+        >
+          <h3 data-v-9d11439c='' className='text-font-pr text-xl font-semibold'>
+            Cloud &amp; DevOps
+          </h3>
+          <p data-v-9d11439c='' className='text-font-2nd mt-2 w-full break-words whitespace-pre-line'>
+            I have deployed and managed various applications using tools such as AWS, GCP, and other cloud services.
+          </p>
+          <div data-v-9d11439c='' className='mt-4 flex flex-wrap'>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='AWS'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Faws.webp&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Faws.webp&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Faws.webp&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Linux'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Flinux.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Flinux.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Flinux.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Docker'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fdocker.jpg&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fdocker.jpg&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fdocker.jpg&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Kubernetes'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2FK8S-logo.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2FK8S-logo.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2FK8S-logo.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Vercel'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fvercel.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fvercel.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fvercel.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Terraform'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fterraform.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fterraform.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fterraform.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='BigQuery'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fbigquery.webp&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fbigquery.webp&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fbigquery.webp&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Redis'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fredis.webp&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fredis.webp&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fredis.webp&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='DataDog'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fdatadog.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fdatadog.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fdatadog.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Cloudflare'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fcloudflare.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fcloudflare.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fcloudflare.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          data-v-9d11439c=''
+          className='bg-base-2nd fade-in glass-effect mt-6 w-full break-before-column rounded-md p-5 md:mt-10'
+          data-state='playing'
+        >
+          <h3 data-v-9d11439c='' className='text-font-pr text-xl font-semibold'>
+            Frontend &amp; Design
+          </h3>
+          <p data-v-9d11439c='' className='text-font-2nd mt-2 w-full break-words whitespace-pre-line'>
+            I'm passionate about design, animation, and interactions, always aiming to build fun websites with great
+            user experiences.
+          </p>
+          <div data-v-9d11439c='' className='mt-4 flex flex-wrap'>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Vue3'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fvue.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fvue.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fvue.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='React'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Freact.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Freact.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Freact.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Nuxt3'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Ficon-green.svg&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Ficon-green.svg&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Ficon-green.svg&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Next.js'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fnext-js.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fnext-js.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fnext-js.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Tailwind'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Ftailwind.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Ftailwind.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Ftailwind.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Figma'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Ffigma-logo.svg&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Ffigma-logo.svg&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Ffigma-logo.svg&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Ionic'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fionic-icon.svg&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fionic-icon.svg&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fionic-icon.svg&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Capacitor'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fcapacitor.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fcapacitor.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fcapacitor.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Unity'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Funity.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Funity.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Funity.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='PHP'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fphp.svg&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fphp.svg&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fphp.svg&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Puppeteer'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Fpuppeteer.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Fpuppeteer.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Fpuppeteer.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <img
+                alt='Playwright'
+                data-nuxt-img=''
+                srcSet='/_vercel/image?url=%2Fimgs%2Fskills%2Ficon.png&w=1536&q=100 1x, /_vercel/image?url=%2Fimgs%2Fskills%2Ficon.png&w=1536&q=100 2x'
+                src='/_vercel/image?url=%2Fimgs%2Fskills%2Ficon.png&w=1536&q=100'
+                className='h-10 w-10 bg-transparent object-contain px-1'
+                data-pd-tooltip='true'
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          data-v-9d11439c=''
+          className='bg-base-2nd fade-in glass-effect mt-6 w-full rounded-md p-5'
+          data-state='playing'
+        >
+          <h3 data-v-9d11439c='' className='text-font-pr text-xl font-semibold'>
+            Mangament
+          </h3>
+          <p data-v-9d11439c='' className='text-font-2nd mt-2 w-full break-words whitespace-pre-line'>
+            I have worked with multiple clients and stakeholders to define projects that suit their needs and have led
+            these projects.
+          </p>
+          <div data-v-9d11439c='' className='mt-4 flex flex-wrap'>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <p className='bg-highlight rounded-lg p-1 px-3 text-zinc-100 dark:text-zinc-900'>Agile</p>
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <p className='bg-highlight rounded-lg p-1 px-3 text-zinc-100 dark:text-zinc-900'>Scrum</p>
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <p className='bg-highlight rounded-lg p-1 px-3 text-zinc-100 dark:text-zinc-900'>Jira</p>
+            </div>
+            <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
+              <p className='bg-highlight rounded-lg p-1 px-3 text-zinc-100 dark:text-zinc-900'>Office</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
   return (
-    <div className='hide-scrollbar max-h-screen overflow-auto pt-20'>
+    <div className='hide-scrollbar max-h-screen overflow-auto pt-10'>
       <div className='mx-auto flex h-full max-w-3xl flex-wrap justify-between gap-6 p-10 px-4 sm:py-20 md:py-20 lg:px-8 lg:py-40 lg:pt-20'>
-        <main className='flex w-full flex-col gap-4'>
+        <main className='flex w-full flex-col gap-4 my-10'>
           {profile}
           <div className='h1 w-full gap-2 text-center leading-snug text-[#e7d2f9]'>
             <span className='aspire'>Full Stack</span> <br /> Android and Web <br /> Developer <br />
@@ -139,8 +559,12 @@ export default function HomePage() {
           </div>
           {buttons}
         </main>
-        <Lines />
-        <section className='my-8 flex flex-col gap-4'>
+        <div id='career' className='bg-primary h-0.5 w-1/3 rounded-full' />
+        <div className='w-full'>
+          <div className='h1 mb-8 text-balance break-all'>Career</div>
+          <Lines />
+        </div>
+        {/* <section className='my-8 flex flex-col gap-4'>
           <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'></div>
           <div className='relative mt-6 w-full'>
             <div className='flex flex-wrap'>
@@ -149,7 +573,8 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
+        {skills}
         {/* <Contacts /> */}
         <div id='projects' className='bg-primary h-0.5 w-1/3 rounded-full' />
         <ProjectHistory />

@@ -56,7 +56,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale} suppressHydrationWarning>
       <body className={css('bg-grid body relative antialiased')}>
         <div className='bg-grid-glow pointer-events-none absolute -z-30'></div>
-        <BackgroundBlur />
+        {/* <BackgroundBlur /> */}
         <IronMan />
         <Navbar />
         <ThemeProvider attribute='data-theme' defaultTheme='dark' enableSystem={false}>
