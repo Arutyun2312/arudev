@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Manrope';
+    src: url('../assets/fonts/Manrope-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+.h1 {
+    font-weight: bold;
+    line-height: 1.4;
+    font-family: var(--font-manrope);
+    color: var(--foreground);
+
+    @apply text-4xl lg:text-5xl uppercase leading-snug;
+}
+
+.h2 {
+    font-family: var(--font-manrope);
+
+    @apply text-2xl
+}
+
+.h2.red {
+    color: var(--color-primary-dark);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.h3 {
+    font-family: var(--font-manrope);
+    color: var(--foreground);
+    @apply text-xl text-balance leading-tight
+}

@@ -109,7 +109,7 @@ const messages = {
     close: "Los geht's",
   },
   Footer: {
-    name: 'Aru',
+    name: 'Crafted with ❤️‍🔥 by Aru',
   },
 }
 

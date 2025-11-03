@@ -6,21 +6,17 @@ const messages = {
   },
   HomePage: {
     aru: {
-      title: "Hi <hand></hand> I'm <p>Aru</p>",
-      subtitle: 'Full-Stack Software Engineer',
-      projects_done: '🚀 Projects Deployed',
-      teams_count: '🤝 Teams worked with',
-      experience_years: '🕓 Years of Experience',
-      clients_count: '🧑‍💼 Clients worked with',
-      devs_mentored: '👨‍🏫 Developers Mentored',
+      title: 'Arutyun Enfendzhyan',
+      subtitle: `
+      <p>Full-Stack Engineer</p> 
+      <s></s>
+      <p>Data Engineer</p>
+      <s></s>
+      <p>Based in Vienna <AT></AT></p>`,
       description: `
         <p>I take full responsibility for what I build — from idea to production.</p>
         <p>I learn fast, solve tough problems, and ship things that don't break.</p>
         <p>No tool, bug, or legacy system stands in my way.</p>
-        <p><email>arutyunef@gmail.com</email><linkedin>LinkedIn</linkedin></p>
-        <p>Based in Vienna, Austria 🇦🇹</p>
-        <p>Fluent in English 🇺🇸 and Russian 🇷🇺, intermediate in German 🇩🇪 (B1)</p>
-        <p>BSc in Applied Data Science (<uni>MODUL University</uni>)</p>
       `,
       download_cv: 'Download CV',
       download_name: 'Arutyun_Enfendzhyan_CV.pdf',
@@ -45,6 +41,7 @@ const messages = {
     projects: {
       ghosts: {
         name: 'Ghosts Art Legacy',
+        descriptionSmall: `Art portfolio & e-commerce site for visual artist “Ghost”`,
         description: `
         <em>Art portfolio & e-commerce site for visual artist “Ghost”</em>
         <ul>
@@ -56,6 +53,7 @@ const messages = {
       },
       andorran: {
         name: 'Andorran Book Club',
+        descriptionSmall: `Book club site for expats in Andorra, designed for community growth and book tracking`,
         description: `
         <em>Book club site for expats in Andorra, designed for community growth and book tracking</em>
         <ul>
@@ -67,6 +65,7 @@ const messages = {
       },
       rodmap: {
         name: 'Rodmap',
+        descriptionSmall: `Relocation platform guiding users through moving abroad`,
         description: `
         <em>Rodmap is a relocation platform that guides users through moving abroad with personalized steps, real-time admin support, and a flexible content system.</em>
         <ul>
@@ -76,8 +75,13 @@ const messages = {
         </ul>
         `,
       },
+      ['many-world']: {
+        name: 'Many World Boolean',
+        descriptionSmall: `This app helps you build, validate, and evaluate logical formulas using propositional and modal logic, with support for fuzzy logic evaluation`,
+      },
       ignitix: {
         name: 'Ignitix',
+        descriptionSmall: `Logistics platform for efficient package delivery`,
         description: `
         <em>Software Developer · (20h/week)</em>
         <ul>
@@ -102,6 +106,7 @@ const messages = {
       },
       nano: {
         name: 'Stylink (formerly Nano)',
+        descriptionSmall: `Influencer marketing platform connecting brands and creators`,
         description: `
         <em>Software Developer · (20h/week)</em>
         <ul>
@@ -124,7 +129,7 @@ const messages = {
     close: "Let's go",
   },
   Footer: {
-    name: 'Aru',
+    name: 'Crafted with ❤️‍🔥 by Aru',
   },
 }
 
