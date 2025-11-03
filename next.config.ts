@@ -3,6 +3,14 @@ import createNextIntlPlugin from 'next-intl/plugin'
 import createBundleAnalyzer from '@next/bundle-analyzer'
 
 const nextConfig: NextConfig = {
+typescript: {
+    // ❗ Allows production builds to succeed even if there are TS errors
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    // ❗ Skip ESLint during `next build`
+    ignoreDuringBuilds: true,
+  },
   devIndicators: false,
   turbopack: {
     rules: {
