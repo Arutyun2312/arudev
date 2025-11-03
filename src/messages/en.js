@@ -6,7 +6,7 @@ const messages = {
   },
   HomePage: {
     aru: {
-      title: "Arutyun Enfendzhyan",
+      title: 'Arutyun Enfendzhyan',
       subtitle: `
       <p>Full-Stack Engineer</p> 
       <s></s>
@@ -41,6 +41,7 @@ const messages = {
     projects: {
       ghosts: {
         name: 'Ghosts Art Legacy',
+        descriptionSmall: `Art portfolio & e-commerce site for visual artist “Ghost”`,
         description: `
         <em>Art portfolio & e-commerce site for visual artist “Ghost”</em>
         <ul>
@@ -52,6 +53,7 @@ const messages = {
       },
       andorran: {
         name: 'Andorran Book Club',
+        descriptionSmall: `Book club site for expats in Andorra, designed for community growth and book tracking`,
         description: `
         <em>Book club site for expats in Andorra, designed for community growth and book tracking</em>
         <ul>
@@ -63,6 +65,7 @@ const messages = {
       },
       rodmap: {
         name: 'Rodmap',
+        descriptionSmall: `Relocation platform guiding users through moving abroad`,
         description: `
         <em>Rodmap is a relocation platform that guides users through moving abroad with personalized steps, real-time admin support, and a flexible content system.</em>
         <ul>
@@ -72,8 +75,13 @@ const messages = {
         </ul>
         `,
       },
+      ['many-world']: {
+        name: 'Many World Boolean',
+        descriptionSmall: `This app helps you build, validate, and evaluate logical formulas using propositional and modal logic, with support for fuzzy logic evaluation`,
+      },
       ignitix: {
         name: 'Ignitix',
+        descriptionSmall: `Logistics platform for efficient package delivery`,
         description: `
         <em>Software Developer · (20h/week)</em>
         <ul>
@@ -98,6 +106,7 @@ const messages = {
       },
       nano: {
         name: 'Stylink (formerly Nano)',
+        descriptionSmall: `Influencer marketing platform connecting brands and creators`,
         description: `
         <em>Software Developer · (20h/week)</em>
         <ul>

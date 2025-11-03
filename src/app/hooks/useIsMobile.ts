@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 
 export const useWindowSize = () => {
-  const [size, setSize] = useState(innerWidth)
+  const [size, setSize] = useState(0)
 
   useEffect(() => {
     const controller = new AbortController()
+    setSize(window.innerWidth)
     window.addEventListener(
       'resize',
       () => {
-        setSize(innerWidth)
+        setSize(window.innerWidth)
       },
       controller,
     )

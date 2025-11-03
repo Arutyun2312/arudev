@@ -7,6 +7,8 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import ProjectHistory from './ProjectHistory'
 import Lines from './Lines'
+import modul from 'assets/modul.jpg'
+import ais from 'assets/ais.webp'
 
 const contactme = (
   <a
@@ -125,11 +127,9 @@ export default function HomePage() {
       </div>
     </div>
   )
-  const skills = (
+  const skills = false && (
     <div className='section'>
-      <div className='text-font-pr flex h-16 w-full items-center justify-center text-3xl opacity-80'>
-        <h2 className='font-main'> Skills </h2>
-      </div>
+      <div className='h1 mb-8 text-balance break-all'>Skills</div>
       <div className='mt-8 h-auto justify-center gap-6 md:columns-2'>
         <div
           data-v-9d11439c=''
@@ -547,8 +547,9 @@ export default function HomePage() {
   )
   return (
     <div className='hide-scrollbar max-h-screen overflow-auto pt-10'>
+      <div id='home' className=' h-0.5 w-1/3 rounded-full' />
       <div className='mx-auto flex h-full max-w-3xl flex-wrap justify-between gap-6 p-10 px-4 sm:py-20 md:py-20 lg:px-8 lg:py-40 lg:pt-20'>
-        <main className='flex w-full flex-col gap-4 my-10'>
+        <main className='my-10 flex w-full flex-col gap-4'>
           {profile}
           <div className='h1 w-full gap-2 text-center leading-snug text-[#e7d2f9]'>
             <span className='aspire'>Full Stack</span> <br /> Android and Web <br /> Developer <br />
@@ -564,6 +565,36 @@ export default function HomePage() {
           <div className='h1 mb-8 text-balance break-all'>Career</div>
           <Lines />
         </div>
+        <div id='education' className='bg-primary h-0.5 w-1/3 rounded-full' />
+        <div className='w-full'>
+          <div className='h1 mb-8 text-balance break-all'>Education</div>
+          <div className='bg-base-2nd fade-in glass-effect mt-6 w-full rounded-md p-5'>
+            <div className='grid grid-cols-[auto_1fr] gap-4'>
+              <div className='group whitespace-nowrap'>
+                <Image
+                  src={modul}
+                  alt='MODUL'
+                  className='inline-block h-4 w-4 transition-transform group-hover:scale-200'
+                />
+                <a href='https://www.modul.ac.at/' className='pl-4 underline'>
+                  MODUL
+                </a>
+              </div>
+              <div>BSc Applied Data Science</div>
+              <div className='group whitespace-nowrap'>
+                <Image
+                  src={ais}
+                  alt='AIS'
+                  className='inline-block h-4 w-4 transition-transform group-hover:scale-200'
+                />
+                <a href='https://www.ais.at/' className='pl-4 underline'>
+                  AIS
+                </a>
+              </div>
+              <div>High School Diploma</div>
+            </div>
+          </div>
+        </div>
         {/* <section className='my-8 flex flex-col gap-4'>
           <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'></div>
           <div className='relative mt-6 w-full'>
@@ -574,6 +605,7 @@ export default function HomePage() {
             </div>
           </div>
         </section> */}
+        <div id='skills' className='bg-primary h-0.5 w-1/3 rounded-full' />
         {skills}
         {/* <Contacts /> */}
         <div id='projects' className='bg-primary h-0.5 w-1/3 rounded-full' />

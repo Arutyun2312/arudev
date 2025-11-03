@@ -29,6 +29,7 @@ export type TechTagKeys =
   | 'dynamoDb'
   | 'ionic'
   | 'swiftui'
+  | 'streamlit'
 export type TechTag = {
   key: TechTagKeys
   name: string
@@ -73,4 +74,5 @@ export const TechTag = {
   stripe: { key: 'stripe', name: 'Stripe', type: TechTagType.SERVICE, className: 'bg-gray-900' },
   android: { key: 'android', name: 'Android', type: TechTagType.SERVICE, className: 'bg-green-600' },
   wordpress: { key: 'wordpress', name: 'WordPress', type: TechTagType.SERVICE, className: 'bg-blue-600' },
+  streamlit: { key: 'streamlit', name: 'Streamlit', type: TechTagType.FRONTEND, className: 'bg-blue-800' },
 } satisfies Record<TechTagKeys, TechTag>

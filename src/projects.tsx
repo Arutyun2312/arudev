@@ -2,6 +2,7 @@ import andorran from '@/assets/andorran.png'
 import ignitix from '@/assets/ignitix.png'
 import nano from '@/assets/nano.jpg'
 import rodmap from '@/assets/rodmap.png'
+import manyWorld from '@/assets/manyWorld.png'
 import Android from '@/assets/tech/android.svg'
 import aws from '@/assets/tech/aws.png'
 import dynamodb from '@/assets/tech/DynamoDB.png'
@@ -32,7 +33,7 @@ import Image from 'next/image'
 import { FC, HTMLAttributes, ReactElement } from 'react'
 
 export type Project = {
-  name: 'rodmap' | 'ignitix' | 'nano' | 'ghosts' | 'andorran'
+  name: 'rodmap' | 'ignitix' | 'nano' | 'ghosts' | 'andorran' | 'many-world'
   image: FC<{ alt: string; className?: string }>
   url: string
   startDate: string
@@ -73,14 +74,7 @@ export const Projects: Project[] = [
     name: 'ghosts',
     image: ({ alt, className }) => <Image src={ghosts} alt={alt} className={className} />,
     url: 'https://ghosts-art-legacy.com/',
-    tags: [
-      TechTag.react,
-      TechTag.firebase,
-      TechTag.nodejs,
-      TechTag.typescript,
-      TechTag.tailwindcss,
-      TechTag.stripe,
-    ],
+    tags: [TechTag.react, TechTag.firebase, TechTag.nodejs, TechTag.typescript, TechTag.tailwindcss, TechTag.stripe],
     endDate: '2025-06-01',
     startDate: '2025-05-01',
     type: 'freelance',
@@ -98,59 +92,61 @@ export const Projects: Project[] = [
     name: 'rodmap',
     image: ({ alt, className }) => <Image src={rodmap} alt={alt} className={className} />,
     url: 'https://rodmap.com/',
-    tags: [
-      TechTag.react,
-      TechTag.firebase,
-      TechTag.typescript,
-      TechTag.tailwindcss,
-      TechTag.stripe,
-      TechTag.nodejs,
-    ],
+    tags: [TechTag.react, TechTag.firebase, TechTag.typescript, TechTag.tailwindcss, TechTag.stripe, TechTag.nodejs],
     startDate: '2024-12-01',
     endDate: '2025-02-01',
     type: 'freelance',
   },
   {
-    name: 'ignitix',
-    image: ({ alt, className }) => <Image src={ignitix} alt={alt} className={className} />,
-    url: 'https://www.ignitix.com/',
-    tags: [
-      TechTag.react,
-      TechTag.typescript,
-      TechTag.tailwindcss,
-      TechTag.java,
-      TechTag.php,
-      TechTag.postgresql,
-      TechTag.android,
-      TechTag.yii2,
-      TechTag.ionic,
-      TechTag.python,
-    ],
-    recommendation: '/ignitix.pdf',
-    startDate: '2023-05-01',
-    endDate: '2024-12-01',
-    type: 'work',
+    name: 'many-world',
+    image: ({ alt, className }) => <Image src={manyWorld} alt={alt} className={className} />,
+    url: 'https://many-world-boolean-frybjvkxvpsagywumwpyc9.streamlit.app/',
+    tags: [TechTag.streamlit, TechTag.python],
+    startDate: '2025-06-01',
+    endDate: '2025-07-01',
+    type: 'freelance',
   },
-  {
-    name: 'nano',
-    image: ({ alt, className }) => <Image src={nano} alt={alt} className={className} />,
-    url: 'https://ugc.stylink.com',
-    tags: [
-      TechTag.react,
-      TechTag.firebase,
-      TechTag.typescript,
-      TechTag.tailwindcss,
-      TechTag.android,
-      TechTag.jetpackCompose,
-      TechTag.aws,
-      TechTag.dynamoDb,
-      TechTag.swiftui,
-      TechTag.swift,
-      TechTag.kotlin,
-    ],
-    startDate: '2021-06-01',
-    endDate: '2022-12-01',
-    recommendation: '/nano.pdf',
-    type: 'work',
-  },
+  // {
+  //   name: 'ignitix',
+  //   image: ({ alt, className }) => <Image src={ignitix} alt={alt} className={className} />,
+  //   url: 'https://www.ignitix.com/',
+  //   tags: [
+  //     TechTag.react,
+  //     TechTag.typescript,
+  //     TechTag.tailwindcss,
+  //     TechTag.java,
+  //     TechTag.php,
+  //     TechTag.postgresql,
+  //     TechTag.android,
+  //     TechTag.yii2,
+  //     TechTag.ionic,
+  //     TechTag.python,
+  //   ],
+  //   recommendation: '/ignitix.pdf',
+  //   startDate: '2023-05-01',
+  //   endDate: '2024-12-01',
+  //   type: 'work',
+  // },
+  // {
+  //   name: 'nano',
+  //   image: ({ alt, className }) => <Image src={nano} alt={alt} className={className} />,
+  //   url: 'https://ugc.stylink.com',
+  //   tags: [
+  //     TechTag.react,
+  //     TechTag.firebase,
+  //     TechTag.typescript,
+  //     TechTag.tailwindcss,
+  //     TechTag.android,
+  //     TechTag.jetpackCompose,
+  //     TechTag.aws,
+  //     TechTag.dynamoDb,
+  //     TechTag.swiftui,
+  //     TechTag.swift,
+  //     TechTag.kotlin,
+  //   ],
+  //   startDate: '2021-06-01',
+  //   endDate: '2022-12-01',
+  //   recommendation: '/nano.pdf',
+  //   type: 'work',
+  // },
 ]
