@@ -13,11 +13,6 @@ const nextConfig: NextConfig = {
     },
   },
   webpack(config) {
-    config.watchOptions = {
-      ...config.watchOptions,
-      ignored: ['**/functions/**', '**/node_modules/**'],
-    }
-
     const fileLoaderRule = config.module.rules.find((rule: { test?: RegExp }) => rule.test?.test?.('.svg'))
 
     config.module.rules.push(
