@@ -4,7 +4,6 @@ import createBundleAnalyzer from '@next/bundle-analyzer'
 
 const nextConfig: NextConfig = {
   devIndicators: false,
-  exclude: ['functions'],
   turbopack: {
     rules: {
       '*.svg': {
@@ -14,6 +13,11 @@ const nextConfig: NextConfig = {
     },
   },
   webpack(config) {
+    config.watchOptions = {
+      ...config.watchOptions,
+      ignored: ['**/functions/**', '**/node_modules/**'],
+    }
+
     const fileLoaderRule = config.module.rules.find((rule: { test?: RegExp }) => rule.test?.test?.('.svg'))
 
     config.module.rules.push(
