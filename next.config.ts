@@ -4,6 +4,7 @@ import createBundleAnalyzer from '@next/bundle-analyzer'
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  exclude: ['functions'],
   turbopack: {
     rules: {
       '*.svg': {
