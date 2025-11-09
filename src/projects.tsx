@@ -1,14 +1,11 @@
 import andorran from '@/assets/andorran.png'
-import ignitix from '@/assets/ignitix.png'
-import nano from '@/assets/nano.jpg'
-import rodmap from '@/assets/rodmap.png'
 import manyWorld from '@/assets/manyWorld.png'
+import rodmap from '@/assets/rodmap.png'
 import Android from '@/assets/tech/android.svg'
 import aws from '@/assets/tech/aws.png'
 import dynamodb from '@/assets/tech/DynamoDB.png'
 import Firebase from '@/assets/tech/firebase.svg'
 import Ionic from '@/assets/tech/ionic.svg'
-import Ios from '@/assets/tech/ios.svg'
 import java from '@/assets/tech/java.png'
 import Javascript from '@/assets/tech/javascript.svg'
 import Jetpack from '@/assets/tech/jetpackcompose.svg'
@@ -20,6 +17,7 @@ import Php from '@/assets/tech/php.svg'
 import Postgresql from '@/assets/tech/postgresql.svg'
 import Python from '@/assets/tech/python.svg'
 import React from '@/assets/tech/react.svg'
+import streamlit from '@/assets/tech/streamlit.svg'
 import Stripe from '@/assets/tech/stripe.svg'
 import Swift from '@/assets/tech/swift.svg'
 import swiftui from '@/assets/tech/swiftui.png'
@@ -67,6 +65,7 @@ export const Icons: Record<TechTagKeys, ReactElement<HTMLAttributes<object>>> = 
   java: <Image src={java} alt='Java' />,
   dynamoDb: <Image src={dynamodb} alt='DynamoDB' />,
   swiftui: <Image src={swiftui} alt='SwiftUI' />,
+  streamlit: <Image src={streamlit} alt='Streamlit' />,
 }
 
 export const Projects: Project[] = [

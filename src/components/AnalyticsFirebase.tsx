@@ -1,58 +1,50 @@
 'use client'
 
-import { getAnalytics, logEvent } from 'firebase/analytics'
-import { initializeApp } from 'firebase/app'
+import { pageView } from '@/util'
+import { useRouter } from 'next/compat/router'
+import Script from 'next/script'
 import { FC, useEffect } from 'react'
 
-const getUtmParameters = () => {
-  const urlParams = new URLSearchParams(window.location.search)
-  const utmParams = {
-    utm_source: urlParams.get('utm_source'),
-    utm_medium: urlParams.get('utm_medium'),
-    utm_campaign: urlParams.get('utm_campaign'),
-    utm_term: urlParams.get('utm_term'),
-    utm_content: urlParams.get('utm_content'),
-  }
-  const hasUtmParams = Object.values(utmParams).some(Boolean)
-  return hasUtmParams ? utmParams : undefined
-}
-
 type Props = {
-  config: {
-    apiKey: string
-    authDomain: string
-    projectId: string
-    storageBucket: string
-    messagingSenderId: string
-    appId: string
-    measurementId: string
-  }
+  config: { measurementId: string }
 }
 export const AnalyticsFirebase: FC<Props> = ({ config }) => {
-  useEffect(() => {
-    const contr = new AbortController()
-    addEventListener(
-      'DOMContentLoaded',
-      () => {
-        const app = initializeApp(config)
-        const analytics = getAnalytics(app)
-        const utmParams = getUtmParameters()
-        if (utmParams) {
-          logEvent(analytics, 'utm_tracking', {
-            utm_source: utmParams.utm_source || 'direct',
-            utm_medium: utmParams.utm_medium || 'none',
-            utm_campaign: utmParams.utm_campaign || 'none',
-            utm_term: utmParams.utm_term || 'none',
-            utm_content: utmParams.utm_content || 'none',
-          })
-        }
-      },
-      contr,
-    )
-    return () => {
-      contr.abort()
-    }
-  }, [config])
+  const id = config.measurementId
+  const router = useRouter()
 
-  return <script className='firebase analytics' />
+  useEffect(() => {
+    if (!router) return
+    const handleRouteChange = (url: string) => {
+      pageView(url, id)
+    }
+
+    router.events.on('routeChangeComplete', handleRouteChange)
+    router.events.on('hashChangeComplete', handleRouteChange)
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+      router.events.off('hashChangeComplete', handleRouteChange)
+    }
+  }, [router?.events])
+
+  return (
+    <>
+      <Script strategy='afterInteractive' src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
+      <Script
+        id='gtag-init'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${id}', {
+                page_path: window.location.pathname
+              });
+          `,
+        }}
+      />
+    </>
+  )
 }

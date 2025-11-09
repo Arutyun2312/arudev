@@ -78,6 +78,7 @@ const messages = {
       ['many-world']: {
         name: 'Many World Boolean',
         descriptionSmall: `This app helps you build, validate, and evaluate logical formulas using propositional and modal logic, with support for fuzzy logic evaluation`,
+        description: ``,
       },
       ignitix: {
         name: 'Ignitix',

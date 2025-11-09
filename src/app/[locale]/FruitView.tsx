@@ -1,25 +1,32 @@
 'use client'
 
+import { css } from '@/util'
 import * as Dialog from '@radix-ui/react-dialog'
 import dayjs from 'dayjs'
-import { motion, MotionValue, TargetAndTransition, Transition, useTransform } from 'framer-motion'
+import { motion, MotionValue, useTransform } from 'framer-motion'
 import Image, { StaticImageData } from 'next/image'
 import { FC } from 'react'
-import { css } from '@/util'
 
 export type Fruit =
-  | { icon?: StaticImageData; company: string; position: string; dateStart?: string; dateEnd?: string }
+  | {
+      icon?: StaticImageData
+      company: string
+      position: string
+      dateStart?: string
+      dateEnd?: string
+      description?: string
+      technologies?: string[]
+    }
   | true
 type FruitProps = {
   i: number
   fruit: Fruit
   post: { x: number; y: number }
   trailProgress: MotionValue<number>
-  disableAnim?: boolean
   postWidth: number
   postHeight: number
 }
-export const FruitView: FC<FruitProps> = ({ fruit, post, disableAnim, postWidth, postHeight, i, trailProgress }) => {
+export const FruitView: FC<FruitProps> = ({ fruit, post, postWidth, postHeight, i, trailProgress }) => {
   const shift = fruit == true ? 0.9 : i * 0.24
   const shineOpacity = useTransform(trailProgress, [0.1 + shift, 0.15 + shift, 0.2 + shift], [0, 1, 0])
   return (

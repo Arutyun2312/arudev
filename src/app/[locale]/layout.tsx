@@ -1,17 +1,14 @@
+import IronMan from '@/components/IronMan'
 import '@/styles/globals.scss'
 import { css } from '@/util'
 import { routing } from 'i18n/routing'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
+import { ThemeProvider } from 'next-themes'
 import { notFound } from 'next/navigation'
-import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import Navbar from './Navbar'
 import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import z from 'zod'
-import { ThemeProvider } from 'next-themes'
-import BackgroundBlur from '@/components/BackgroundBlur'
-import IronMan from '@/components/IronMan'
-import Navbar from './Navbar'
 
 export const metadata: Metadata = {
   title: 'Aru Dev',
@@ -40,7 +37,9 @@ const firebaseConfig = z
     appId: data.FIREBASE_APP_ID,
     measurementId: data.FIREBASE_MEASUREMENT_ID,
   }))
-  .safeParse(process.env).data
+  .parse(process.env)
+
+const analyticsEnabled = () => process.env.ANALYTICS_ENABLED === 'true'
 
 type Props = {
   children: React.ReactNode
@@ -63,9 +62,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>
-      <Analytics />
-      <SpeedInsights />
-      {firebaseConfig && <AnalyticsFirebase config={firebaseConfig} />}
+      {analyticsEnabled() && <AnalyticsFirebase config={firebaseConfig} />}
     </html>
   )
 }

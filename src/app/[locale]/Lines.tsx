@@ -50,19 +50,6 @@ export default function Lines({
 
   const tipH = 30
 
-  const noise = useMotionValue(0)
-
-  useEffect(() => {
-    const controls = animate(noise, [5, -5, 5], {
-      type: 'linear',
-      duration: 2,
-      repeat: Infinity,
-      times: [0, 0.5, 1],
-    })
-
-    return () => controls.stop()
-  }, [])
-
   const posts = branches.map((_, i) => {
     const x1 = centerX - postWidth / 2
     const y1 = minHeight + 50 + i * heightStep
@@ -137,7 +124,7 @@ export default function Lines({
             strokeWidth={trunkWidth}
             fill='none'
             opacity='0.8'
-            strokeDasharray={useTransform(trailProgress, (p) => {
+            strokeDasharray={useTransform(trailProgress, () => {
               if (pathRef.current) {
                 const pathLength = pathRef.current.getTotalLength()
                 const trailLength = pathLength * 0.1
@@ -162,7 +149,6 @@ export default function Lines({
             fruit={current}
             trailProgress={trailProgress}
             post={{ x: centerX - postWidth / 2, y: 10 }}
-            disableAnim
             postWidth={postWidth}
             postHeight={postHeight}
           />

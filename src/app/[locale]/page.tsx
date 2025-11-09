@@ -1,14 +1,12 @@
 import profilePic from '@/assets/me.png'
 import profilePic1 from '@/assets/me1.jpg'
 import FooterView from '@/components/FooterView'
-import TechTagView from '@/components/TechTagView'
-import { TechTag } from '@/types'
+import ais from 'assets/ais.webp'
+import modul from 'assets/modul.jpg'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import ProjectHistory from './ProjectHistory'
 import Lines from './Lines'
-import modul from 'assets/modul.jpg'
-import ais from 'assets/ais.webp'
+import ProjectHistory from './ProjectHistory'
 
 const contactme = (
   <a
@@ -386,11 +384,11 @@ export default function HomePage() {
           data-state='playing'
         >
           <h3 data-v-9d11439c='' className='text-font-pr text-xl font-semibold'>
-            Frontend &amp; Design
+            {`Frontend & Design`}
           </h3>
           <p data-v-9d11439c='' className='text-font-2nd mt-2 w-full break-words whitespace-pre-line'>
-            I'm passionate about design, animation, and interactions, always aiming to build fun websites with great
-            user experiences.
+            {`I'm passionate about design, animation, and interactions, always aiming to build fun websites with great
+            user experiences.`}
           </p>
           <div data-v-9d11439c='' className='mt-4 flex flex-wrap'>
             <div data-v-9d11439c='' className='m-1 my-2 flex overflow-hidden rounded-md'>
@@ -547,7 +545,7 @@ export default function HomePage() {
   )
   return (
     <div className='hide-scrollbar max-h-screen overflow-auto pt-10'>
-      <div id='home' className=' h-0.5 w-1/3 rounded-full' />
+      <div id='home' className='h-0.5 w-1/3 rounded-full' />
       <div className='mx-auto flex h-full max-w-3xl flex-wrap justify-between gap-6 p-10 px-4 sm:py-20 md:py-20 lg:px-8 lg:py-40 lg:pt-20'>
         <main className='my-10 flex w-full flex-col gap-4'>
           {profile}

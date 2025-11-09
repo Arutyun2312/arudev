@@ -1,14 +1,12 @@
 'use client'
 
-import ironman from 'assets/ironman.gif'
-import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
 const dampeningFactor = 0.05
 const size = 80
 
 export default function IronMan() {
-  const ref = useRef<HTMLImageElement>(null)
+  const ref = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const controller = new AbortController()
@@ -102,11 +100,17 @@ export default function IronMan() {
   }, [])
 
   return (
-    <Image
+    <video
       ref={ref}
-      src={ironman}
-      alt='Iron Man'
+      width='500'
+      height='500'
       className='absolute -z-10 h-20 w-20 -translate-x-1/2 translate-y-1/3 object-cover'
-    />
+      autoPlay
+      loop
+      muted
+    >
+      <source src='/ironman.webm' type='video/webm' />
+      Your browser does not support the video tag.
+    </video>
   )
 }
