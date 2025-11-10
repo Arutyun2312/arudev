@@ -26,7 +26,7 @@ type FruitProps = {
   postHeight: number
 }
 export const FruitView: FC<FruitProps> = ({ fruit, post, postWidth, postHeight, i, trailProgress }) => {
-  const shift = fruit == null ? 0.9 : i * 0.24
+  const shift = (fruit == null ? 0.9 : i * 0.24) - 0.02
   const shineOpacity = useTransform(trailProgress, [0.1 + shift, 0.15 + shift, 0.2 + shift], [0, 1, 0])
   return (
     <foreignObject x={post.x} y={post.y} width={postWidth} height={postHeight}>

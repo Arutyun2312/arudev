@@ -1,5 +1,6 @@
 import { animate, motion, MotionValue, useTransform } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
+import { svgPathProperties } from 'svg-path-properties'
 
 type Props = {
   d: string
@@ -8,20 +9,25 @@ type Props = {
   trailColor: string
   baseColor: string
   trailRatio?: number
+  count?: number
 }
 export default function TracePath(props: Props) {
-  const { d, trailProgress, strokeWidth, trailColor, baseColor, trailRatio = 0.1 } = props
-  const pathRef = useRef<SVGPathElement>(null)
+  const { d, trailProgress, strokeWidth, trailColor, baseColor, trailRatio = 0.1, count = 2 } = props
 
-  const pathLength = pathRef.current?.getTotalLength() ?? 0
-  const trailLength = pathLength * trailRatio
-  const strokeDasharray = `${trailLength} ${pathLength}`
-  const strokeDashoffset = useTransform(trailProgress, (p) => pathLength * p + trailLength)
+  const [strokeDasharray, actualLength, trailLength] = useMemo(() => {
+    const properties = new svgPathProperties(d)
+    const pathLength = properties.getTotalLength()
+    const trailLength = pathLength * trailRatio
+    const strokeDasharray = Array.from({ length: count }, () => `${trailLength} ${pathLength / count}`).join(' ')
+    const actualLength = trailLength * count + pathLength
+    return [strokeDasharray, actualLength, trailLength] as const
+  }, [])
+
+  const motionstrokeDashoffset = useTransform(trailProgress, (p) => actualLength * p + trailLength)
 
   return (
     <g>
       <path
-        ref={pathRef}
         d={d}
         strokeLinejoin='round'
         stroke={baseColor}
@@ -38,7 +44,7 @@ export default function TracePath(props: Props) {
         fill='none'
         opacity='0.8'
         strokeDasharray={strokeDasharray}
-        strokeDashoffset={strokeDashoffset}
+        strokeDashoffset={motionstrokeDashoffset}
         filter={`drop-shadow(0 0 8px ${trailColor})`}
       />
     </g>

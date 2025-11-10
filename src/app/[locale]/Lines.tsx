@@ -44,7 +44,6 @@ const branches: Fruit[] = [
 const current: Fruit | null = null
 
 export default function Lines() {
-  const isMobile = useIsMobile()
   const width = 500
   const centerX = width / 2
 
@@ -88,19 +87,6 @@ export default function Lines() {
     return polylineToPath(points)
   }, [centerX, posts])
 
-  const point1 = [centerX - 100, height + 100]
-  const point2 = [centerX + 100, height + 300]
-  const pathBetweenPoints = (() => {
-    const [x1, y1] = point1
-    const [x2, y2] = point2
-    const xm = (x1 + x2) / 2 // midpoint x
-
-    // Horizontal from x1,y1 to xm,y1
-    // Vertical from xm,y1 to xm,y2
-    // Horizontal from xm,y2 to x2,y2
-    return `M${x1},${y1} H${xm} V${y2} H${x2}`
-  })()
-
   const renderChipLabel = useCallback(
     (name: string, cols: number, icons: TechTagKeys[]) => (
       <>
@@ -136,16 +122,17 @@ export default function Lines() {
   const heart = useMotionValue(0)
   const heartRef = useRef<SVGRectElement>(null)
   useEffect(() => {
-    const controls = animate(heart, [0, 0.3, 0], {
-      duration: 3,
+    const controls = animate(heart, [0, 0.3], {
+      duration: 2,
       repeat: Infinity,
-      ease: 'easeInOut',
+      ease: 'linear',
+      repeatType: 'reverse',
     })
     return () => controls.stop()
   }, [])
   useEffect(() => {
     const unsubscribe = heart.on('change', (latest) => {
-      latest = (latest + 1) * 32
+      latest = (latest + 1) * 40
       if (heartRef.current) {
         heartRef.current.setAttribute('width', latest + 'px')
         heartRef.current.setAttribute('height', latest + 'px')
@@ -200,11 +187,21 @@ export default function Lines() {
     return polylineToPath(points)
   }, [])
 
-  const trailRatio = 0.1
+  const expTrail = useMotionValue(0)
+
+  useEffect(() => {
+    const controls = animate(expTrail, 1, {
+      duration: 8,
+      repeat: Infinity,
+      ease: 'linear',
+    })
+    return () => controls.stop()
+  }, [])
+
   const trailProgress = useMotionValue(0)
 
   useEffect(() => {
-    const controls = animate(trailProgress, [0, 1 + trailRatio], {
+    const controls = animate(trailProgress, 1, {
       duration: 8,
       repeat: Infinity,
       ease: 'linear',
@@ -218,32 +215,10 @@ export default function Lines() {
     const controls = animate(shimmer, 1, {
       duration: 4,
       repeat: Infinity,
-      ease: 'easeInOut',
-    })
-
-    return () => controls.stop()
-  }, [])
-
-  const trailProgress1 = useMotionValue(0)
-
-  useEffect(() => {
-    const controls = animate(trailProgress1, [0, 1], {
-      duration: 4,
-      repeat: Infinity,
-      ease: 'linear',
-    })
-    return () => controls.stop()
-  }, [])
-
-  const trailProgress2 = useMotionValue(0)
-
-  useEffect(() => {
-    const controls = animate(trailProgress2, [0, 1 + trailRatio], {
-      duration: 4,
-      repeat: Infinity,
       ease: 'linear',
       delay: 2,
     })
+
     return () => controls.stop()
   }, [])
 
@@ -252,12 +227,13 @@ export default function Lines() {
       <svg width='100%' viewBox={`0 0 ${width} ${height + 800}`} preserveAspectRatio='xMidYMid meet'>
         <TracePath
           d={d}
-          trailProgress={trailProgress}
+          trailProgress={expTrail}
           strokeWidth={trunkWidth}
+          count={1}
+          trailRatio={0.1}
           trailColor='#a78bfa'
           baseColor='#404047'
         />
-        {/* <path d={pathBetweenPoints} stroke='#22c55e' strokeWidth={10} fill='none' /> */}
         <Chip
           x={centerX + offsetX}
           y={height + offsetY}
@@ -294,8 +270,10 @@ export default function Lines() {
         <Passion ref={heartRef} viewBox='0 0 32 32' />
         <TracePath
           d={heartTrace1}
-          trailProgress={trailProgress1}
+          trailProgress={trailProgress}
           strokeWidth={trunkWidth}
+          trailRatio={0.3}
+          count={2}
           trailColor='red'
           baseColor='#404047'
         />
@@ -304,6 +282,7 @@ export default function Lines() {
           trailProgress={trailProgress}
           strokeWidth={trunkWidth}
           trailRatio={0.3}
+          count={2}
           trailColor='red'
           baseColor='#404047'
         />
@@ -312,6 +291,7 @@ export default function Lines() {
           trailProgress={trailProgress}
           strokeWidth={trunkWidth}
           trailRatio={0.3}
+          count={2}
           trailColor='red'
           baseColor='#404047'
         />
@@ -376,9 +356,8 @@ export default function Lines() {
             fill: ['#00000000', '#22c55e'],
           }}
           transition={{
-            duration: 0.8,
+            duration: 8,
             repeat: Infinity,
-            repeatType: 'reverse',
             ease: 'easeInOut',
           }}
         />
@@ -386,13 +365,11 @@ export default function Lines() {
           cx={centerX}
           cy={height - 30}
           r={trunkWidth / 2}
-          animate={{
-            fill: ['#00000000', '#ff0000'],
-          }}
+          initial={{ fill: '#ff0000' }}
+          animate={{ fill: ['#00000000', '#ff0000'] }}
           transition={{
-            duration: 0.8,
+            duration: 8,
             repeat: Infinity,
-            repeatType: 'reverse',
             ease: 'easeInOut',
           }}
         />
