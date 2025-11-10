@@ -41,32 +41,33 @@ export type Project = {
   type: 'work' | 'freelance'
 }
 
-export const Icons: Record<TechTagKeys, ReactElement<HTMLAttributes<object>>> = {
-  firebase: <Firebase />,
-  nextjs: <Nextjs />,
-  react: <React />,
-  typescript: <Typescript />,
-  tailwindcss: <Tailwindcss />,
-  nodejs: <Nodejs />,
-  mongodb: <Mongodb />,
-  postgresql: <Postgresql />,
-  stripe: <Stripe />,
-  python: <Python />,
-  javascript: <Javascript />,
-  php: <Php />,
-  android: <Android />,
-  jetpackCompose: <Jetpack />,
-  wordpress: <Wordpress />,
-  yii2: <Yii2 />,
-  kotlin: <Kotlin />,
-  swift: <Swift />,
-  ionic: <Ionic />,
-  aws: <Image src={aws} alt='AWS' />,
-  java: <Image src={java} alt='Java' />,
-  dynamoDb: <Image src={dynamodb} alt='DynamoDB' />,
-  swiftui: <Image src={swiftui} alt='SwiftUI' />,
-  streamlit: <Image src={streamlit} alt='Streamlit' />,
-}
+type Props = { className?: string }
+export const Icons = {
+  firebase: (props: Props) => <Firebase {...props} />,
+  nextjs: (props: Props) => <Nextjs {...props} />,
+  react: (props: Props) => <React {...props} />,
+  typescript: (props: Props) => <Typescript {...props} />,
+  tailwindcss: (props: Props) => <Tailwindcss {...props} />,
+  nodejs: (props: Props) => <Nodejs {...props} />,
+  mongodb: (props: Props) => <Mongodb {...props} />,
+  postgresql: (props: Props) => <Postgresql {...props} />,
+  stripe: (props: Props) => <Stripe {...props} />,
+  python: (props: Props) => <Python {...props} />,
+  javascript: (props: Props) => <Javascript {...props} />,
+  php: (props: Props) => <Php {...props} />,
+  android: (props: Props) => <Android {...props} />,
+  jetpackCompose: (props: Props) => <Jetpack {...props} />,
+  wordpress: (props: Props) => <Wordpress {...props} />,
+  yii2: (props: Props) => <Yii2 {...props} />,
+  kotlin: (props: Props) => <Kotlin {...props} />,
+  swift: (props: Props) => <Swift {...props} />,
+  ionic: (props: Props) => <Ionic {...props} />,
+  aws: (props: Props) => <Image src={aws} alt='AWS' {...props} />,
+  java: (props: Props) => <Image src={java} alt='Java' {...props} />,
+  dynamoDb: (props: Props) => <Image src={dynamodb} alt='DynamoDB' {...props} />,
+  swiftui: (props: Props) => <Image src={swiftui} alt='SwiftUI' {...props} />,
+  streamlit: (props: Props) => <Image src={streamlit} alt='Streamlit' {...props} />,
+} satisfies Record<TechTagKeys, FC<Props>>
 
 export const Projects: Project[] = [
   {

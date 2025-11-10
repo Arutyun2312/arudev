@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation'
 import Navbar from './Navbar'
 import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import z from 'zod'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: 'Aru Dev',
@@ -39,7 +40,7 @@ const firebaseConfig = z
   }))
   .parse(process.env)
 
-const analyticsEnabled = () => process.env.ANALYTICS_ENABLED === 'true'
+const analyticsEnabled = process.env.ANALYTICS_ENABLED === 'true'
 
 type Props = {
   children: React.ReactNode
@@ -53,6 +54,9 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        {/* <Script src='http://localhost:8097'  /> */}
+      </head>
       <body className={css('bg-grid body relative antialiased')}>
         <div className='bg-grid-glow pointer-events-none absolute -z-30'></div>
         {/* <BackgroundBlur /> */}
@@ -62,7 +66,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>
-      {analyticsEnabled() && <AnalyticsFirebase config={firebaseConfig} />}
+      {analyticsEnabled && <AnalyticsFirebase config={firebaseConfig} />}
     </html>
   )
 }

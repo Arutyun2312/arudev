@@ -1,13 +1,19 @@
 'use client'
 
+import { polylineToPath } from '@/util'
 import bear from 'assets/bear.png'
 import ignitix from 'assets/ignitix.png'
 import nano from 'assets/nano.jpg'
 import ocean from 'assets/ocean.png'
-import { animate, motion, useMotionValue, useTransform } from 'framer-motion'
-import { useEffect, useRef } from 'react'
+import { animate, motion, Transition, useMotionValue, useTransform } from 'framer-motion'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { Fruit, FruitView } from './FruitView'
+import TracePath from './TracePath'
+import { use, useCallback, useEffect, useMemo, useRef } from 'react'
+import Chip from './ChipView'
+import { Icons } from '@/projects'
+import { TechTag, TechTagKeys } from '@/types'
+import Passion from 'assets/passion.svg'
 
 const postHeight = 100
 const postWidth = 400
@@ -17,33 +23,30 @@ const rootHeight = 100
 const trunkWidth = 6
 const trunkHeight = height - rootHeight - 70
 
-type Props = { branches?: Fruit[] }
-export default function Lines({
-  branches = [
-    { icon: ocean, company: 'Ocean', position: 'Web Developer', dateStart: '2019-01-01', dateEnd: '2020-03-01' },
-    {
-      icon: bear,
-      company: 'BearFitness',
-      position: 'iOS Developer',
-      dateStart: '2020-06-01',
-      dateEnd: '2021-12-31',
-    },
-    { icon: nano, company: 'Nano', position: 'Mobile + Web Developer', dateStart: '2022-01-01', dateEnd: '2023-04-01' },
-    {
-      icon: ignitix,
-      company: 'Ignitix',
-      position: 'Android + Web Developer',
-      dateStart: '2023-06-01',
-      dateEnd: '2024-11-01',
-    },
-    true,
-  ],
-}: Props) {
+const branches: Fruit[] = [
+  { icon: ocean, company: 'Ocean', position: 'Web Developer', dateStart: '2019-01-01', dateEnd: '2020-03-01' },
+  {
+    icon: bear,
+    company: 'BearFitness',
+    position: 'iOS Developer',
+    dateStart: '2020-06-01',
+    dateEnd: '2021-12-31',
+  },
+  { icon: nano, company: 'Nano', position: 'Mobile + Web Developer', dateStart: '2022-01-01', dateEnd: '2023-04-01' },
+  {
+    icon: ignitix,
+    company: 'Ignitix',
+    position: 'Android + Web Developer',
+    dateStart: '2023-06-01',
+    dateEnd: '2024-11-01',
+  },
+]
+const current: Fruit | null = null
+
+export default function Lines() {
   const isMobile = useIsMobile()
-  const width = isMobile ? 500 : 800
+  const width = 500
   const centerX = width / 2
-  const current = branches.at(-1)
-  branches = branches.slice(0, -1)
 
   const minHeight = 50
   const heightStep = 150
@@ -61,11 +64,8 @@ export default function Lines({
     }
   })
 
-  // Add these inside your component
-  const pathRef = useRef<SVGPathElement>(null)
-
   // Convert polyline points to path format
-  const generateTrunkPathAsPath = () => {
+  const d = useMemo(() => {
     const points = []
     points.push(`${centerX},${postHeight + tipH}`)
 
@@ -73,77 +73,281 @@ export default function Lines({
       .concat()
       .reverse()
       .forEach((post, i) => {
+        const d = 25
         const stroke = 25
         const w = postWidth / 2 + 25
         points.push(`${centerX},${post.y - stroke}`)
-        points.push(`${centerX + w * (i % 2 === 0 ? 1 : -1)},${post.y - 25}`)
-        points.push(`${centerX + w * (i % 2 === 0 ? 1 : -1)},${post.y + postHeight + 25}`)
+        points.push(`${centerX + w * (i % 2 === 0 ? 1 : -1)},${post.y - d}`)
+        points.push(`${centerX + w * (i % 2 === 0 ? 1 : -1)},${post.y + postHeight + d}`)
         points.push(`${centerX},${post.y + postHeight + stroke}`)
       })
 
     points.push(`${centerX},${postHeight + tipH + trunkHeight}`)
 
     // Convert to path format
-    const coords = points.map((point) => point.split(',').map(Number))
-    let pathD = `M ${coords[0][0]} ${coords[0][1]}`
-    for (let i = 1; i < coords.length; i++) {
-      pathD += ` L ${coords[i][0]} ${coords[i][1]}`
-    }
-    return pathD
-  }
+    return polylineToPath(points)
+  }, [centerX, posts])
+
+  const point1 = [centerX - 100, height + 100]
+  const point2 = [centerX + 100, height + 300]
+  const pathBetweenPoints = (() => {
+    const [x1, y1] = point1
+    const [x2, y2] = point2
+    const xm = (x1 + x2) / 2 // midpoint x
+
+    // Horizontal from x1,y1 to xm,y1
+    // Vertical from xm,y1 to xm,y2
+    // Horizontal from xm,y2 to x2,y2
+    return `M${x1},${y1} H${xm} V${y2} H${x2}`
+  })()
+
+  const renderChipLabel = useCallback(
+    (name: string, cols: number, icons: TechTagKeys[]) => (
+      <>
+        <div className='h3 w-full border-b border-white pb-2 text-center uppercase'>{name}</div>
+        <div
+          className='grid w-full justify-items-center gap-6 px-4'
+          style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
+        >
+          {icons.slice(0, Math.floor(icons.length / cols) * cols).map((icon) => {
+            const IconComponent = Icons[icon]
+            return <IconComponent key={icon} className='h-6 w-6 object-contain' />
+          })}
+          {icons.length % cols > 0 && (
+            <div
+              className='col-span-2 flex w-full justify-around'
+              style={{ gridColumn: `span ${cols} / span ${cols}` }}
+            >
+              {icons.slice(-(icons.length % cols)).map((icon) => {
+                const IconComponent = Icons[icon]
+                return <IconComponent key={icon} className='h-6 w-6 object-contain' />
+              })}
+            </div>
+          )}
+        </div>
+      </>
+    ),
+    [],
+  )
+
+  const offsetX = 50
+  const offsetY = 20
+
+  const heart = useMotionValue(0)
+  const heartRef = useRef<SVGRectElement>(null)
+  useEffect(() => {
+    const controls = animate(heart, [0, 0.3, 0], {
+      duration: 3,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    })
+    return () => controls.stop()
+  }, [])
+  useEffect(() => {
+    const unsubscribe = heart.on('change', (latest) => {
+      latest = (latest + 1) * 32
+      if (heartRef.current) {
+        heartRef.current.setAttribute('width', latest + 'px')
+        heartRef.current.setAttribute('height', latest + 'px')
+        heartRef.current.setAttribute('x', centerX - latest / 2 + 'px')
+        heartRef.current.setAttribute('y', height + 500 + offsetY + 20 * 6 - latest / 2 + 'px')
+      }
+    })
+    return unsubscribe
+  }, [heart])
+
+  const heartTrace1 = useMemo(() => {
+    const points: string[] = []
+    points.push(`${centerX},${height + 500 + offsetY + 20 * 6 - 32 - 145}`)
+    points.push(`${centerX},${height + 500 + offsetY + 20 * 6 - 32 - 10}`)
+    return polylineToPath(points)
+  }, [])
+  const heartTrace2 = useMemo(() => {
+    const points: string[] = []
+    points.push(`${centerX + 32 + 10},${height + 500 + offsetY + 20 * 6 - 32 / 2 + 10}`)
+    points.push(`${centerX + 240},${height + 500 + offsetY + 20 * 6 - 32 / 2 + 10}`)
+    points.push(`${centerX + 240},${height + 130}`)
+    points.push(`${centerX + 215},${height + 130}`)
+    return polylineToPath(points.reverse())
+  }, [])
+  const heartTrace3 = useMemo(() => {
+    const points: string[] = []
+    points.push(`${centerX - 32 - 10},${height + 500 + offsetY + 20 * 6 - 32 / 2 + 10}`)
+    points.push(`${centerX - 240},${height + 500 + offsetY + 20 * 6 - 32 / 2 + 10}`)
+    points.push(`${centerX - 240},${height + 130}`)
+    points.push(`${centerX - 215},${height + 130}`)
+    return polylineToPath(points.reverse())
+  }, [])
+
+  const chipTrace1 = useMemo(() => {
+    const points: string[] = []
+    points.push(`${centerX},${height + offsetY + 295}`)
+    points.push(`${centerX},${height - 20}`)
+    return polylineToPath(points.reverse())
+  }, [])
+  const chipTrace2 = useMemo(() => {
+    const points: string[] = []
+    points.push(`${centerX + 10},${height + offsetY - 50}`)
+    points.push(`${centerX + 140},${height + offsetY - 50}`)
+    points.push(`${centerX + 140},${height + offsetY + 15}`)
+    return polylineToPath(points)
+  }, [])
+  const chipTrace3 = useMemo(() => {
+    const points: string[] = []
+    points.push(`${centerX - 10},${height + offsetY - 50}`)
+    points.push(`${centerX - 140},${height + offsetY - 50}`)
+    points.push(`${centerX - 140},${height + offsetY + 15}`)
+    return polylineToPath(points)
+  }, [])
+
+  const trailRatio = 0.1
   const trailProgress = useMotionValue(0)
 
   useEffect(() => {
-    const controls = animate(trailProgress, [0, 1.1], {
-      duration: 9,
+    const controls = animate(trailProgress, [0, 1 + trailRatio], {
+      duration: 8,
       repeat: Infinity,
       ease: 'linear',
     })
     return () => controls.stop()
   }, [])
 
-  return (
-    <div className='relative w-full'>
-      <svg width='100%' viewBox={`0 0 ${width} ${height}`} preserveAspectRatio='xMidYMid meet'>
-        <g>
-          <path
-            ref={pathRef}
-            d={generateTrunkPathAsPath()}
-            strokeLinejoin='round'
-            stroke='#404047'
-            strokeWidth={trunkWidth}
-            fill='none'
-            strokeLinecap='round'
-          />
+  const shimmer = useMotionValue(0)
 
-          {/* Purple trail that follows behind */}
-          <motion.path
-            d={generateTrunkPathAsPath()}
-            strokeLinejoin='round'
-            stroke='#a78bfa'
-            strokeWidth={trunkWidth}
-            fill='none'
-            opacity='0.8'
-            strokeDasharray={useTransform(trailProgress, () => {
-              if (pathRef.current) {
-                const pathLength = pathRef.current.getTotalLength()
-                const trailLength = pathLength * 0.1
-                return `${trailLength} ${pathLength}`
-              }
-              return '0 0'
-            })}
-            strokeDashoffset={useTransform(trailProgress, (p) => {
-              if (pathRef.current) {
-                const pathLength = pathRef.current.getTotalLength()
-                const trailLength = pathLength * 0.1
-                return p * pathLength + trailLength
-              }
-              return 0
-            })}
-            filter='drop-shadow(0 0 8px #a78bfa)'
-          />
-        </g>
-        {current != null && (
+  useEffect(() => {
+    const controls = animate(shimmer, 1, {
+      duration: 4,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    })
+
+    return () => controls.stop()
+  }, [])
+
+  const trailProgress1 = useMotionValue(0)
+
+  useEffect(() => {
+    const controls = animate(trailProgress1, [0, 1], {
+      duration: 4,
+      repeat: Infinity,
+      ease: 'linear',
+    })
+    return () => controls.stop()
+  }, [])
+
+  const trailProgress2 = useMotionValue(0)
+
+  useEffect(() => {
+    const controls = animate(trailProgress2, [0, 1 + trailRatio], {
+      duration: 4,
+      repeat: Infinity,
+      ease: 'linear',
+      delay: 2,
+    })
+    return () => controls.stop()
+  }, [])
+
+  return (
+    <div className='relative mx-auto w-full' style={{ maxWidth: width }}>
+      <svg width='100%' viewBox={`0 0 ${width} ${height + 800}`} preserveAspectRatio='xMidYMid meet'>
+        <TracePath
+          d={d}
+          trailProgress={trailProgress}
+          strokeWidth={trunkWidth}
+          trailColor='#a78bfa'
+          baseColor='#404047'
+        />
+        {/* <path d={pathBetweenPoints} stroke='#22c55e' strokeWidth={10} fill='none' /> */}
+        <Chip
+          x={centerX + offsetX}
+          y={height + offsetY}
+          ticksX={7}
+          ticksY={9}
+          shimmer={shimmer}
+          ignoreTop={[3]}
+          ignoreRight={[4]}
+        >
+          {renderChipLabel('Backend', 3, ['nodejs', 'firebase', 'wordpress', 'postgresql', 'php'])}
+        </Chip>
+        <Chip
+          x={centerX - offsetX - 20 * 9}
+          y={height + offsetY}
+          ticksX={7}
+          ticksY={9}
+          shimmer={shimmer}
+          ignoreTop={[3]}
+          ignoreLeft={[4]}
+        >
+          {renderChipLabel('Frontend', 3, ['react', 'jetpackCompose', 'nextjs', 'android', 'swiftui'])}
+        </Chip>
+        <Chip
+          x={centerX - 20 * 11.5}
+          y={height + 280 + offsetY}
+          ticksX={21}
+          ticksY={7}
+          shimmer={shimmer}
+          ignoreBottom={[10]}
+          ignoreTop={[10]}
+        >
+          {renderChipLabel('Languages', 6, ['kotlin', 'java', 'javascript', 'typescript', 'python', 'swift'])}
+        </Chip>
+        <Passion ref={heartRef} viewBox='0 0 32 32' />
+        <TracePath
+          d={heartTrace1}
+          trailProgress={trailProgress1}
+          strokeWidth={trunkWidth}
+          trailColor='red'
+          baseColor='#404047'
+        />
+        <TracePath
+          d={heartTrace2}
+          trailProgress={trailProgress}
+          strokeWidth={trunkWidth}
+          trailRatio={0.3}
+          trailColor='red'
+          baseColor='#404047'
+        />
+        <TracePath
+          d={heartTrace3}
+          trailProgress={trailProgress}
+          strokeWidth={trunkWidth}
+          trailRatio={0.3}
+          trailColor='red'
+          baseColor='#404047'
+        />
+        <TracePath
+          d={chipTrace1}
+          trailProgress={trailProgress}
+          strokeWidth={trunkWidth}
+          trailRatio={0.1}
+          trailColor='aquamarine'
+          baseColor='#404047'
+        />
+        <TracePath
+          d={chipTrace2}
+          trailProgress={trailProgress}
+          strokeWidth={trunkWidth}
+          trailRatio={0.1}
+          trailColor='aquamarine'
+          baseColor='#404047'
+        />
+        <TracePath
+          d={chipTrace3}
+          trailProgress={trailProgress}
+          strokeWidth={trunkWidth}
+          trailRatio={0.1}
+          trailColor='aquamarine'
+          baseColor='#404047'
+        />
+        <circle
+          cx={centerX}
+          cy={height + 500 + offsetY + 20 * 6}
+          r={32}
+          fill='transparent'
+          stroke='red'
+          strokeWidth={2}
+        />
+        {current == null && (
           <FruitView
             i={0}
             fruit={current}
@@ -169,7 +373,7 @@ export default function Lines({
           cy={postHeight + 20}
           r={trunkWidth / 2}
           animate={{
-            fill: ['#00000000', '#22c55e'], // Only two states
+            fill: ['#00000000', '#22c55e'],
           }}
           transition={{
             duration: 0.8,
@@ -183,7 +387,7 @@ export default function Lines({
           cy={height - 30}
           r={trunkWidth / 2}
           animate={{
-            fill: ['#00000000', '#ff0000'], // Only two states
+            fill: ['#00000000', '#ff0000'],
           }}
           transition={{
             duration: 0.8,
