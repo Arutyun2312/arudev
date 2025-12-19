@@ -28,7 +28,7 @@ export const StopwatchView: FC<{ sw: Stopwatch }> = ({ sw }) => {
 
   const onTimeClick = () => {
     const hours = duration / (1000 * 60 * 60)
-    const roundedHours = Math.round(hours * 4) / 4
+    const roundedHours = Math.round(hours * 100) / 100
     navigator.clipboard.writeText(roundedHours.toString())
   }
 
@@ -36,7 +36,9 @@ export const StopwatchView: FC<{ sw: Stopwatch }> = ({ sw }) => {
     <>
       <div className={css('h-4 w-4 rounded-full', paused ? 'bg-gray-400' : 'bg-green-400')} />
       <input maxLength={32} value={sw.label} onChange={(e) => state.update(sw.id, e.target.value)} />
-      <div className='w-24' onClick={onTimeClick}>{formattedDuration}</div>
+      <div className='w-24 cursor-pointer' onClick={onTimeClick}>
+        {formattedDuration}
+      </div>
       <button className='cursor-pointer' onClick={() => state.togglePause(sw.id)}>
         {paused ? 'Start' : 'Pause'}
       </button>
