@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:webpack": "next dev",
-    "build": "npm ci && next build",
+    "build": "npm i && next build",
     "start": "next start",
     "lint": "next lint"
   },
