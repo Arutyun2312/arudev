@@ -5,7 +5,7 @@ import { persist } from 'zustand/middleware'
 import superjson from 'superjson'
 import dayjs from 'dayjs'
 
-type Store = {
+export type Store = {
   list: Map<string, Stopwatch>
   add(): void
   remove(id: string): void
@@ -25,7 +25,7 @@ enableMapSet()
 export const stopwatchStore = create(
   persist(
     immer(
-      (set, get): Store => ({
+      (set: (updater: (state: Store) => void) => void, get: () => Store): Store => ({
         list: new Map<string, Stopwatch>(),
 
         add() {
@@ -66,9 +66,9 @@ export const stopwatchStore = create(
     {
       name: 'stopwatch-store',
       storage: {
-        getItem: (name) => {
+        getItem: <T>(name: string): T => {
           const item = sessionStorage.getItem(name)
-          return item ? superjson.parse<any>(item) : null
+          return item ? superjson.parse(item) : null as T
         },
         setItem: (name, value) => {
           sessionStorage.setItem(name, superjson.stringify(value))

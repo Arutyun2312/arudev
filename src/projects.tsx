@@ -28,7 +28,7 @@ import Yii2 from '@/assets/tech/yii.svg'
 import ghosts from '@/assets/website.jpg'
 import { TechTag, TechTagKeys } from '@/types'
 import Image from 'next/image'
-import { FC, HTMLAttributes, ReactElement } from 'react'
+import { FC } from 'react'
 
 export type Project = {
   name: 'rodmap' | 'ignitix' | 'nano' | 'ghosts' | 'andorran' | 'many-world'

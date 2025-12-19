@@ -1,3 +1,4 @@
+import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import IronMan from '@/components/IronMan'
 import '@/styles/globals.scss'
 import { css } from '@/util'
@@ -6,10 +7,8 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { ThemeProvider } from 'next-themes'
 import { notFound } from 'next/navigation'
-import Navbar from './Navbar'
-import { AnalyticsFirebase } from '@/components/AnalyticsFirebase'
 import z from 'zod'
-import Script from 'next/script'
+import Navbar from './Navbar'
 
 export const metadata: Metadata = {
   title: 'Aru Dev',

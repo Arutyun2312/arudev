@@ -2,12 +2,12 @@
 
 import dayjs from 'dayjs'
 import { FC } from 'react'
-import { Stopwatch, stopwatchStore } from './store'
+import { Stopwatch, stopwatchStore, Store } from './store'
 import { useNow } from './useNow'
 import { css } from '@/util'
 
 export const StopwatchView: FC<{ sw: Stopwatch }> = ({ sw }) => {
-  const state = stopwatchStore((state) => state)
+  const state = stopwatchStore((state) => state) as Store
   const now = useNow()
   const paused = state.isPaused(sw.id)
 

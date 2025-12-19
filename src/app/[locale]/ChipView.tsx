@@ -1,8 +1,6 @@
-import { Icons } from '@/projects'
-import { TechTag } from '@/types'
 import { css } from '@/util'
-import { animate, motion, MotionValue, Transition, useMotionValue, useTransform } from 'framer-motion'
-import { PropsWithChildren, useEffect, useId } from 'react'
+import { motion, MotionValue, useTransform } from 'framer-motion'
+import { PropsWithChildren, useId } from 'react'
 
 type Props = PropsWithChildren<{
   x: number

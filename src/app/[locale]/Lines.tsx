@@ -1,19 +1,18 @@
 'use client'
 
+import { Icons } from '@/projects'
+import { TechTagKeys } from '@/types'
 import { polylineToPath } from '@/util'
 import bear from 'assets/bear.png'
 import ignitix from 'assets/ignitix.png'
 import nano from 'assets/nano.jpg'
 import ocean from 'assets/ocean.png'
-import { animate, motion, Transition, useMotionValue, useTransform } from 'framer-motion'
-import { useIsMobile } from '../hooks/useIsMobile'
+import Passion from 'assets/passion.svg'
+import { animate, motion, useMotionValue } from 'framer-motion'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
+import Chip from './ChipView'
 import { Fruit, FruitView } from './FruitView'
 import TracePath from './TracePath'
-import { use, useCallback, useEffect, useMemo, useRef } from 'react'
-import Chip from './ChipView'
-import { Icons } from '@/projects'
-import { TechTag, TechTagKeys } from '@/types'
-import Passion from 'assets/passion.svg'
 
 const postHeight = 100
 const postWidth = 400

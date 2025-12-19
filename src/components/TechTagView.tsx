@@ -15,7 +15,7 @@ export default function TechTagView({ tag, className }: Props) {
             height: '1rem',
             objectFit: 'contain',
           },
-        })}
+        } as any)}
       {tag.name}
     </span>
   )

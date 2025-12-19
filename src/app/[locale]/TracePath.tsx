@@ -1,5 +1,5 @@
-import { animate, motion, MotionValue, useTransform } from 'framer-motion'
-import { useEffect, useMemo, useRef } from 'react'
+import { motion, MotionValue, useTransform } from 'framer-motion'
+import { useMemo } from 'react'
 import { svgPathProperties } from 'svg-path-properties'
 
 type Props = {
